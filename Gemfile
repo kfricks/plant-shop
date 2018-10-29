@@ -34,6 +34,9 @@ gem 'stripe'
 
 gem 'image_processing', '~> 1.2'
 
+# shipping info with shippo
+gem 'shippo', git: 'https://github.com/goshippo/shippo-ruby-client'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
