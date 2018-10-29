@@ -1,0 +1,2 @@
+class TradeComponent < ApplicationRecord
+end
