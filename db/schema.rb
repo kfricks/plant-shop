@@ -22,6 +22,14 @@ ActiveRecord::Schema.define(version: 2018_10_29_134531) do
     t.string "last_name"
     t.string "locale"
     t.text "bio"
+    t.string "company"
+    t.string "street1"
+    t.string "street2"
+    t.string "city"
+    t.string "state"
+    t.string "zip"
+    t.string "country"
+    t.string "phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

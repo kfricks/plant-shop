@@ -36,6 +36,14 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :last_name
       t.string :locale
       t.text   :bio
+      t.string :company
+      t.string :street1
+      t.string :street2
+      t.string :city
+      t.string :state
+      t.string :zip
+      t.string :country
+      t.string :phone
 
       t.timestamps null: false
     end
