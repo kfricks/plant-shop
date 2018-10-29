@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_29_134531) do
+ActiveRecord::Schema.define(version: 2018_10_29_195108) do
+
+  create_table "plants", force: :cascade do |t|
+    t.string "symbol"
+    t.string "synonym_symbol"
+    t.string "scientific_name"
+    t.string "common_name"
+    t.string "family_common_name"
+    t.string "duration"
+    t.string "growth_habit"
+    t.string "image_gallery"
+    t.string "active_growth_period"
+    t.string "growth_rate"
+    t.string "propogated_by_cuttings"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
