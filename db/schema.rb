@@ -10,14 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_29_231216) do
-
-  create_table "plant_ownerships", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "plant_type_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 2018_10_30_142438) do
 
   create_table "plant_types", force: :cascade do |t|
     t.string "scientific_name"
@@ -31,9 +24,16 @@ ActiveRecord::Schema.define(version: 2018_10_29_231216) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "plants", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "plant_type_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "trade_components", force: :cascade do |t|
     t.integer "trade_id"
-    t.integer "plant_ownership_id"
+    t.integer "plant_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
