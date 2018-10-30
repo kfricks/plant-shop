@@ -17,9 +17,9 @@ ActiveRecord::Base.transaction do
 
   User.create!(first_name: "Super Admin", email: "superadmin@admin.com", password: "tester")
 
-  50.times do
+  10.times do
     plant = Plant.new
-    plant.id = Plant.all.sample
+    plant_type.id = Plant_type.all.sample
     user = User.new
     user.id = User.all.sample
     # plant.image.attach(io: File.open(Rails.root.join('public/Enchantment-Book-Cover-Best-Seller1.jpg')), filename:"Enchantment-Book-Cover-Best-Seller1.jpg")
