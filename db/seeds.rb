@@ -5,3 +5,25 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+#require 'faker'
+
+ActiveRecord::Base.transaction do
+  User.create!(first_name: "admin3000", email: "admin@admin.com", password:"tester")
+
+  User.create!(first_name: "tester", email: "tester3000@tester.com", password: "tester")
+
+  User.create!(first_name: "tester-author", email: "tester-author@tester.com", password: "tester")
+
+  User.create!(first_name: "Super Admin", email: "superadmin@admin.com", password: "tester")
+
+  50.times do
+    plant = Plant.new
+    plant.id = Plant.all.sample
+    user = User.new
+    user.id = User.all.sample
+    # plant.image.attach(io: File.open(Rails.root.join('public/Enchantment-Book-Cover-Best-Seller1.jpg')), filename:"Enchantment-Book-Cover-Best-Seller1.jpg")
+    plant.save!
+  end
+
+end
