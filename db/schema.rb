@@ -10,20 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_29_195108) do
+ActiveRecord::Schema.define(version: 2018_10_29_231216) do
 
-  create_table "plants", force: :cascade do |t|
-    t.string "symbol"
-    t.string "synonym_symbol"
+  create_table "plant_ownerships", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "plant_type_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "plant_types", force: :cascade do |t|
     t.string "scientific_name"
     t.string "common_name"
-    t.string "family_common_name"
+    t.string "family"
     t.string "duration"
     t.string "growth_habit"
-    t.string "image_gallery"
-    t.string "active_growth_period"
+    t.string "growth_period"
     t.string "growth_rate"
-    t.string "propogated_by_cuttings"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "trade_components", force: :cascade do |t|
+    t.integer "trade_id"
+    t.integer "plant_ownership_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "trades", force: :cascade do |t|
+    t.integer "user_a"
+    t.integer "user_b"
+    t.string "shipping_label_user_a"
+    t.string "shipping_label_user_b"
+    t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -38,7 +58,6 @@ ActiveRecord::Schema.define(version: 2018_10_29_195108) do
     t.string "last_name"
     t.string "locale"
     t.text "bio"
-    t.string "company"
     t.string "street1"
     t.string "street2"
     t.string "city"
