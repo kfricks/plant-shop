@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'plant_types/index'
+  get 'plant_types/show'
   get 'plants/index'
   get 'plants/show'
   get 'plants/edit'
