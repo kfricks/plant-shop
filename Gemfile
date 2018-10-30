@@ -30,6 +30,8 @@ gem 'mini_magick', '~> 4.8'
 
 gem 'devise'
 
+gem 'httparty'
+
 gem 'stripe'
 
 gem 'image_processing', '~> 1.2'

@@ -126,6 +126,8 @@ GEM
     hashie (3.6.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
+    httparty (0.16.2)
+      multi_xml (>= 0.5.2)
     i18n (1.1.1)
       concurrent-ruby (~> 1.0)
     image_processing (1.7.1)
@@ -159,6 +161,7 @@ GEM
     minitest (5.11.3)
     msgpack (1.2.4)
     multi_json (1.13.1)
+    multi_xml (0.6.0)
     multipart-post (2.0.0)
     netrc (0.11.0)
     nio4r (2.3.1)
@@ -303,6 +306,7 @@ DEPENDENCIES
   dotenv-rails
   factory_bot_rails
   faker
+  httparty
   image_processing (~> 1.2)
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
