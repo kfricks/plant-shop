@@ -2,5 +2,5 @@
 <p>Find me in app/views/plant_types/index.html.erb</p>
 
 <% @plant_types.each do |plant| %>
-  <p><%= plant.common_name.titleize %></p>
+    <p><%= plant.common_name.try(:titleize) %></p>
 <% end %>
