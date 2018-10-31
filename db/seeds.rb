@@ -22,8 +22,8 @@ ActiveRecord::Base.transaction do
     )
 
     # plant.image.attach(
-    #   io: File.open(Rails.root.join('public/Enchantment-Book-Cover-Best-Seller1.jpg')),
-    #   filename:"Enchantment-Book-Cover-Best-Seller1.jpg"
+    #   io: File.open(Rails.root.join('public/snake.jpg')),
+    #   filename:"snake.jpg"
     # )
 
     print "🌿"
