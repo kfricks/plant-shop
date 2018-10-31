@@ -36,6 +36,10 @@ gem 'stripe'
 
 gem 'image_processing', '~> 1.2'
 
+# for react
+gem 'webpacker'
+gem 'react-rails'
+
 # shipping info with shippo
 gem 'shippo', git: 'https://github.com/goshippo/shippo-ruby-client'
 
