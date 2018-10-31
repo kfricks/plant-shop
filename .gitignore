@@ -32,3 +32,6 @@
 
 # api info
 .env
+
+#Ignore icon movement
+.DS_Store
