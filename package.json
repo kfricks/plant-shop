@@ -6,8 +6,8 @@
     "babel-preset-react": "^6.24.1",
     "prop-types": "^15.6.2",
     "react": "^16.6.0",
-    "react-bootstrap-typeahead": "^3.2.4",
     "react-dom": "^16.6.0",
+    "react-typeahead": "^2.0.0-alpha.8",
     "react_ujs": "^2.4.4"
   },
   "devDependencies": {

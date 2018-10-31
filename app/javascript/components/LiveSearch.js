@@ -1,11 +1,14 @@
 import React from "react"
 import PropTypes from "prop-types"
-import {Typeahead} from 'react-bootstrap-typeahead'; // ES2015
+import {Typeahead} from 'react-typeahead'; // ES2015
 class LiveSearch extends React.Component {
   render () {
     return (
       <React.Fragment>
-        "Hello!"
+        <Typeahead
+          options={['John', 'Paul', 'George', 'Ringo']}
+          maxVisible={2}
+        />
       </React.Fragment>
     );
   }

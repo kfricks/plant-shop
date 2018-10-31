@@ -7,6 +7,10 @@ class PlantTypesController < ApplicationController
     @plant_type = PlantType.find(params[:id])
   end
 
+  def search
+
+  end
+
 private
 
   def plant_type_params
