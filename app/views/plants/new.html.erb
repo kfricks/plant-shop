@@ -1,0 +1,10 @@
+<h1>Add a plant to your sunroom</h1>
+<div>
+<!-- INSERT INPUT FIELD -->
+  <%= form_for @plant do |form| %>
+    <div>Common Name: <%= form.text_field :common_name %></div>
+    <div>Description: <%= form.text_field :description %></div>
+    <div>Image: <%= form.file_field :image, direct_upload: true %></div>
+</div>
+<div><%= form.submit %></div>
+<% end %>
