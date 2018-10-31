@@ -3,8 +3,8 @@
   <div>
 
     <%= form_for @plant do |form| %>
-      <div>Scientific Name: <%= form.text_field :title %></div>
-      <div>Price: <%= form.text_field :price %></div>
+      <div>Common Name: <%= form.text_field :common_name %></div>
+      <div>Description: <%= form.text_field :description %></div>
       <div>Image: <%= form.file_field :image, direct_upload: true %></div>
   </div>
   <div><%= form.submit %></div>
