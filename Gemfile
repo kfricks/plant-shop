@@ -53,6 +53,8 @@ group :development, :test do
   gem "aws-sdk-s3", require: false
   gem "sidekiq"
 
+  gem "aws-sdk-s3", require: false
+
   # bkeepers info for API
   gem 'dotenv-rails', groups: [:development, :test]
 
