@@ -8,10 +8,8 @@ class PlantTypesController < ApplicationController
   end
 
   def search
-    response = PlantType.search params[:q]
+    response = PlantType.search_by_name params[:query]
     render json: response
-
-    @search_params = params[:search]
   end
 
 private

@@ -7,8 +7,11 @@ class LiveSearch extends React.Component {
     this.state = { options: []}
   }
 
-  search() {
-    // $.get(`/plant_types/search?query=$(WHATUSERTYPED)}`)
+  search(event) {
+    var query = event.target.value
+    console.log(event.target.value)
+    $.get(`/plant_types/search?query=${query}`)
+
     // .success(this.updateOptions(response))
   }
   // updateOptions(options)=> {
@@ -18,8 +21,7 @@ class LiveSearch extends React.Component {
     return (
       <React.Fragment>
         <Typeahead
-          // onKeyDown={this.search}
-          // options={['John', 'Paul', 'George', 'Ringo']}
+          onKeyUp={this.search}
           options={this.state.options}
           maxVisible={10}
         />

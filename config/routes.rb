@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'plant_types/index'
   get 'plant_types/show'
+  get 'plant_types/search'
 
   resources :plants
 
