@@ -16,7 +16,7 @@ class LiveSearch extends React.Component {
     let that = this
     $.get(`/plant_types/search?query=${query}`)
     .success(function(response){
-      that.setState({options: response})
+      that.setState({options: response.plant_types})
     })
   }
   updateOptions(options) {

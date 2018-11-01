@@ -1,12 +1,14 @@
 class PlantsController < ApplicationController
 
   def index
-    @plants = current_user.plants
+    @plants = Plant.all
+    # @plants = current_user.plants
+    # make somethingthat says if a user ID is in URL, show that user's plants. otherwise, show all plants.
   end
 
   def show
-    # @plant = Plant.find(params[:id])
-    @plant = current_user.plants.find(params[:id])
+    @plant = Plant.find(params[:id])
+    # @plant = current_user.plants.find(params[:id])
   end
 
 #renders form (get new)
@@ -17,6 +19,11 @@ class PlantsController < ApplicationController
 #posts
   def create
     @plant.create(plant_params.merge(user: current_user))
+    if @plant.save!
+      redirect_to plant_path([:id])
+    else
+      render :new
+    end
   end
 
 #renders form (get edit)
