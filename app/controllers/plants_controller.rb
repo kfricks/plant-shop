@@ -1,11 +1,12 @@
 class PlantsController < ApplicationController
 
   def index
-    @plants = Plant.all
+    @plants = current_user.plants
   end
 
   def show
-    @plant = Plant.find(params[:id])
+    # @plant = Plant.find(params[:id])
+    @plant = current_user.plants.find(params[:id])
   end
 
 #renders form (get new)
@@ -15,19 +16,17 @@ class PlantsController < ApplicationController
 
 #posts
   def create
-    # not positive this is right
-    @plant = Plant.find(params[:id])
     @plant.create(plant_params.merge(user: current_user))
   end
 
 #renders form (get edit)
   def edit
-    @plant = Plant.find(params[:id])
+    @plant = current_user.plants.find(params[:id])
   end
 
 #posts
   def update
-    @plant = Plant.find(params[:id])
+    @plant = current_user.plants.find(params[:id])
     if @plant.update(plant_params.merge(user: current_user))
       flash.now[:success] = "Your plant has been saved."
       # redirect_to CURRENTUSERSPLANTS
