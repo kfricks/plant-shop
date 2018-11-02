@@ -7,9 +7,7 @@ class PlantsController < ApplicationController
   end
 
   def show
-    # what i had at 11am
      @plant = Plant.find(params[:id])
-    # @plant = Plant.find(params[:plant_type_id])
     # @plant = current_user.plants.find(params[:id])
   end
 
@@ -51,7 +49,7 @@ private
 
   def plant_params
     # params.require(:plant).permit(:scientific_name, :common_name, :family, :duration, :growth_habit, :growth_period, :growth_rate)
-    params.require(:plant).permit(:plant_type_id, :description)
+    params.require(:plant).permit(:plant_type_id, :description, :image)
   end
 
 end
