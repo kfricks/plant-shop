@@ -1,2 +1,5 @@
 <h1>Plants#show</h1>
 <p>Find me in app/views/plants/show.html.erb</p>
+
+  <p><%= @plant.plant_type.common_name.try(:titleize) %></p>
+  <p><%= image_tag @plant.image %></p>

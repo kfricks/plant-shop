@@ -1,2 +1,7 @@
 <h1>Plants#index</h1>
 <p>Find me in app/views/plants/index.html.erb</p>
+
+<% @plants.each do |plant| %>
+  <p><%= plant.plant_type.common_name.try(:titleize) %></p>
+  <p><%# plant.plant_type.common_name.try?(:titleize) %></p>
+<% end %>
