@@ -4,7 +4,7 @@
   <h2>Your plants</h2>
   <ul>
     <% current_user.plants.each do |plant| %>
-      <li><%= plant.plant_type.common_name %></li>
+      <li><%= plant.plant_type.common_name.try(:titleize) %></li>
     <% end %>
   </ul>
 </div>
