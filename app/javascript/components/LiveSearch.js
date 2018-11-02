@@ -21,8 +21,13 @@ class LiveSearch extends React.Component {
   }
   updateOptions(options) {
     this.setState({options: options})
-
   }
+
+  handleSelection(item){
+    console.log('selected:', item)
+    $('#plant_plant_type_id').val(item.id)
+  }
+
   render () {
     return (
       <React.Fragment>
@@ -31,6 +36,7 @@ class LiveSearch extends React.Component {
           options={this.state.options}
           filterOption={"common_name"}
           displayOption={"common_name"}
+          onOptionSelected={this.handleSelection}
           maxVisible={10}
           // onselect - look into it. function needs to dump id into form
         />

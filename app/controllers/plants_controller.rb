@@ -1,5 +1,5 @@
 class PlantsController < ApplicationController
-
+  before_action :authenticate_user!, only: [:new, :edit]
   def index
     @plants = Plant.all
     # @plants = current_user.plants
@@ -7,7 +7,9 @@ class PlantsController < ApplicationController
   end
 
   def show
-    @plant = Plant.find(params[:id])
+    # what i had at 11am
+     @plant = Plant.find(params[:id])
+    # @plant = Plant.find(params[:plant_type_id])
     # @plant = current_user.plants.find(params[:id])
   end
 
@@ -18,9 +20,9 @@ class PlantsController < ApplicationController
 
 #posts
   def create
-    @plant.create(plant_params.merge(user: current_user))
+    @plant = Plant.new(plant_params.merge(user: current_user))
     if @plant.save!
-      redirect_to plant_path([:id])
+      redirect_to plant_path(@plant)
     else
       render :new
     end

@@ -1,8 +1,7 @@
 # look for something similar, not .@response
 json.plant_types @response do |plant|
+  json.(plant, :scientific_name, :id)
   json.common_name plant.common_name || "n/a"
-  json.scientific_name plant.scientific_name
-  # json.active plant.active
   json.ignore_nil!
 end
 
