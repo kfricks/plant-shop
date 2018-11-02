@@ -7,4 +7,8 @@ class User < ApplicationRecord
   has_one_attached :avatar
 
   has_many :plants
+
+  def name
+    "#{first_name} #{last_name}"
+  end
 end

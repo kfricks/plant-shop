@@ -1,2 +1,25 @@
-<h1>Trades#edit</h1>
-<p>Find me in app/views/trades/edit.html.erb</p>
+<p>You're trading with <%= @trade.user_b.first_name %>.</p>
+
+<div style="width: 30%; float: left;">
+  <h2>Your plants</h2>
+  <ul>
+    <% current_user.plants.each do |plant| %>
+      <li><%= plant.plant_type.common_name %></li>
+    <% end %>
+  </ul>
+</div>
+<div style="width: 30%; float: left;">
+  <%= form_for @trade do |f| %>
+    <%= text_field_tag :plant_ids %>
+    <%= f.submit %>
+  <% end %>
+
+</div>
+<div style="width: 30%; float: left;">
+  <h2><%= @trade.user_b.name %>'s Plants</h2>
+  <ul>
+    <% @trade.user_b.plants.each do |plant| %>
+      <li><%= plant.plant_type.common_name %></li>
+    <% end %>
+  </ul>
+</div>

@@ -5,8 +5,9 @@ class TradesController < ApplicationController
 
   def create
     @trade = Trade.new(trade_params)
+    @trade.user_a = current_user
     if @trade.save!
-      redirect_to trades_show_path
+      redirect_to edit_trade_path(@trade)
     else
       render :new
     end
@@ -14,18 +15,18 @@ class TradesController < ApplicationController
 
   def update
     @trade = Trade.find(params[:id])
-    @trade.update(trade_params)
-
+    @trade.plants = Plant.find(params[:plant_ids].split(","))
+    # @trade.update(trade_params)
     if @trade.save
       flash.now[:success] = "Your trade has been saved."
-      redirect_to trades_show_path
+      redirect_to trade_path(@trade)
     else
       render :edit
     end
   end
 
   def edit
-    @book = Trade.find(params[:id])
+    @trade = Trade.find(params[:id])
   end
 
   def destroy
@@ -43,7 +44,6 @@ class TradesController < ApplicationController
 private
 
   def trade_params
-    params.require(:trade).permit(:user_a, :user_b, :shipping_label_user_a, :shipping_label_user_b, :status)
+    params.require(:trade).permit(:user_b_id)
   end
-
 end
