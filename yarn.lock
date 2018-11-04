@@ -5467,6 +5467,11 @@ react-dom@^16.6.0:
     prop-types "^15.6.2"
     scheduler "^0.10.0"
 
+react-masonry-css@^1.0.11:
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/react-masonry-css/-/react-masonry-css-1.0.11.tgz#ba991fac2a033f49973187d524ff2cf484941d1c"
+  integrity sha512-Mp5z3cppum0v7ktmOWpO+xeDWTqzZx1grft033bNwOvrQTFYxH5SFo9QarOzio7hfYMpn9iCXVSB24COr5/vRw==
+
 react-typeahead@^2.0.0-alpha.8:
   version "2.0.0-alpha.8"
   resolved "https://registry.yarnpkg.com/react-typeahead/-/react-typeahead-2.0.0-alpha.8.tgz#7f025f8ee74202f04fa8427cafea2732d514f58a"

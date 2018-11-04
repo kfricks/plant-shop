@@ -6,8 +6,6 @@ class LiveSearch extends React.Component {
     super(props)
     this.state = { options: []}
     this.search = this.search.bind(this)
-    // below did not work
-    // self(); this.search = this.search.bind(this);
   }
 
   search(event) {
@@ -17,6 +15,8 @@ class LiveSearch extends React.Component {
     $.get(`/plant_types/search?query=${query}`)
     .success(function(response){
       that.setState({options: response.plant_types})
+      // attempting to uppercase:
+      // that.setState({options: response.plant_types.toUpperCase()})
     })
   }
   updateOptions(options) {
