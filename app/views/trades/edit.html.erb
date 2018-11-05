@@ -1,8 +1,10 @@
 <p>You're trading with <%= @trade.user_b.first_name %>.</p>
 
 <%= react_component("Trade", {
+      # user_a_plants: render_partial("plants/trade_template", current_user.plants)
       user_a_plants: current_user.plants,
-      user_b_plants: @trade.user_b.plants
+      user_b_plants: @trade.user_b.plants,
+      user_b_name: @trade.user_b.name
     }) %>
 
 <div style="width: 30%; float: left;">

@@ -5,6 +5,7 @@ class PlantListItem extends React.Component {
     return (
       <React.Fragment>
         I'm a plant
+        {this.props.plant.common_name}
       </React.Fragment>
     );
   }

@@ -38,7 +38,6 @@ class LiveSearch extends React.Component {
           displayOption={"common_name"}
           onOptionSelected={this.handleSelection}
           maxVisible={10}
-          // onselect - look into it. function needs to dump id into form
         />
       </React.Fragment>
     );
