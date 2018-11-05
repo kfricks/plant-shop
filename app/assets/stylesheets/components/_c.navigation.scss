@@ -1,0 +1,70 @@
+// c-navigation
+//
+// Navigation component with item > link children elements.
+//
+// Markup:
+// <ul class="c-navigation {{modifier_class}}">
+//   <li class="c-navigation__item">
+//     <a class="c-navigation__link c-navigation__link--active" href="#">Navigation Link</a>
+//   </li>
+//   <li class="c-navigation__item">
+//     <a class="c-navigation__link" href="#">Navigation Link</a>
+//   </li>
+//   <li class="c-navigation__item c-navigation__item--push-right">
+//     <a class="c-navigation__link" href="#">Navigation Link Pushed Right</a>
+//   </li>
+//   <li class="c-navigation__item">
+//     <a class="c-button c-button--small" href="#">Navigation Component Can Also Hold Buttons</a>
+//   </li>
+// </ul>
+//
+//
+// .c-navigation--no-border   - Remove the bottom border from links
+// 
+// Styleguide: components.input.navigation
+
+.c-navigation {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  padding: 0;
+  align-items: center;
+
+  .c-navigation__item {
+    $item-spacer: 2px;
+
+    display: inline-block;
+    margin: $s-tiny $item-spacer 0;
+
+    &:first-child { margin-left: 0; }
+    &:last-child { margin-right: 0; }
+    &--push-right { margin-left: auto; }
+  }
+
+  .c-navigation__link {
+    @include font(14px, medium);
+    color: rgba($c-grey-medium, 0.6);
+    padding: $s-small $s-tiny;
+    display: inline-block;
+    border-bottom: 2px solid transparent;
+    transition: all $transition-speed ease;
+
+    &:hover {
+      color: $c-grey-dark;
+      border-bottom-color: $c-grey-light;
+    }
+
+    &--active,
+    &:active,
+    &:focus {
+      color: $c-grey-xdark !important;
+      border-bottom-color: $c-primary !important;
+    }
+  }
+
+  &--no-border {
+    margin-bottom: $s-tiny;
+    .c-navigation__link { border-bottom: none; }
+  }
+}

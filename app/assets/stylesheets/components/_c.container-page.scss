@@ -1,0 +1,34 @@
+// c-container-page
+//
+// Immediate child of the body tag. Wraps all elements of a page.
+//
+// .c-container-page--slim   - Slim the page down.
+// 
+// Styleguide: components.contain.container-page
+
+.c-container-page {
+  padding: 0;
+  min-height: $h-page;
+  margin: $s-large auto 0;
+  max-width: $w-regular;
+  background: $c-white;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+
+  @media #{$bp-lap} {
+    padding: $s-small;
+    background: transparent;
+  }
+
+  @media #{$bp-desk} {
+    padding: 3.5vw 0;
+    background: transparent;
+  }
+
+  &--slim {
+    @media #{$bp-desk} {
+      max-width: $w-slim;
+    }
+  }
+}
