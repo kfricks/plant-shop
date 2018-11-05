@@ -323,6 +323,11 @@ autoprefixer@^7.1.1:
     postcss "^6.0.17"
     postcss-value-parser "^3.2.3"
 
+avalanche-css@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/avalanche-css/-/avalanche-css-1.3.0.tgz#e32e9a11604038b268db15bd61dab4ed7d378ebc"
+  integrity sha1-4y6aEWBAOLJo2xW9Ydq07X03jrw=
+
 aws-sign2@~0.7.0:
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/aws-sign2/-/aws-sign2-0.7.0.tgz#b46e890934a9591f2d2f6f86d7e6a9f1b3fe76a8"
@@ -4282,6 +4287,11 @@ normalize-url@^1.4.0:
     query-string "^4.1.0"
     sort-keys "^1.0.0"
 
+normalize.css@^8.0.0:
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/normalize.css/-/normalize.css-8.0.0.tgz#14ac5e461612538a4ce9be90a7da23f86e718493"
+  integrity sha512-iXcbM3NWr0XkNyfiSBsoPezi+0V92P9nj84yVV1/UZxRUrGczgX/X91KMAGM0omWLY2+2Q1gKD/XRn4gQRDB2A==
+
 npm-bundled@^1.0.1:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/npm-bundled/-/npm-bundled-1.0.5.tgz#3c1732b7ba936b3a10325aef616467c0ccbcc979"
@@ -5466,6 +5476,11 @@ react-dom@^16.6.0:
     object-assign "^4.1.1"
     prop-types "^15.6.2"
     scheduler "^0.10.0"
+
+react-masonry-css@^1.0.11:
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/react-masonry-css/-/react-masonry-css-1.0.11.tgz#ba991fac2a033f49973187d524ff2cf484941d1c"
+  integrity sha512-Mp5z3cppum0v7ktmOWpO+xeDWTqzZx1grft033bNwOvrQTFYxH5SFo9QarOzio7hfYMpn9iCXVSB24COr5/vRw==
 
 react-typeahead@^2.0.0-alpha.8:
   version "2.0.0-alpha.8"

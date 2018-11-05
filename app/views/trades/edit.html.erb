@@ -1,10 +1,18 @@
 <p>You're trading with <%= @trade.user_b.first_name %>.</p>
 
+<%= react_component("Trade", {
+      # user_a_plants: render_partial("plants/trade_template", current_user.plants)
+      user_a_plants: @current_user_plants,
+      user_b_plants: @user_b_plants,
+      user_b_name: @trade.user_b.name
+    }) %>
+
 <div style="width: 30%; float: left;">
-  <h2>Your plants</h2>
+  <h2>My plants</h2>
   <ul>
     <% current_user.plants.each do |plant| %>
-      <li><%= plant.plant_type.common_name %></li>
+      <!-- <li><%# plant.plant_type.common_name.try(:titleize) %></li> -->
+      <li><%= plant.plant_type.common_name.try(:titleize) %></li>
     <% end %>
   </ul>
 </div>
