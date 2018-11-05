@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'plant_types/index'
   get 'plant_types/show'
   get 'plant_types/search'
+  get 'trades/trade_template'
 
   get 'styleguide',   to: 'style_guide#styleguide'
 

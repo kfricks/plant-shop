@@ -27,6 +27,8 @@ class TradesController < ApplicationController
 
   def edit
     @trade = Trade.find(params[:id])
+    @current_user_plants = format_plants(current_user.plants)
+    @user_b_plants = format_plants(@trade.user_b.plants)
   end
 
   def destroy
@@ -37,6 +39,14 @@ class TradesController < ApplicationController
     @trades = Trade.all
   end
 
+  def trade_template
+    @fortrade = Plant.find(params[:id])
+    # @response = Plant.search_by_name params[:query]
+    respond_to do |format|
+      format.json { render "edit" }
+    end
+  end
+
   def show
     @trade = Trade.find(params[:id])
   end
@@ -45,5 +55,18 @@ private
 
   def trade_params
     params.require(:trade).permit(:user_b_id)
+  end
+
+  def format_plants(plants)
+    formatted_plants = []
+    plants.each do |plant|
+      this_plant = {}
+      this_plant[:id] = plant.id
+      this_plant[:common_name] = plant.plant_type.common_name
+      this_plant[:scientific_name] = plant.plant_type.scientific_name
+      formatted_plants << this_plant
+    end
+
+    formatted_plants
   end
 end

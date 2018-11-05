@@ -6,7 +6,7 @@ class PlantList extends React.Component {
     return (
       <div>
         {this.props.plants.map(plant => {
-          return <PlantListItem plant={plant}/>
+          return <PlantListItem plant={plant} key={plant.id}/>
         })}
       </div>
     );
