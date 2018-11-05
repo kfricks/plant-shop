@@ -6,11 +6,13 @@ class Trade extends React.Component {
     return (
       <React.Fragment>
 
-        <h2>TRADE BUDDY: {this.props.user_b_name}</h2>
-        TRADES BG
+        <h2>Your trade with {this.props.user_b_name}:</h2>
 
+        <h3>Your plant shelf:</h3>
         <PlantList plants={this.props.user_a_plants} />
         <TradeItems/>
+
+        <h3>{this.props.user_b_name}'s Plant Shelf</h3>
         <PlantList plants={this.props.user_b_plants} />
 
       </React.Fragment>
