@@ -6,13 +6,19 @@ class Trade extends React.Component {
     return (
       <div>
         <h2>Your trade with {this.props.user_b_name}:</h2>
-
+        <section className="plant-shelf-container">
         <h3>Your plant shelf:</h3>
         <PlantList plants={this.props.user_a_plants} />
-        <TradeItems/>
+        </section>
 
+        <section className="trade-section-container">
+        <TradeItems/>
+        </section>
+
+        <section className="plant-shelf-container">
         <h3>{this.props.user_b_name}'s Plant Shelf</h3>
         <PlantList plants={this.props.user_b_plants} />
+        </section>
 
       </div>
     );
