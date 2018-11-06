@@ -4,9 +4,7 @@ import PlantListItem from './PlantListItem';
 class TradeItems extends React.Component {
   render () {
     return (
-      <React.Fragment>
       TRADE ITEMS
-      </React.Fragment>
     );
   }
 }

@@ -3,5 +3,6 @@
 
 <% @plants.each do |plant| %>
   <p><%= plant.plant_type.common_name.try(:titleize) %></p>
+  <p><%# image_tag @plant.image unless @plant.image.nil? %></p>
   <p><%# plant.plant_type.common_name.try?(:titleize) %></p>
 <% end %>

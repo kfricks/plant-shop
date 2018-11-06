@@ -64,7 +64,7 @@ private
       this_plant[:id] = plant.id
       this_plant[:common_name] = plant.plant_type.common_name
       this_plant[:scientific_name] = plant.plant_type.scientific_name
-      this_plant[:image] = plant.image
+      # this_plant[:image] = rails_blob_path(plant.image, disposition: "attachment", only_path: true)
       this_plant[:description] = plant.description
       formatted_plants << this_plant
     end

@@ -1,6 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import {Typeahead} from 'react-typeahead'; // ES2015
+
 class LiveSearch extends React.Component {
   constructor(props) {
     super(props)
