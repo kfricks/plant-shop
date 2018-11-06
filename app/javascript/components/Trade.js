@@ -16,7 +16,7 @@ class Trade extends React.Component {
           <section className="trade-section">
           <TradeItems/>
           </section>
-          <h2>Plants I want</h2>
+          <h2>Plants I'm trading</h2>
           <section className="trade-section">
           <TradeItems/>
           </section>
