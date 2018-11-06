@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { DragDropContext } from "react-beautiful-dnd";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import PlantListItem from "./PlantListItem";
 
 class PlantList extends React.Component {
