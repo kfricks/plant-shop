@@ -93,6 +93,7 @@ a:active {
   margin: 5px;
   display: inline-block;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  width: 200px;
 }
 /*.CardField {
   margin-bottom: 20px;
@@ -103,6 +104,23 @@ p {
 }
 
 .plant-list-item-image {
-  height: 250px;
+  height: 200px;
   width: auto;
+}
+
+.plant-shelf-container {
+  float: left;
+  width: 30%;
+}
+
+.trade-section-container {
+  float: left;
+  width: 30%;
+  margin: 0 20px 0 20px;
+}
+
+.trade-section {
+  border-style: dotted;
+  border-color: red;
+  border-radius: 5px;
 }

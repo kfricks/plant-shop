@@ -12,7 +12,14 @@ class Trade extends React.Component {
         </section>
 
         <section className="trade-section-container">
-        <TradeItems/>
+          <h2>Plants I want</h2>
+          <section className="trade-section">
+          <TradeItems/>
+          </section>
+          <h2>Plants I want</h2>
+          <section className="trade-section">
+          <TradeItems/>
+          </section>
         </section>
 
         <section className="plant-shelf-container">
