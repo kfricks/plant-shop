@@ -31,15 +31,15 @@ ActiveRecord::Base.transaction do
   end
 
   60.times do
-    plant = Plant.new(
+    plant = Plant.create!(
       plant_type: PlantType.all.sample,
       user: User.all.sample
     )
 
-    # plant.image.attach(
-    #   io: File.open(Rails.root.join('public/snake.jpg')),
-    #   filename:"snake.jpg"
-    # )
+    plant.image.attach(
+      io: File.open(Rails.root.join('public/snake.jpg')),
+      filename:"snake.jpg"
+    )
 
     print "🌿"
   end
