@@ -4,7 +4,7 @@ class PlantListItem extends React.Component {
   render () {
     return (
       <div className="plant-list-item-bg">
-        {/* <img src="{this.props.plant.image}"/> */}
+        <img src={this.props.plant.image}/>
         {/* #image tag with href that points to --> {this.props.plant.image} */}
         {this.props.plant.common_name} <em>({this.props.plant.scientific_name})</em>
         <br/>
