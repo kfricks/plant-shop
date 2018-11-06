@@ -1,6 +1,6 @@
 <h1>Trades#new</h1>
 
-<%= react_component("LiveSearch") %>
+Enter plant name: <%= react_component("LiveSearch") %>
 
 <%= form_for Trade.new do |f| %>
   <%= f.select :user_b_id, User.all.collect { |p| [ p.first_name, p.id ] }, include_blank: true %>
