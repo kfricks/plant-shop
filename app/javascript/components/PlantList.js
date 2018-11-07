@@ -5,13 +5,11 @@ import PlantListItem from "./PlantListItem";
 class PlantList extends React.Component {
   render() {
     return (
-      <Droppable droppableId={this.props.user_a_plants.id}>
+      <Droppable droppableId={this.props.plants.id}>
         {provided => (
           <div innerRef={provided.innerRef} {...provided.droppableProps}>
             {this.props.plants.map((plant, index) => {
-              return (
-                <PlantListItem plant={plant} key={plant.id} index={index} />
-              );
+              return <PlantListItem plant={plant} key={plant.id} />;
             })}
             {provided.placeholder}
           </div>
