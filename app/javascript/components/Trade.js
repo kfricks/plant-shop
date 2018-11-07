@@ -1,5 +1,5 @@
 import React from "react";
-import { DragDropContext } from "react-beautiful-dnd";
+import DragDropContext from "react-beautiful-dnd";
 import PlantList from "./PlantList";
 import TradeItems from "./TradeItems";
 class Trade extends React.Component {

@@ -1,5 +1,5 @@
 import React from "react";
-import { Droppable } from "react-beautiful-dnd";
+import Droppable from "react-beautiful-dnd";
 import PropTypes from "prop-types";
 // import { DragDropContext } from 'react-beautiful-dnd';
 import PlantListItem from "./PlantListItem";
