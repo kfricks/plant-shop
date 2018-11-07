@@ -1,35 +1,40 @@
-import React from "react"
-import PlantList from './PlantList';
-import TradeItems from './TradeItems';
+import React from "react";
+import PlantList from "./PlantList";
+import TradeItems from "./TradeItems";
+import HTML5Backend from "react-dnd-html5-backend";
+import { DragDropContext } from "react-dnd";
+
 class Trade extends React.Component {
-  render () {
+  render() {
     return (
       <div>
         <h2>Your trade with {this.props.user_b_name}:</h2>
         <section className="plant-shelf-container">
-        <h3>Your plant shelf:</h3>
-        <PlantList plants={this.props.user_a_plants} />
+          <h3>Your plant shelf:</h3>
+          <PlantList plants={this.props.user_a_plants} />
         </section>
 
         <section className="trade-section-container">
           <h2>Plants I want</h2>
           <section className="trade-section">
-          <TradeItems/>
+            <TradeItems />
           </section>
           <h2>Plants I'm trading</h2>
           <section className="trade-section">
-          <TradeItems/>
+            <TradeItems />
           </section>
         </section>
 
         <section className="plant-shelf-container">
-        <h3>{this.props.user_b_name}'s Plant Shelf</h3>
-        <PlantList plants={this.props.user_b_plants} />
+          <h3>
+            {this.props.user_b_name}
+            's Plant Shelf
+          </h3>
+          <PlantList plants={this.props.user_b_plants} />
         </section>
-
       </div>
     );
   }
 }
 
-export default Trade
+export default Trade;
