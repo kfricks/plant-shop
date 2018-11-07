@@ -9,7 +9,7 @@ class Trade extends React.Component {
 
   render() {
     return (
-      <DragDropContext>
+      <DragDropContext onDragEnd={this.onDragEnd}>
         <div>
           <h2>Your trade with {this.props.user_b_name}:</h2>
           <section className="plant-shelf-container">
