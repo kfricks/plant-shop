@@ -10,7 +10,7 @@ class PlantListItem extends React.Component {
             className="plant-list-item-bg"
             {...provided.draggableProps}
             {...provided.dragHandleProps}
-            innerRef={provided.innerRef}
+            ref={provided.innerRef}
           >
             <img
               src={this.props.plant.image}
