@@ -4,34 +4,19 @@
       # user_a_plants: render_partial("plants/trade_template", current_user.plants)
       user_a_plants: @current_user_plants,
       user_b_plants: @user_b_plants,
-      user_b_name: @trade.user_b.name
+      user_b_name: @trade.user_b.name,
+      user_a_trade_plants: @trade.plants.where(user: @trade.user_a),
+      user_b_trade_plants: @trade.plants.where(user: @trade.user_b)
     }) %>
 
-<div style="width: 30%; float: left;">
-  <h2>My plants</h2>
-  <ul>
-    <% current_user.plants.each do |plant| %>
-      <!-- <li><%# plant.plant_type.common_name.try(:titleize) %></li> -->
-      <li><%= image_tag plant.image.variant(resize: "150x150") %>
-      <br/ >
-      <%= plant.plant_type.common_name.try(:titleize) %></li>
-    <% end %>
-  </ul>
-</div>
-<div style="width: 30%; float: left;">
-  <%= form_for @trade do |f| %>
-    <%= text_field_tag :plant_ids %>
-    <%= f.submit %>
-  <% end %>
 
-</div>
-<div style="width: 30%; float: left;">
-  <h2><%= @trade.user_b.name %>'s Plants</h2>
-  <ul>
-    <% @trade.user_b.plants.each do |plant| %>
-      <li><%= image_tag plant.image.variant(resize: "150x150") %>
-      <br/ >
-      <%= plant.plant_type.common_name.try(:titleize) %></li>
-    <% end %>
-  </ul>
-</div>
+
+
+
+<!-- <div style="width: 30%; float: left;">
+  <%# form_for @trade do |f| %>
+    <%# text_field_tag :plant_ids %>
+    <%# f.submit %>
+  <%# end %>
+
+</div> -->

@@ -1,16 +1,18 @@
-import React from "react"
-import PropTypes from "prop-types"
-import PlantListItem from './PlantListItem';
+import React from "react";
+import PropTypes from "prop-types";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import PlantListItem from "./PlantListItem";
+
 class PlantList extends React.Component {
-  render () {
+  render() {
     return (
       <div>
-        {this.props.plants.map(plant => {
-          return <PlantListItem plant={plant} key={plant.id}/>
+        {this.props.plants.map((plant, index) => {
+          return <PlantListItem plant={plant} key={plant.id} index={index} />;
         })}
       </div>
     );
   }
 }
 
-export default PlantList
+export default PlantList;
