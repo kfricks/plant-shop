@@ -13,26 +13,28 @@
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <p>
-      <%= link_to("Home", root_path) %>
-      <%= link_to("Sign Up", new_user_registration_path) %>
-      <%= link_to("Sign In", new_user_session_path) %>
-      <%= link_to("Sign Out", destroy_user_session_path, :method => 'delete') %>
-    <p>
-      <%= link_to("All Plant Types", plant_types_index_path)  %>
-      <%= link_to("Plants for Trade", plants_path) %>
-      <% if current_user %>
-      <%= link_to("My Plants", user_plants_path(current_user))  %>
-      <% end %>
-    </p>
-    </p>
-    <p>
-      <%= link_to("Trades New", new_trade_path) %>
-      <%= link_to("Trades index", trades_path) %>
-    </p>
-    <p>
-      <%= link_to("Add a plant to your shelf", new_plant_path) %>
-    </p>
+    <div class="c-section">
+      <p>
+        <%= link_to("Home", root_path) %>
+        <%= link_to("Sign Up", new_user_registration_path) %>
+        <%= link_to("Sign In", new_user_session_path) %>
+        <%= link_to("Sign Out", destroy_user_session_path, :method => 'delete') %>
+      <p>
+        <%= link_to("All Plant Types", plant_types_index_path)  %>
+        <%= link_to("Plants for Trade", plants_path) %>
+        <% if current_user %>
+        <%= link_to("My Plants", user_plants_path(current_user))  %>
+        <% end %>
+      </p>
+      </p>
+      <p>
+        <%= link_to("Trades New", new_trade_path) %>
+        <%= link_to("Trades index", trades_path) %>
+      </p>
+      <p>
+        <%= link_to("Add a plant to your shelf", new_plant_path) %>
+      </p>
+    </div>
     <%= yield %>
   </body>
 </html>
