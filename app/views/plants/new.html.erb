@@ -1,10 +1,10 @@
 <h1>Add a plant to your sunroom</h1>
 <div>
-<%= react_component('LiveSearch') %>
-<%= form_for @plant do |form| %>
-  <%= form.hidden_field :plant_type_id %>
-  <div>Description: <%= form.text_field :description %></div>
-  <div>Image: <%= form.file_field :image, direct_upload: true %></div>
-  <div><%= form.submit %></div>
-<% end %>
+  Plant name: <%= react_component('LiveSearch') %>
+  <%= form_for @plant do |form| %>
+    <%= form.hidden_field :plant_type_id %>
+    <div>Description: <%= form.text_field :description %></div>
+    <div>Image: <%= form.file_field :image, direct_upload: true %></div>
+    <div><%= form.submit %></div>
+  <% end %>
 </div>
