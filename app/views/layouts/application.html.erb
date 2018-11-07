@@ -9,32 +9,55 @@
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
   </head>
-
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <header>
+      <div class="c-section">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+        <ul class="c-navigation">
+          <li class="c-navigation__item">
+            <%= link_to("Sunroom", root_path, class: "c-navigation__link") %>
+          </li>
+          <li class="c-navigation__item">
+            <%= link_to("All Plant Types", plant_types_index_path, class: "c-navigation__link #{active_class(plant_types_index_path)}")  %>
+          </li>
+          <li class="c-navigation__item">
+            <%= link_to("Plants for Trade", plants_path, class: "c-navigation__link #{active_class(plants_path)}") %>
+          </li>
+
+          <% if current_user %>
+          <li class="c-navigation__item">
+            <%= link_to("My Plants", user_plants_path(current_user), class: "c-navigation__link #{active_class(user_plants_path(current_user))}") %>
+          </li>
+          <li class="c-navigation__item">
+            <%= link_to("Add a plant to your shelf", new_plant_path, class: "c-navigation__link #{active_class(new_plant_path)}") %>
+          </li>
+          <% end %>
+          <li class="c-navigation__item">
+            <%= link_to("Trades New", new_trade_path, class: "c-navigation__link #{active_class(new_trade_path)}") %>
+          </li>
+          <li class="c-navigation__item">
+            <%= link_to("Trades index", trades_path, class: "c-navigation__link #{active_class(trades_path)}") %>
+          </li>
+
+          <% if current_user %>
+            <li class="c-navigation__item c-navigation__item--push-right">
+            <%= link_to("Sign Out", destroy_user_session_path, :method => 'delete', class: "c-navigation__link #{active_class(destroy_user_session_path)}") %>
+            </li>
+          <% else %>
+            <li class="c-navigation__item c-navigation__item--push-right">
+              <%= link_to("Sign In", new_user_session_path, class: "c-navigation__link #{active_class(new_user_session_path)}") %>
+            </li>
+            <li class="c-navigation__item">
+               <%= link_to("Sign Up", new_user_registration_path, class:"c-button c-button--small #{active_class(new_user_registration_path)}") %>
+            </li>
+          <% end %>
+
+        </ul>
+      </div>
+    </header>
     <div class="c-section">
-      <p>
-        <%= link_to("Home", root_path) %>
-        <%= link_to("Sign Up", new_user_registration_path) %>
-        <%= link_to("Sign In", new_user_session_path) %>
-        <%= link_to("Sign Out", destroy_user_session_path, :method => 'delete') %>
-      <p>
-        <%= link_to("All Plant Types", plant_types_index_path)  %>
-        <%= link_to("Plants for Trade", plants_path) %>
-        <% if current_user %>
-        <%= link_to("My Plants", user_plants_path(current_user))  %>
-        <% end %>
-      </p>
-      </p>
-      <p>
-        <%= link_to("Trades New", new_trade_path) %>
-        <%= link_to("Trades index", trades_path) %>
-      </p>
-      <p>
-        <%= link_to("Add a plant to your shelf", new_plant_path) %>
-      </p>
-    </div>
     <%= yield %>
+    </div>
   </body>
 </html>
