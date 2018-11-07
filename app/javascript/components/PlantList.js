@@ -1,16 +1,24 @@
-import React from "react"
-import PropTypes from "prop-types"
-import PlantListItem from './PlantListItem';
+import React from "react";
+import PropTypes from "prop-types";
+import { Droppable } from "react-beautiful-dnd";
+import PlantListItem from "./PlantListItem";
 class PlantList extends React.Component {
-  render () {
+  render() {
     return (
-      <div>
-        {this.props.plants.map(plant => {
-          return <PlantListItem plant={plant} key={plant.id}/>
-        })}
-      </div>
+      <Droppable droppableId={this.props.user_a_plants.id}>
+        {provided => (
+          <div innerRef={provided.innerRef} {...provided.droppableProps}>
+            {this.props.plants.map((plant, index) => {
+              return (
+                <PlantListItem plant={plant} key={plant.id} index={index} />
+              );
+            })}
+            {provided.placeholder}
+          </div>
+        )}
+      </Droppable>
     );
   }
 }
 
-export default PlantList
+export default PlantList;
