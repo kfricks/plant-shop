@@ -9,6 +9,8 @@
     "normalize.css": "^8.0.0",
     "prop-types": "^15.6.2",
     "react": "^16.6.0",
+    "react-dnd": "^5.0.0",
+    "react-dnd-html5-backend": "^5.0.1",
     "react-dom": "^16.6.0",
     "react-masonry-css": "^1.0.11",
     "react-typeahead": "^2.0.0-alpha.8",

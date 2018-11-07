@@ -5,7 +5,10 @@
       user_a_plants: @current_user_plants,
       user_b_plants: @user_b_plants,
       user_b_name: @trade.user_b.name
+      user_a_trade_plants: @trade.plants.where(user: @trade.user_a),
+      user_b_trade_plants: @trade.plants.where(user: @trade.user_b)
     }) %>
+
 
 
 
