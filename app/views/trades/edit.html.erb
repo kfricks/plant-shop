@@ -12,7 +12,9 @@
   <ul>
     <% current_user.plants.each do |plant| %>
       <!-- <li><%# plant.plant_type.common_name.try(:titleize) %></li> -->
-      <li><%= plant.plant_type.common_name.try(:titleize) %></li>
+      <li><%= image_tag plant.image.variant(resize: "150x150") %>
+      <br/ >
+      <%= plant.plant_type.common_name.try(:titleize) %></li>
     <% end %>
   </ul>
 </div>
@@ -27,7 +29,9 @@
   <h2><%= @trade.user_b.name %>'s Plants</h2>
   <ul>
     <% @trade.user_b.plants.each do |plant| %>
-      <li><%= plant.plant_type.common_name %></li>
+      <li><%= image_tag plant.image.variant(resize: "150x150") %>
+      <br/ >
+      <%= plant.plant_type.common_name.try(:titleize) %></li>
     <% end %>
   </ul>
 </div>
