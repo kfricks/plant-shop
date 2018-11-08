@@ -2,6 +2,7 @@ import React from "react";
 import PlantList from "./PlantList";
 import { DragDropContext } from "react-beautiful-dnd";
 import TradeItems from "./TradeItems";
+
 class Trade extends React.Component {
   render() {
     return (
