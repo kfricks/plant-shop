@@ -47,7 +47,7 @@ class Trade extends React.Component {
     return (
       <div>
         <DragDropContext onDragEnd={this.onDragEnd}>
-          <h2>Your trade with {this.props.user_b_name}:</h2>
+          <h1>Your trade with {this.props.user_b_name}</h1>
           <section className="plant-shelf-container">
             <h3>Your plant shelf:</h3>
             <PlantList plants={this.state.user_a_plants} id="user_a_plants" />
@@ -56,10 +56,14 @@ class Trade extends React.Component {
           <section className="trade-section-container">
             <h2>Plants I want</h2>
             <TradeItems
+              plants={this.state.user_b_trade_plants}
+              id="user_b_trade_plants"
+            />
+            <h2>Plants I'm trading</h2>
+            <TradeItems
               plants={this.state.user_a_trade_plants}
               id="user_a_trade_plants"
             />
-            <h2>Plants I'm trading</h2>
           </section>
 
           <section className="plant-shelf-container">
