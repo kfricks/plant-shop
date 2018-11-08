@@ -18,6 +18,7 @@ class Trade extends React.Component {
   }
 
   move(source, destination, droppableSource, droppableDestination) {
+    // drag from user_a plant list to user_a trade zone
     if (
       droppableSource.droppableId === "user_a_plants" &&
       droppableDestination.droppableId == "user_a_trade_plants"
@@ -30,6 +31,20 @@ class Trade extends React.Component {
           (plant, index) => index !== source.index
         )
       });
+      // drag from user_a trade zone to user_a plant list
+    } else if (
+      droppableSource.droppableId === "user_a_trade_plants" &&
+      droppableDestination.droppableId == "user_a_plants"
+    ) {
+      let droppedItem = this.state.user_a_trade_plants[source.index];
+
+      this.setState({
+        user_a_plants: [...this.state.user_a_plants, droppedItem],
+        user_a_trade_plants: this.state.user_a_trade_plants.filter(
+          (plant, index) => index !== source.index
+        )
+      });
+      // drag from user_b plant list to user_b trade zone
     } else if (
       droppableSource.droppableId === "user_b_plants" &&
       droppableDestination.droppableId == "user_b_trade_plants"
