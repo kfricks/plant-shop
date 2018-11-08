@@ -30,6 +30,18 @@ class Trade extends React.Component {
           (plant, index) => index !== source.index
         )
       });
+    } else if (
+      droppableSource.droppableId === "user_b_plants" &&
+      droppableDestination.droppableId == "user_b_trade_plants"
+    ) {
+      let droppedItem = this.state.user_b_plants[source.index];
+
+      this.setState({
+        user_b_trade_plants: [...this.state.user_b_trade_plants, droppedItem],
+        user_b_plants: this.state.user_b_plants.filter(
+          (plant, index) => index !== source.index
+        )
+      });
     }
   }
 
