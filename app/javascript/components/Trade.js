@@ -119,15 +119,15 @@ class Trade extends React.Component {
           </section>
 
           <section className="trade-section-container">
-            <h2>Plants I want</h2>
-            <TradeItems
-              plants={this.state.user_b_trade_plants}
-              id="user_b_trade_plants"
-            />
             <h2>Plants I'm trading</h2>
             <TradeItems
               plants={this.state.user_a_trade_plants}
               id="user_a_trade_plants"
+            />
+            <h2>Plants I want</h2>
+            <TradeItems
+              plants={this.state.user_b_trade_plants}
+              id="user_b_trade_plants"
             />
             <br />
             <button className="c-button c-button--focal c-button--full-width">
