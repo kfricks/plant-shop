@@ -57,6 +57,7 @@ class Trade extends React.Component {
           (plant, index) => index !== source.index
         )
       });
+      // drag from user_b trade zone to plant list
     } else if (
       droppableSource.droppableId === "user_b_trade_plants" &&
       droppableDestination.droppableId == "user_b_plants"
