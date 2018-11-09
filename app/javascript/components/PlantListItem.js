@@ -7,7 +7,7 @@ class PlantListItem extends React.Component {
       <Draggable draggableId={this.props.plant.id} index={this.props.index}>
         {provided => (
           <div
-            className="plant-list-item-bg"
+            className="card"
             {...provided.draggableProps}
             {...provided.dragHandleProps}
             ref={provided.innerRef}
@@ -17,10 +17,12 @@ class PlantListItem extends React.Component {
               className="plant-list-item-image"
             />
             <br />
-            {/* #image tag with href that points to --> {this.props.plant.image} */}
-            {this.props.plant.common_name}{" "}
-            <em>({this.props.plant.scientific_name})</em>
-            <br />
+            <div className="plant-list-item--plant-name">
+              {this.props.plant.common_name} <br />
+              <div className="scientific-name">
+                {this.props.plant.scientific_name}
+              </div>
+            </div>
           </div>
         )}
       </Draggable>
