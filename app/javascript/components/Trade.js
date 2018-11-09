@@ -98,7 +98,7 @@ class Trade extends React.Component {
             </div>
           </div>
           <section className="plant-shelf-container">
-            <h2>Your plant shelf:</h2>
+            <h2>Your plant shelf</h2>
             <PlantList plants={this.state.user_a_plants} id="user_a_plants" />
           </section>
 
