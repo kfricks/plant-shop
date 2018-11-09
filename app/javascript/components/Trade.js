@@ -70,6 +70,14 @@ class Trade extends React.Component {
           (plant, index) => index !== source.index
         )
       });
+      // if user_a drags plant into user_b's trade zone
+    } else if (
+      droppableSource.droppableId === "user_a_plants" &&
+      droppableDestination.droppableId == "user_b_trade_plants"
+    ) {
+      window.alert(
+        "Wrong trade zone! The plants you want to give should go in the bottom section."
+      );
     }
   }
 
