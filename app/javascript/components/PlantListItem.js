@@ -17,10 +17,10 @@ class PlantListItem extends React.Component {
               className="plant-list-item-image"
             />
             <br />
-            {/* #image tag with href that points to --> {this.props.plant.image} */}
-            {this.props.plant.common_name}{" "}
-            <em>({this.props.plant.scientific_name})</em>
-            <br />
+            <div>
+              {this.props.plant.common_name} <br />
+              <em>({this.props.plant.scientific_name})</em>
+            </div>
           </div>
         )}
       </Draggable>
