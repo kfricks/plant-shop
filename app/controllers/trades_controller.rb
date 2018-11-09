@@ -1,11 +1,24 @@
 class TradesController < ApplicationController
   def new
     @trade = Trade.new
+    @plants = Plant.where.not(user_id: current_user.id)
   end
 
   def create
     @trade = Trade.new(trade_params)
     @trade.user_a = current_user
+    if @trade.save!
+      redirect_to edit_trade_path(@trade)
+    else
+      render :new
+    end
+  end
+
+  def create_by_owner
+    @trade = Trade.new()
+    @trade.user_b = User.find(params[:user_id])
+    @trade.user_a = current_user
+    @trade.plants = [Plant.find(params[:plant_id])]
     if @trade.save!
       redirect_to edit_trade_path(@trade)
     else
@@ -29,6 +42,9 @@ class TradesController < ApplicationController
     @trade = Trade.find(params[:id])
     @current_user_plants = format_plants(current_user.plants)
     @user_b_plants = format_plants(@trade.user_b.plants)
+
+    @user_a_trade_plants = format_plants(@trade.plants.where(user: @trade.user_a))
+    @user_b_trade_plants = format_plants(@trade.plants.where(user: @trade.user_b))
   end
 
   def destroy
@@ -58,17 +74,14 @@ private
   end
 
   def format_plants(plants)
-    formatted_plants = []
-    plants.each do |plant|
+    plants.map do |plant|
       this_plant = {}
       this_plant[:id] = plant.id
       this_plant[:common_name] = plant.plant_type.common_name
       this_plant[:scientific_name] = plant.plant_type.scientific_name
       this_plant[:image] = rails_blob_path(plant.image, disposition: "attachment", only_path: true)
       this_plant[:description] = plant.description
-      formatted_plants << this_plant
+      this_plant
     end
-
-    formatted_plants
   end
 end

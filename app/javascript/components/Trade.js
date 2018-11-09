@@ -15,6 +15,18 @@ class Trade extends React.Component {
     };
 
     this.onDragEnd = this.onDragEnd.bind(this);
+    this.proposeTrade = this.proposeTrade.bind(this);
+  }
+
+  proposeTrade() {
+    let payload = {
+      new_user_a_trade_plants: this.state.user_a_trade_plants,
+      new_user_b_trade_plants: this.state.user_b_trade_plants
+    };
+    console.log(this.state.user_a_trade_plants, this.state.user_b_trade_plants);
+    $.post("trades/update", payload, response => {
+      console.log(response);
+    });
   }
 
   move(source, destination, droppableSource, droppableDestination) {
@@ -130,7 +142,10 @@ class Trade extends React.Component {
               id="user_b_trade_plants"
             />
             <br />
-            <button className="c-button c-button--focal c-button--full-width">
+            <button
+              className="c-button c-button--focal c-button--full-width"
+              onClick={this.proposeTrade}
+            >
               Propose Trade
             </button>
           </section>
