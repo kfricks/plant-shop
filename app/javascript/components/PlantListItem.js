@@ -7,7 +7,7 @@ class PlantListItem extends React.Component {
       <Draggable draggableId={this.props.plant.id} index={this.props.index}>
         {provided => (
           <div
-            className="plant-list-item-bg"
+            className="plant-list-item-card"
             {...provided.draggableProps}
             {...provided.dragHandleProps}
             ref={provided.innerRef}
