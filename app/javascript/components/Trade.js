@@ -113,6 +113,10 @@ class Trade extends React.Component {
               plants={this.state.user_a_trade_plants}
               id="user_a_trade_plants"
             />
+            <br />
+            <button className="c-button c-button--focal c-button--full-width">
+              Propose Trade
+            </button>
           </section>
 
           <section className="plant-shelf-container">
