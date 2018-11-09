@@ -55,13 +55,13 @@ a:active {
   transition: opacity $transition-speed ease;
 }
 
-[data-tooltip]:hover::before{
+[data-tooltip]:hover::before {
   visibility: visible;
   opacity: 1;
 }
 
 [data-tooltip]::after {
-  content: ' [?]';
+  content: " [?]";
   color: $c-primary-xlight;
   font-size: 90%;
   vertical-align: baseline;
@@ -77,7 +77,7 @@ a:active {
 }
 
 .u--float-right {
-  float:right;
+  float: right;
 }
 
 .nav--section {
@@ -92,7 +92,7 @@ a:active {
   background-color: white;
   margin: 5px;
   display: inline-block;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   width: 200px;
 }
 /*.CardField {
@@ -121,7 +121,8 @@ p {
 
 .trade-section {
   border-style: dotted;
-  border-color: red;
+  border-color: #a58368;
+  background-color: rgba(230, 216, 203, 0.3);
   border-radius: 5px;
   height: 40vh;
 }
