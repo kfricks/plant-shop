@@ -17,9 +17,9 @@ class PlantListItem extends React.Component {
               className="plant-list-item-image"
             />
             <br />
-            <div>
+            <div className="plant-list-item--plant-name">
               {this.props.plant.common_name} <br />
-              <em>({this.props.plant.scientific_name})</em>
+              <em>{this.props.plant.scientific_name}</em>
             </div>
           </div>
         )}
