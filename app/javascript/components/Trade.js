@@ -19,13 +19,32 @@ class Trade extends React.Component {
   }
 
   proposeTrade() {
+    // let payload = {
+    //   new_user_a_trade_plants: this.state.user_a_trade_plants,
+    //   new_user_b_trade_plants: this.state.user_b_trade_plants,
+    //   new_user_a_plants: this.state.user_a_plants,
+    //   new_user_b_plants: this.state.user_b_plants
+    // };
+
     let payload = {
-      new_user_a_trade_plants: this.state.user_a_trade_plants,
-      new_user_b_trade_plants: this.state.user_b_trade_plants
+      trade_ids: [
+        ...this.state.user_a_trade_plants.map(plant => plant.id),
+        ...this.state.user_b_trade_plants.map(plant => plant.id)
+      ]
     };
     console.log(this.state.user_a_trade_plants, this.state.user_b_trade_plants);
-    $.post("trades/update", payload, response => {
-      console.log(response);
+    // $.post("trades/update", payload, response => {
+    //   console.log(response);
+    // });
+
+    $.ajax({
+      type: "POST",
+      url: `/trades/${this.props.trade_id}`,
+      data: { _method: "PUT", ...payload },
+      dataType: "json",
+      success: function(msg) {
+        console.log(response);
+      }
     });
   }
 

@@ -28,11 +28,13 @@ class TradesController < ApplicationController
 
   def update
     @trade = Trade.find(params[:id])
-    @trade.plants = Plant.find(params[:plant_ids].split(","))
+    @trade.plants = Plant.where(id: params[:trade_ids])
+
     # @trade.update(trade_params)
     if @trade.save
       flash.now[:success] = "Your trade has been saved."
       redirect_to trade_path(@trade)
+      # send mailer
     else
       render :edit
     end
@@ -40,8 +42,8 @@ class TradesController < ApplicationController
 
   def edit
     @trade = Trade.find(params[:id])
-    @current_user_plants = format_plants(current_user.plants)
-    @user_b_plants = format_plants(@trade.user_b.plants)
+    @current_user_plants = format_plants(current_user.plants - @trade.plants.where(user: @trade.user_a))
+    @user_b_plants = format_plants(@trade.user_b.plants - @trade.plants.where(user: @trade.user_b))
 
     @user_a_trade_plants = format_plants(@trade.plants.where(user: @trade.user_a))
     @user_b_trade_plants = format_plants(@trade.plants.where(user: @trade.user_b))
