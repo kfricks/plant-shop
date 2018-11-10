@@ -18,6 +18,10 @@ img {
   /*width: 100%;*/
 }
 
+h1 {
+  color: #74b72a;
+}
+
 ::selection {
   background: $c-primary-light;
   color: $c-primary-dark;
@@ -101,6 +105,26 @@ p {
   margin: 0;
 }
 
+.plant-list-item {
+  width: 250px;
+  /*height: 200px;*/
+  text-align: center;
+  margin-bottom: 2rem;
+  overflow: hidden;
+  max-width: 200px;
+  text-align: center;
+  display: inline-block;
+
+  img {
+    clip-path: circle(80px at center);
+    /*height: 100%;*/
+    min-width: 100%;
+    left: 50%;
+    position: relative;
+    transform: translateX(-50%);
+  }
+}
+
 .plant-list-item-image {
   height: 200px;
   width: auto;
@@ -128,15 +152,21 @@ p {
 
 .c-navigation__title {
   color: #272727;
-  font-size: 30px;
+  font-weight: 700;
+  font-size: 3rem;
+  margin-right: 20px;
 }
 
 .plant-list-item--plant-name {
   margin: 0 10px 5px;
 }
 
+.common-name {
+  font-weight: 700;
+  font-size: 16px;
+}
+
 .scientific-name {
-  font-style: italic;
   opacity: 0.5;
 }
 

@@ -8,7 +8,11 @@ class PlantList extends React.Component {
     return (
       <Droppable droppableId={this.props.id}>
         {provided => (
-          <div ref={provided.innerRef} {...provided.droppableProps}>
+          <div
+            className=""
+            ref={provided.innerRef}
+            {...provided.droppableProps}
+          >
             {this.props.plants.map((plant, index) => {
               return (
                 <PlantListItem plant={plant} key={plant.id} index={index} />

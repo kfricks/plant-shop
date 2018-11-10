@@ -1,3 +1,4 @@
+<h1>Select a plant you want</h1>
 <% @plants.each do |plant| %>
   <a href="<%= create_trade_by_owner_path(user_id: plant.user.id, plant_id: plant.id) %>">
     <div class="card">

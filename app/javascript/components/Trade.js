@@ -43,7 +43,7 @@ class Trade extends React.Component {
       data: { _method: "PUT", ...payload },
       dataType: "json",
       success: function(msg) {
-        console.log(response);
+        // message that user_b has been notified
       }
     });
   }

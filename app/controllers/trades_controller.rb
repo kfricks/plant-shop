@@ -54,7 +54,10 @@ class TradesController < ApplicationController
   end
 
   def index
-    @trades = Trade.all
+    @trades = Trade.where(user_a_id: current_user.id)
+
+    # @trade.user_b = User.find(params[:user_id])
+  #  @trade = Trade.find(params[:id])
   end
 
   # def trade_template
