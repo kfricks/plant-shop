@@ -15,6 +15,37 @@ class Trade extends React.Component {
     };
 
     this.onDragEnd = this.onDragEnd.bind(this);
+    this.proposeTrade = this.proposeTrade.bind(this);
+  }
+
+  proposeTrade() {
+    // let payload = {
+    //   new_user_a_trade_plants: this.state.user_a_trade_plants,
+    //   new_user_b_trade_plants: this.state.user_b_trade_plants,
+    //   new_user_a_plants: this.state.user_a_plants,
+    //   new_user_b_plants: this.state.user_b_plants
+    // };
+
+    let payload = {
+      trade_ids: [
+        ...this.state.user_a_trade_plants.map(plant => plant.id),
+        ...this.state.user_b_trade_plants.map(plant => plant.id)
+      ]
+    };
+    console.log(this.state.user_a_trade_plants, this.state.user_b_trade_plants);
+    // $.post("trades/update", payload, response => {
+    //   console.log(response);
+    // });
+
+    $.ajax({
+      type: "POST",
+      url: `/trades/${this.props.trade_id}`,
+      data: { _method: "PUT", ...payload },
+      dataType: "json",
+      success: function(msg) {
+        // message that user_b has been notified
+      }
+    });
   }
 
   move(source, destination, droppableSource, droppableDestination) {
@@ -130,7 +161,10 @@ class Trade extends React.Component {
               id="user_b_trade_plants"
             />
             <br />
-            <button className="c-button c-button--focal c-button--full-width">
+            <button
+              className="c-button c-button--focal c-button--full-width"
+              onClick={this.proposeTrade}
+            >
               Propose Trade
             </button>
           </section>

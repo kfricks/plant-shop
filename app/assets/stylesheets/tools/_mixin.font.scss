@@ -1,10 +1,9 @@
 @mixin font(
-            $size,
-            $weight: regular,
-            $leading: $ff-baseline,
-            $family: $ff-primary
-            ) {
-
+  $size,
+  $weight: regular,
+  $leading: $ff-baseline,
+  $family: $ff-primary
+) {
   @if $size == inherit {
     font-size: inherit;
   } @else {

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'styleguide',   to: 'style_guide#styleguide'
 
   resources :plants
+  get "trades/create_by_owner/:user_id/plants/:plant_id", to: "trades#create_by_owner", as: "create_trade_by_owner"
   resources :trades
 
   # plants by another user

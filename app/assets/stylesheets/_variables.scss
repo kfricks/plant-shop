@@ -55,7 +55,7 @@ $av-breakpoints: (
 // -- Colors: Brand & UI
 $c-primary-xdark: darken(#1d1930, 7%);
 $c-primary-dark: #1d1930;
-$c-primary: #2a696b;
+$c-primary: #74b72a;
 $c-primary-light: #ded6ff;
 $c-primary-xlight: #d5cdf7;
 
@@ -73,7 +73,8 @@ $c-border: rgba($c-grey-xdark, 0.08);
 
 $ff-primary: (
   family:
-    "-apple-system,BlinkMacSystemFont,'segoe ui',roboto,oxygen,ubuntu,cantarell,fira sans,droid sans,'helvetica neue',sans-serif",
+    /*"-apple-system,BlinkMacSystemFont,'segoe ui',roboto,oxygen,ubuntu,cantarell,fira sans,droid sans,'helvetica neue',sans-serif",*/
+    "Rubik",
   light: 300,
   regular: 400,
   medium: 500,
