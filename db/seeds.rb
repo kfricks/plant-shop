@@ -8,6 +8,8 @@ ActiveRecord::Base.transaction do
   # Faker::PhoneNumber.area_code #=> "201"
   # Faker::PhoneNumber.exchange_code #=> "208"
 
+  users = User.create([{ first_name: 'Georgina' }, { last_name: 'Harrison' }, { email: 'georgina@gmail.com' }])
+
   4.times do
     User.create!(
       first_name: Faker::Name.name,

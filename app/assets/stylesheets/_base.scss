@@ -27,6 +27,21 @@ h1 {
   color: $c-primary-dark;
 }
 
+.green-hero {
+  background: green;
+  width: 100%;
+  padding: 5rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin-bottom: 3rem;
+
+  h1 {
+    color: white;
+    font-size: 3rem;
+  }
+}
+
 a,
 a:focus,
 a:hover,
@@ -112,28 +127,30 @@ p {
 }
 
 .plant-list-item {
-  width: 250px;
-  /*height: 200px;*/
   text-align: center;
-  margin-bottom: 2rem;
-  overflow: hidden;
-  max-width: 200px;
-  text-align: center;
-  display: inline-block;
 
-  img {
-    clip-path: circle(80px at center);
-    /*height: 100%;*/
-    min-width: 100%;
-    left: 50%;
-    position: relative;
-    transform: translateX(-50%);
+  &:hover {
+    background-color: transparent;
+  }
+
+  &-common-name,
+  &-scientific-name {
+    text-align: center;
+  }
+
+  &-common-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #000;
   }
 }
 
 .plant-list-item-image {
-  height: 200px;
-  width: auto;
+  /*  height: 200px;
+  width: auto;*/
+  max-width: 100%;
+  max-height: 100%;
+  clip-path: circle(80px at center);
 }
 
 .plant-shelf-container {
