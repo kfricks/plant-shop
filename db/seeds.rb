@@ -3,37 +3,69 @@ require "csv"
 
 ActiveRecord::Base.transaction do
 
- User.create!(
+user = User.create!(
   first_name: 'Ashton',
   last_name: 'Smith',
   email: 'ashton@gmail.com',
   password: 'tester',
   locale: "Southeast",
-  bio: "This is my cool bio",
+  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   street1: Faker::Address.street_address,
   street2: Faker::Address.secondary_address,
   city: Faker::Address.city,
   state: Faker::Address.state,
   zip: Faker::Address.zip,
   country: "USA",
-  phone: "000-000-0000",
+  phone: "000-000-0000"
   )
 
- User.create!(
+ user.avatar.attach(
+  io: File.open(Rails.root.join('public/avatar-hairup.jpg')),
+  filename:"avatar-hairup.jpg"
+)
+
+ user = User.create!(
   first_name: 'Morgan',
   last_name: 'Jones',
   email: 'morgan@gmail.com',
   password: 'tester',
   locale: "Southeast",
-  bio: "Bio here",
+  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   street1: "1 N. Main St.",
   street2: "Apt 1",
   city: "Greenville",
   state: "SC",
   zip: "90210",
   country: "USA",
-  phone: "000-000-0000",
-  )
+  phone: "000-000-0000"
+)
+
+user.avatar.attach(
+  io: File.open(Rails.root.join('public/avatar-guy-beard.jpg')),
+  filename:"avatar-guy-beard.jpg"
+)
+
+user = User.create!(
+  first_name: 'Austin',
+  last_name: 'Rooney',
+  email: 'austin@gmail.com',
+  password: 'tester',
+  locale: "Southeast",
+  bio: "Growing plants is my passion.",
+  street1: Faker::Address.street_address,
+  street2: Faker::Address.secondary_address,
+  city: Faker::Address.city,
+  state: Faker::Address.state,
+  zip: Faker::Address.zip,
+  country: "USA",
+  phone: "000-000-0000"
+)
+
+user.avatar.attach(
+  io: File.open(Rails.root.join('public/avatar-girl-braid.jpg')),
+  filename:"avatar-girl-braid.jpg"
+)
+
 
   4.times do
     User.create!(
@@ -176,6 +208,28 @@ plant.image.attach(
 )
 
 
+# User 3 plants
+plant = Plant.create!(
+  plant_type: PlantType.find(165),
+  user: User.find(3),
+  description: "These are awesome."
+)
+
+plant.image.attach(
+  io: File.open(Rails.root.join('public/candy-barrell-cactus.jpg')),
+  filename:"candy-barrell-cactus.jpg"
+)
+
+plant = Plant.create!(
+  plant_type: PlantType.find(183),
+  user: User.find(3),
+  description: "These really help to make my home feel like a peaceful space."
+)
+
+plant.image.attach(
+  io: File.open(Rails.root.join('public/maidenhair-tree.jpg')),
+  filename:"candy-maidenhair-tree.jpg"
+)
 
 
   # 60.times do

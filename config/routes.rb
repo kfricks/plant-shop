@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get "trades/create_by_owner/:user_id/plants/:plant_id", to: "trades#create_by_owner", as: "create_trade_by_owner"
   resources :trades
 
+  resources :users, only: [:show]
+
   # plants by another user
   # /users/:user_id/plants      (index)
   # /users/:user_id/plants/:id  (show)
