@@ -1,7 +1,12 @@
 <h1><%= @plant.plant_type.common_name %></h1>
-<p><%= @plant.plant_type.scientific_name %></p>
-<p>Uploaded by: <%= @plant.user.first_name %></p>
-<p>Description:<%= @plant.description %></p>
+<p>Scientific Name: <%= @plant.plant_type.scientific_name %></p>
+<p>Owner: <%= @plant.user.first_name %></p>
+<p>Family: <%= @plant.plant_type.family %></p>
+<p>Duraton: <%= @plant.plant_type.duration %></p>
+<p>Growth Habit: <%= @plant.plant_type.growth_habit %></p>
+<p>Growth Rate: <%= @plant.plant_type.growth_rate %></p>
+<p>Added on: <%= @plant.created_at %></p>
+<p>Description: <%= @plant.description %></p>
 
 <%= link_to "Propose a trade for this plant", create_trade_by_owner_path(user_id: @plant.user.id, plant_id: @plant.id), class: 'c-button c-button--focal' %>
 
