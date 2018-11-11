@@ -1,24 +1,24 @@
 $spacing-directions: (
   null: null,
-  '-top': '-top',
-  '-right': '-right',
-  '-bottom': '-bottom',
-  '-left': '-left',
-  '-horizontal': '-left' '-right',
-  '-vertical': '-top' '-bottom',
+  "-top": "-top",
+  "-right": "-right",
+  "-bottom": "-bottom",
+  "-left": "-left",
+  "-horizontal": "-left" "-right",
+  "-vertical": "-top" "-bottom"
 ) !default;
 
 $spacing-properties: (
-  'padding': 'padding',
-  'margin': 'margin',
+  "padding": "padding",
+  "margin": "margin"
 ) !default;
 
 $spacing-sizes: (
-  '-tiny':       $s-tiny,
-  '-small':      $s-small,
-  null:          $s-regular,
-  '-large':      $s-large,
-  '-none': 0
+  "-tiny": $s-tiny,
+  "-small": $s-small,
+  null: $s-regular,
+  "-large": $s-large,
+  "-none": 0
 ) !default;
 
 @each $property-namespace, $property in $spacing-properties {

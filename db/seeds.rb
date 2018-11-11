@@ -8,9 +8,17 @@ ActiveRecord::Base.transaction do
   # Faker::PhoneNumber.area_code #=> "201"
   # Faker::PhoneNumber.exchange_code #=> "208"
 
+ User.create!(
+  first_name: 'Ashton',
+  last_name: 'Smith',
+  email: 'ashton@gmail.com',
+  password: 'tester'
+  )
+
   4.times do
     User.create!(
-      first_name: Faker::Name.name,
+      first_name: Faker::Name.first_name,
+      last_name: Faker::Name.last_name,
       email: Faker::Internet.email,
       locale: "Southeast",
       bio: "Bio here",
@@ -27,13 +35,13 @@ ActiveRecord::Base.transaction do
 
   CSV.foreach(Rails.root.join('lib/data/plant_types.csv'), headers: true) do |row|
     PlantType.create!({
-     scientific_name: row['scientific_name'].to_s.titelize,
-     common_name: row['common_name'].to_s.titelize,
-     family: row['family'].to_s.titelize,
-     duration: row['duration'].to_s.titelize,
-     growth_habit: row['growth_habit'].to_s.titelize,
-     growth_period: row['growth_period'].to_s.titelize,
-     growth_rate: row['growth_rate'].to_s.titelize
+     scientific_name: row['scientific_name'].to_s.titleize,
+     common_name: row['common_name'].to_s.titleize,
+     family: row['family'].to_s.titleize,
+     duration: row['duration'].to_s.titleize,
+     growth_habit: row['growth_habit'].to_s.titleize,
+     growth_period: row['growth_period'].to_s.titleize,
+     growth_rate: row['growth_rate'].to_s.titleize
      })
     print "📗"
   end

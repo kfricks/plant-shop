@@ -1,2 +1,8 @@
-<h1><%= @plant.plant_type.common_name.try(:titleize) %></h1>
-  <p><%= image_tag @plant.image %></p>
+<h1><%= @plant.plant_type.common_name %></h1>
+<p><%= @plant.plant_type.scientific_name %></p>
+<p>Uploaded by: <%= @plant.user.first_name %></p>
+<p>Description:<%= @plant.description %></p>
+
+<%= link_to "Propose a trade for this plant", create_trade_by_owner_path(user_id: @plant.user.id, plant_id: @plant.id), class: 'c-button c-button--focal' %>
+
+<p><%= image_tag @plant.image %></p>
