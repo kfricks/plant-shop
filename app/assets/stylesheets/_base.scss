@@ -35,6 +35,12 @@ a:active {
   color: $c-primary;
 }
 
+a {
+  .card {
+    color: #272727;
+  }
+}
+
 [data-tooltip] {
   position: relative;
   pointer-events: help;

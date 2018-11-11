@@ -1,11 +1,12 @@
-<h1>Select a plant you want</h1>
+<h1>Get started by selecting a plant you want</h1>
 <% @plants.each do |plant| %>
-  <a href="<%= create_trade_by_owner_path(user_id: plant.user.id, plant_id: plant.id) %>">
+  <a href="<%= create_trade_by_owner_path(user_id: plant.user.id, plant_id: plant.id) %>"
+    class="">
     <div class="card">
-      <%= image_tag url_for(plant.image),  class: "plant-list-item-image" %>
+      <%= image_tag url_for(plant.image), class: "plant-list-item-image" %>
       <br />
       <div class="plant-list-item--plant-name">
-        <%= plant.plant_type.common_name %> <br />
+        <div class="common-name"><%= plant.plant_type.common_name %></div>
         <div class="scientific-name">
           <%= plant.plant_type.scientific_name %>
         </div>
