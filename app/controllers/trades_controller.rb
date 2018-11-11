@@ -2,6 +2,7 @@ class TradesController < ApplicationController
   def new
     @trade = Trade.new
     @plants = Plant.where.not(user_id: current_user.id)
+    # need to update @plants above so that if no one is logged in, it shows all plants instead of giving an error
   end
 
   def create
