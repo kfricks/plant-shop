@@ -6,7 +6,7 @@ namespace :plant_types do
     CSV.foreach(Rails.root.join('lib/data/plant_types.csv'), headers: true) do |row|
        PlantType.create!({
          scientific_name: row['scientific_name'],
-         common_name: row['common_name'].to_s.titleize,
+         common_name: row['common_name'].to_s.titelize,
          family: row['family'].to_s.titelize,
          duration: row['duration'].to_s.titelize,
          growth_habit: row['growth_habit'].to_s.titelize,
