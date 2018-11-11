@@ -9,40 +9,40 @@ user = User.create!(
   email: 'ashton@gmail.com',
   password: 'tester',
   locale: "Southeast",
-  bio: "This is my cool bio",
+  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   street1: Faker::Address.street_address,
   street2: Faker::Address.secondary_address,
   city: Faker::Address.city,
   state: Faker::Address.state,
   zip: Faker::Address.zip,
   country: "USA",
-  phone: "000-000-0000",
+  phone: "000-000-0000"
   )
 
  user.avatar.attach(
   io: File.open(Rails.root.join('public/avatar-hairup.jpg')),
-  filename:"avatar-hairup.jpg",
+  filename:"avatar-hairup.jpg"
 )
 
- User.create!(
+ user = User.create!(
   first_name: 'Morgan',
   last_name: 'Jones',
   email: 'morgan@gmail.com',
   password: 'tester',
   locale: "Southeast",
-  bio: "Bio here",
+  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   street1: "1 N. Main St.",
   street2: "Apt 1",
   city: "Greenville",
   state: "SC",
   zip: "90210",
   country: "USA",
-  phone: "000-000-0000",
-  )
+  phone: "000-000-0000"
+)
 
-  user.avatar.attach(
-  io: File.open(Rails.root.join('public/avatar-guy-bluebg.png')),
-  filename:"avatar-guy-bluebg.png",
+user.avatar.attach(
+  io: File.open(Rails.root.join('public/avatar-guy-beard.jpg')),
+  filename:"avatar-guy-beard.jpg"
 )
 
 user = User.create!(
@@ -51,19 +51,19 @@ user = User.create!(
   email: 'austin@gmail.com',
   password: 'tester',
   locale: "Southeast",
-  bio: "This is my cool bio",
+  bio: "Growing plants is my passion.",
   street1: Faker::Address.street_address,
   street2: Faker::Address.secondary_address,
   city: Faker::Address.city,
   state: Faker::Address.state,
   zip: Faker::Address.zip,
   country: "USA",
-  phone: "000-000-0000",
-  )
+  phone: "000-000-0000"
+)
 
- user.avatar.attach(
+user.avatar.attach(
   io: File.open(Rails.root.join('public/avatar-girl-braid.jpg')),
-  filename:"avatar-girl-braid.jpg",
+  filename:"avatar-girl-braid.jpg"
 )
 
 
