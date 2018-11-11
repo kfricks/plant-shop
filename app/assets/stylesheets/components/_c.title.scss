@@ -19,6 +19,12 @@
     margin: 0 0 $s-tiny;
   }
 
+  &--hint {
+    @include font(10px, light);
+    opacity: .5;
+    margin: 0;
+  }
+
   &--on-dark {
     color: $c-white;
   }

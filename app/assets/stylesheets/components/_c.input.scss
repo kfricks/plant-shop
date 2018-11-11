@@ -136,5 +136,10 @@
       background: red;
     }
   }
+
+  &--clear {
+    border: none;
+    background-color: transparent;
+  }
 }
 
