@@ -3,7 +3,7 @@ require "csv"
 
 ActiveRecord::Base.transaction do
 
- User.create!(
+user = User.create!(
   first_name: 'Ashton',
   last_name: 'Smith',
   email: 'ashton@gmail.com',
@@ -18,6 +18,11 @@ ActiveRecord::Base.transaction do
   country: "USA",
   phone: "000-000-0000",
   )
+
+ user.avatar.attach(
+  io: File.open(Rails.root.join('public/avatar-hairup.jpg')),
+  filename:"avatar-hairup.jpg",
+)
 
  User.create!(
   first_name: 'Morgan',
@@ -34,6 +39,33 @@ ActiveRecord::Base.transaction do
   country: "USA",
   phone: "000-000-0000",
   )
+
+  user.avatar.attach(
+  io: File.open(Rails.root.join('public/avatar-guy-bluebg.png')),
+  filename:"avatar-guy-bluebg.png",
+)
+
+user = User.create!(
+  first_name: 'Austin',
+  last_name: 'Rooney',
+  email: 'austin@gmail.com',
+  password: 'tester',
+  locale: "Southeast",
+  bio: "This is my cool bio",
+  street1: Faker::Address.street_address,
+  street2: Faker::Address.secondary_address,
+  city: Faker::Address.city,
+  state: Faker::Address.state,
+  zip: Faker::Address.zip,
+  country: "USA",
+  phone: "000-000-0000",
+  )
+
+ user.avatar.attach(
+  io: File.open(Rails.root.join('public/avatar-girl-braid.jpg')),
+  filename:"avatar-girl-braid.jpg",
+)
+
 
   4.times do
     User.create!(
@@ -176,6 +208,28 @@ plant.image.attach(
 )
 
 
+# User 3 plants
+plant = Plant.create!(
+  plant_type: PlantType.find(165),
+  user: User.find(3),
+  description: "These are awesome."
+)
+
+plant.image.attach(
+  io: File.open(Rails.root.join('public/candy-barrell-cactus.jpg')),
+  filename:"candy-barrell-cactus.jpg"
+)
+
+plant = Plant.create!(
+  plant_type: PlantType.find(183),
+  user: User.find(3),
+  description: "These really help to make my home feel like a peaceful space."
+)
+
+plant.image.attach(
+  io: File.open(Rails.root.join('public/maidenhair-tree.jpg')),
+  filename:"candy-maidenhair-tree.jpg"
+)
 
 
   # 60.times do
