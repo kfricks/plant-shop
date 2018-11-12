@@ -9,7 +9,7 @@ class TradeItems extends React.Component {
       <Droppable droppableId={this.props.id}>
         {provided => (
           <div ref={provided.innerRef} {...provided.droppableProps}>
-            <section className="trade-section">
+            <section className="trade-container-trades-area">
               {this.props.plants.map((plant, index) => {
                 return (
                   <PlantListItem plant={plant} key={plant.id} index={index} />

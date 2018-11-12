@@ -12,25 +12,30 @@
 // Styleguide: components.content.attribute
 
 .c-attribute {
+  width: 100%;
   @include font(13px, regular, 1.8, $ff-mono);
   display: inline-block;
   color: $c-grey-xdark;
-  margin: 0 $s-regular $s-regular 0;
+  margin: 0 $s-regular $s-tiny 0;
 
   .c-attribute__key {
+    display: inline-block;
     @include font(10px, medium);
     opacity: 0.5;
     color: $c-grey-dark;
     margin: 0;
     letter-spacing: 0.5px;
     text-transform: uppercase;
+    width: 30%;
   }
 
-  .c-attribute__value {
-    margin: 0;
-    &:empty::after {
-      content: "---";
-      opacity: 0.5;
-    }
-  }
+  // .c-attribute__value {
+  //   display: inline-block;
+  //   margin: 0;
+  //   width: 70%;
+  //   &:empty::after {
+  //     content: "---";
+  //     opacity: 0.5;
+  //   }
+  // }
 }

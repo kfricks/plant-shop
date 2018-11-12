@@ -1,8 +1,23 @@
-<h1>Plants#index</h1>
-<p>Find me in app/views/plants/index.html.erb</p>
-
-<% @plants.each do |plant| %>
-  <p><%= plant.plant_type.common_name.try(:titleize) %></p>
-  <p><%= image_tag plant.image unless plant.image.nil? %></p>
-  <p><%# plant.plant_type.common_name.try?(:titleize) %></p>
-<% end %>
+<div class="green-hero">
+  <h1>My Plants</h1>
+    <%= link_to("Add a Plant to Your Sunroom", new_plant_path, class: "c-button c-button--focal") %>
+</div>
+<div class="c-section">
+<div class="plant-grid">
+  <% @plants.each do |plant| %>
+    <div class="c-card plant-card">
+      <a href="<%= plant_path(plant) %>">
+        <%= image_tag plant.image, class: "plant-card-image" %>
+        <div class="c-section c-section--flush plant-card-title">
+          <h2 class="c-title u-padding-top-small u-margin-bottom-tiny">
+            <%= plant.plant_type.common_name %>
+          </h2>
+          <h5 class="c-title c-title--label u-margin-bottom-small u-margin-top-none">
+            <%= plant.plant_type.scientific_name %>
+          </h5>
+        </a>
+      </div>
+    </div>
+  <% end %>
+</div>
+</div>

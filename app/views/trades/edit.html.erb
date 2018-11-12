@@ -1,21 +1,8 @@
 <%= react_component("Trade", {
-      # user_a_plants: render_partial("plants/trade_template", current_user.plants)
       user_a_plants: @current_user_plants,
       user_b_plants: @user_b_plants,
-      user_b_name: @trade.user_b.name,
+      user_b_name: @trade.user_b.first_name,
       user_a_trade_plants: @user_a_trade_plants,
       user_b_trade_plants: @user_b_trade_plants,
       trade_id: @trade.id
     }) %>
-
-
-
-
-
-<!-- <div style="width: 30%; float: left;">
-  <%# form_for @trade do |f| %>
-    <%# text_field_tag :plant_ids %>
-    <%# f.submit %>
-  <%# end %>
-
-</div> -->
