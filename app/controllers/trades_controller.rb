@@ -35,6 +35,11 @@ class TradesController < ApplicationController
 
   def edit
     @trade = Trade.find(params[:id])
+    if current_user == @trade.user_b 
+      @proposer = true
+    else
+      @proposer = false
+    end
     @current_user_plants = format_plants(current_user.plants - @trade.plants.where(user: @trade.user_a))
     @user_b_plants = format_plants(@trade.user_b.plants - @trade.plants.where(user: @trade.user_b))
     @user_a_trade_plants = format_plants(@trade.plants.where(user: @trade.user_a))
@@ -47,9 +52,14 @@ class TradesController < ApplicationController
 
   def index
     @trades = Trade.where(user_a: current_user)
-    @proposed_trades = Trade.where(user_b: current_user)
+    # @proposed_trades = Trade.where(user_b: current_user)
     # @trade.user_b = User.find(params[:user_id])
-  #  @trade = Trade.find(params[:id])
+    # @trade = Trade.find(params[:id])
+    # @current_user_plants = format_plants(current_user.plants - @trade.plants.where(user: @trade.user_a))
+    
+    # @user_b_plants = format_plants(@trades.user_b.plants - @trade.plants.where(user: @trade.user_b))
+    # @user_a_trade_plants = format_plants(@trades.plants.where(user: @trade.user_a))
+    # @user_b_trade_plants = format_plants(@trades.plants.where(user: @trade.user_b))
   end
 
   # def trade_template
