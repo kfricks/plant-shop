@@ -212,8 +212,6 @@ p {
   }
 
   &-image {
-    // width: 100%;
-    // object-position: center;
     width: 100%;
     min-height: 100%;
     object-fit: cover;
@@ -343,7 +341,6 @@ p {
 
     .avatar-dropdown {
       transition: all 0.5s ease;
-      // display: block;
       opacity: 1;
       width: 200px;
       z-index: 2;

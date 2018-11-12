@@ -29,13 +29,13 @@
     width: 30%;
   }
 
-  .c-attribute__value {
-    display: inline-block;
-    margin: 0;
-    width: 70%;
-    &:empty::after {
-      content: "---";
-      opacity: 0.5;
-    }
-  }
+  // .c-attribute__value {
+  //   display: inline-block;
+  //   margin: 0;
+  //   width: 70%;
+  //   &:empty::after {
+  //     content: "---";
+  //     opacity: 0.5;
+  //   }
+  // }
 }

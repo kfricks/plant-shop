@@ -134,22 +134,17 @@ class Trade extends React.Component {
     return (
       <div>
         <div className="green-hero">
-          <h2 className="">
+          <h2>
             Your trade with {this.props.user_b_name}
           </h2>
           <div>
-            {/* <button className="c-button c-button--focal">
-              Propose Trade
-            </button> */}
           </div>
         </div>
         <DragDropContext onDragEnd={this.onDragEnd}>
           <div className="trade-container">
             <section className="trade-container-plants">
               <h2 className="c-title">Your plant shelf</h2>
-              {/* <div className="plant-grid"> */}
                 <PlantList plants={this.state.user_a_plants} id="user_a_plants" />
-              {/* </div> */}
             </section>
 
             <section className="trade-container-trades">

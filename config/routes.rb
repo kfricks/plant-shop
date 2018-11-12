@@ -22,8 +22,7 @@ Rails.application.routes.draw do
   # make myplants
 
 
-  # root to: "plants#index"
-  root to: "trades#new"
+   root to: "plants#index"
 
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
