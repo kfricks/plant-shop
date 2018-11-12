@@ -29,15 +29,15 @@
           <li class="c-navigation__item">
             <%= link_to("My Plants", user_plants_path(current_user), class: "c-navigation__link #{active_class(user_plants_path(current_user))}") %>
           </li>
-          <li class="c-navigation__item">
-            <%= link_to("Add a plant to your shelf", new_plant_path, class: "c-navigation__link #{active_class(new_plant_path)}") %>
-          </li>
+          <%# <li class="c-navigation__item"> %>
+            <%# link_to("Add a plant to your shelf", new_plant_path, class: "c-navigation__link #{active_class(new_plant_path)}") %>
+          <%# </li> %>
           <% end %>
           <li class="c-navigation__item">
             <%= link_to("Trades New", new_trade_path, class: "c-navigation__link #{active_class(new_trade_path)}") %>
           </li>
           <li class="c-navigation__item">
-            <%= link_to("Trades index", trades_path, class: "c-navigation__link #{active_class(trades_path)}") %>
+            <%= link_to("My Trades", trades_path, class: "c-navigation__link #{active_class(trades_path)}") %>
           </li>
 
           <% if current_user %>
