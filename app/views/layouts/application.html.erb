@@ -38,21 +38,23 @@
           </li>
 
           <% if current_user %>
-            <li class="c-navigation__item c-navigation__item--push-right">
-            <%= link_to("Sign Out", destroy_user_session_path, :method => 'delete', class: "c-navigation__link #{active_class(destroy_user_session_path)}") %>
-            </li>
-            <li class="c-navigation__item">
-              <%= link_to("My Account", user_path(current_user), class: "c-navigation__link #{active_class(user_path(current_user))}") %>
-            </li>
-            <li class="c-navigation__item">
-              <%= link_to("Edit My Account", edit_user_registration_path, class: "c-navigation__link #{active_class(edit_user_registration_path)}") %>
-            </li>
-            <p>Welcome, 
-              <div class="avatar">
-                <%= image_tag current_user.avatar, class: "avatar-image" %>
+            <div class="avatar c-navigation__item--push-right">
+              <div class="avatar-small">
+                <%= image_tag current_user.avatar, class: "avatar-small-image" %>
               </div>
               <%= current_user.first_name %>
-            </p>
+              <div class="avatar-dropdown">
+                <li class="c-navigation__item">
+                <%= link_to("Sign Out", destroy_user_session_path, :method => 'delete', class: "c-navigation__link #{active_class(destroy_user_session_path)}") %>
+                </li>
+                <li class="c-navigation__item">
+                  <%= link_to("My Account", user_path(current_user), class: "c-navigation__link #{active_class(user_path(current_user))}") %>
+                </li>
+                <li class="c-navigation__item">
+                  <%= link_to("Edit My Account", edit_user_registration_path, class: "c-navigation__link #{active_class(edit_user_registration_path)}") %>
+                </li>
+              </div>
+            </div>
           <% else %>
             <li class="c-navigation__item c-navigation__item--push-right">
               <%= link_to("Sign In", new_user_session_path, class: "c-navigation__link #{active_class(new_user_session_path)}") %>

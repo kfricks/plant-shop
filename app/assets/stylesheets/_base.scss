@@ -331,13 +331,58 @@ p {
 }
 
 .avatar {
-  width: 60px;
-  height: 60px;
-  margin: 10px;
-  display: inline-block;
-  overflow: hidden;
-  background: #f3f6f9;
-  border-radius: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  
+  &:hover {
+    cursor: pointer;
+    .avatar-small {
+      border: solid 3px #ccc;
+    }
+
+    .avatar-dropdown {
+      transition: all 0.5s ease;
+      // display: block;
+      opacity: 1;
+      width: 200px;
+      z-index: 2;
+      background: white;
+      border-radius: 8px;
+      padding: 1rem;
+
+      .c-navigation__item {
+        display: block;
+      }
+    }
+  }
+  
+  &-dropdown {
+    opacity: 0;
+    position: absolute;
+    top: 60px;
+    right: -20px;
+  }
+
+  &-small {
+    transition: all 0.2s ease;
+    border: solid 3px #fff;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    margin: 10px;
+    display: inline-block;
+    overflow: hidden;
+    background: #f3f6f9;
+
+    &-image {
+      width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
 }
 .avatar-image {
   width: 100%;
