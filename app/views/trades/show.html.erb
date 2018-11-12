@@ -1,8 +1,22 @@
 
-You're trading with <%= @trade.user_b.first_name %>.
+<h1>Your trade with <%= @trade.user_b.first_name %>.</h1>
+<h2>Status: Pending</h2>
 
-<ul>
-<% @trade.plants.each do |plant| %>
-  <li>Plant: <%= plant.plant_type.common_name %></li>
+<h2>Plants I'm getting</h2>
+<% @user_b_trade_plants.each do |plant| %>
+  <li>Plant: <%= plant.plant_type.common_name %></li> 
 <% end %>
-</ul>
+
+<h2>Plants I'm giving</h2>
+<% @user_a_trade_plants.each do |plant| %>
+  <li>Plant: <%= plant.plant_type.common_name %></li> 
+<% end %>
+
+
+
+<%# user_a_trade_plants: @user_a_trade_plants,
+user_b_trade_plants: @user_b_trade_plants,
+
+
+@user_a_trade_plants = format_plants(@trade.plants.where(user: @trade.user_a))
+@user_b_trade_plants = format_plants(@trade.plants.where(user: @trade.user_b)) %>

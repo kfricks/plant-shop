@@ -30,22 +30,13 @@ class TradesController < ApplicationController
   def update
     @trade = Trade.find(params[:id])
     @trade.plants = Plant.where(id: params[:trade_ids])
-
-    # @trade.update(trade_params)
-    if @trade.save
-      flash.now[:success] = "Your trade has been saved."
-      redirect_to trade_path(@trade)
-      # send mailer
-    else
-      render :edit
-    end
+    render status: 200
   end
 
   def edit
     @trade = Trade.find(params[:id])
     @current_user_plants = format_plants(current_user.plants - @trade.plants.where(user: @trade.user_a))
     @user_b_plants = format_plants(@trade.user_b.plants - @trade.plants.where(user: @trade.user_b))
-
     @user_a_trade_plants = format_plants(@trade.plants.where(user: @trade.user_a))
     @user_b_trade_plants = format_plants(@trade.plants.where(user: @trade.user_b))
   end
@@ -55,8 +46,8 @@ class TradesController < ApplicationController
   end
 
   def index
-    @trades = Trade.where(user_a_id: current_user.id)
-
+    @trades = Trade.where(user_a: current_user)
+    @proposed_trades = Trade.where(user_b: current_user)
     # @trade.user_b = User.find(params[:user_id])
   #  @trade = Trade.find(params[:id])
   end
@@ -71,6 +62,10 @@ class TradesController < ApplicationController
 
   def show
     @trade = Trade.find(params[:id])
+    @current_user_plants = current_user.plants - @trade.plants.where(user: @trade.user_a)
+    @user_b_plants = @trade.user_b.plants - @trade.plants.where(user: @trade.user_b)
+    @user_a_trade_plants = @trade.plants.where(user: @trade.user_a)
+    @user_b_trade_plants = @trade.plants.where(user: @trade.user_b)
   end
 
 private

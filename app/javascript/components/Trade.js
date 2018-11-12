@@ -32,7 +32,7 @@ class Trade extends React.Component {
         ...this.state.user_b_trade_plants.map(plant => plant.id)
       ]
     };
-    console.log(this.state.user_a_trade_plants, this.state.user_b_trade_plants);
+    // console.log(this.state.user_a_trade_plants, this.state.user_b_trade_plants);
     // $.post("trades/update", payload, response => {
     //   console.log(response);
     // });
@@ -42,8 +42,8 @@ class Trade extends React.Component {
       url: `/trades/${this.props.trade_id}`,
       data: { _method: "PUT", ...payload },
       dataType: "json",
-      success: function(msg) {
-        // message that user_b has been notified
+      complete: function(data) {
+        window.location = window.location.toString().replace('/edit','')
       }
     });
   }
@@ -155,6 +155,7 @@ class Trade extends React.Component {
                 plants={this.state.user_b_trade_plants}
                 id="user_b_trade_plants"
               />
+              {/* if current_user={this.props.user_b} */}
               <button
                 className="c-button c-button--focal c-button--full-width u-margin-bottom"
                 onClick={this.proposeTrade}

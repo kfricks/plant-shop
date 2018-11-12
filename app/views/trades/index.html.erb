@@ -1,8 +1,33 @@
+<h1>Proposed Trades</h1>
+<% @proposed_trades.each do |trade| %>
+  <div>
+    <h2>Trade with <%= trade.user_a.first_name %>, <%= trade.created_at %></h2>
+    <% trade.plants.each do |plant| %>
+      <h3>Plants you're getting</h3>
+        <% if plant.user_id == current_user.id %>
+
+          <div class="card">
+            <%= image_tag url_for(plant.image),  class: "plant-list-item-image" %>
+            <br />
+            <div class="plant-list-item--plant-name">
+              <%= plant.plant_type.common_name %> <br />
+              <div class="scientific-name">
+                <%= plant.plant_type.scientific_name %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <div>User: <%= plant.user_id %></div>
+    <% end %>
+  </div>
+<% end %>
+
+<hr />
+
 <h1>My Trades</h1>
 <% @trades.each do |trade| %>
   <div>
-    <h2>Trade ID: <%= trade.id %></h2>
-    <h2>Trading with: <%# trade.user_b_id.user.email %></h2>
+    <h2>Trade with <%= trade.user_a.first_name %>, <%= trade.created_at %></h2>
     <% trade.plants.each do |plant| %>
       <h3>Plants you're getting</h3>
         <% if plant.user_id == current_user.id %>
