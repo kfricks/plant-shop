@@ -18,12 +18,9 @@
           <li class="c-navigation__item">
             <%= link_to("Sunroom", root_path, class: "c-navigation__title") %>
           </li>
-          <li class="c-navigation__item">
-            <%= link_to("All Plant Types", plant_types_index_path, class: "c-navigation__link #{active_class(plant_types_index_path)}")  %>
-          </li>
-          <li class="c-navigation__item">
-            <%= link_to("Plants for Trade", plants_path, class: "c-navigation__link #{active_class(plants_path)}") %>
-          </li>
+          <%# <li class="c-navigation__item"> %>
+            <%# link_to("All Plant Types", plant_types_index_path, class: "c-navigation__link #{active_class(plant_types_index_path)}")  %>
+          <%# </li> %>
 
           <% if current_user %>
           <li class="c-navigation__item">
@@ -34,14 +31,13 @@
           <%# </li> %>
           <% end %>
           <li class="c-navigation__item">
-            <%= link_to("Trades New", new_trade_path, class: "c-navigation__link #{active_class(new_trade_path)}") %>
+            <%= link_to("Find a plant", new_trade_path, class: "c-navigation__link #{active_class(new_trade_path)}") %>
           </li>
           <li class="c-navigation__item">
             <%= link_to("My Trades", trades_path, class: "c-navigation__link #{active_class(trades_path)}") %>
           </li>
 
           <% if current_user %>
-            <p>Welcome, <%= current_user.first_name %></p>
             <li class="c-navigation__item c-navigation__item--push-right">
             <%= link_to("Sign Out", destroy_user_session_path, :method => 'delete', class: "c-navigation__link #{active_class(destroy_user_session_path)}") %>
             </li>
@@ -51,6 +47,12 @@
             <li class="c-navigation__item">
               <%= link_to("Edit My Account", edit_user_registration_path, class: "c-navigation__link #{active_class(edit_user_registration_path)}") %>
             </li>
+            <p>Welcome, 
+              <div class="avatar">
+                <%= image_tag current_user.avatar, class: "avatar-image" %>
+              </div>
+              <%= current_user.first_name %>
+            </p>
           <% else %>
             <li class="c-navigation__item c-navigation__item--push-right">
               <%= link_to("Sign In", new_user_session_path, class: "c-navigation__link #{active_class(new_user_session_path)}") %>

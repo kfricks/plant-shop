@@ -1,7 +1,8 @@
 class PlantsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit]
   def index
-    @plants = Plant.all
+    @plants = Plant.where.not(user_id: current_user.id)
+    # @plants = Plant.all
     # @plants = current_user.plants
     # make somethingthat says if a user ID is in URL, show that user's plants. otherwise, show all plants.
   end
