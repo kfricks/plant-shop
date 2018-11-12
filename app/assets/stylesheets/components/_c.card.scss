@@ -34,8 +34,4 @@
     @include elevation(2);
     border: 1px solid $c-primary-xlight;
   }
-
-  :last-child {
-    margin-bottom: 0;
-  }
 }

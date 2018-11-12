@@ -25,6 +25,15 @@
     margin: 0;
   }
 
+  &--label {
+    @include font(10px, medium);
+    opacity: 0.5;
+    color: $c-grey-dark;
+    margin: 0;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
   &--on-dark {
     color: $c-white;
   }

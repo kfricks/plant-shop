@@ -23,20 +23,43 @@ img {
 }
 
 .green-hero {
-  background: green;
+  position: relative;
+  z-index: 1;
+  background: rgb(4, 43, 4);
   width: 100%;
   padding: 5rem 2rem;
   display: flex;
   justify-content: center;
   align-content: center;
   margin-bottom: 3rem;
+  color: white;
+  flex-direction: column;
+  text-align: center;
+  
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: 100%; 
+    height: 100%;  
+    opacity: .4; 
+    z-index: -1;
+    background: asset-data-url("plant-header.jpg");
+    background-size: cover
+  }
 
   h1 {
-    color: white;
     font-size: 3rem;
   }
 }
 
+@media only screen and (max-width: 900px) {
+  .green-hero {
+    padding: 1rem;
+    h1 { font-size: 1.5rem; }
+  }
+}
 a,
 a:focus,
 a:hover,
@@ -108,53 +131,183 @@ p {
   clear: both;
 }
 
-.plant-list-item {
-  text-align: center;
+.trade-container {
+  display: flex;
 
-  &:hover {
-    background-color: transparent;
+  &-plants {
+    width: 60%;
+    text-align: center;
+
+    .plant-card.c-card {
+      width: 30%;
+      margin: .25rem;
+    }
   }
 
-  &-common-name,
-  &-scientific-name {
+  &-trades {
     text-align: center;
   }
 
-  &-common-name {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: #000;
+  &-trades-area {
+    border-style: dotted;
+    border-color: #c9c9c9;
+    background-color: rgb(233, 233, 233);
+    border-radius: 5px;
+    min-height: 260px;
+    display: flex;
+    max-width: 600px;
+    text-align: center;
+    margin-bottom: 2rem;
+
+    .plant-card.c-card {
+      width: 40%;
+      margin: .25rem;
+      opacity: .6;
+    }
   }
 }
 
-.plant-list-item--plant-name {
-  margin: 0 10px 5px;
+@media only screen and (max-width: 1100px) {
+  .trade-container {
+  
+    &-plants {
+      width: 60%;
+  
+      .plant-card.c-card {
+        width: 40%;
+        margin: .25rem;
+      }
+    }
+  }
 }
 
-.plant-list-item-image {
-  max-width: 100%;
-  max-height: 100%;
-  clip-path: circle(80px at center);
+.plant-grid {
+  max-width: 1600px;
+  margin: 0 auto;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  justify-content: center;
 }
+
+.plant-card {
+  transition: all 0.1s ease-in-out;
+  width: 18%;
+  text-align: center;
+
+  &:hover {
+    @include elevation(3);
+    transform: scale(1.01);
+  }
+
+  &.c-card { margin: 1rem; }
+
+  &-circle {
+    width: 80px;
+    height: 80px;
+    margin: 10px;
+    display: inline-block;
+    overflow: hidden;
+    background: #f3f6f9;
+    border-radius: 50%;
+  }
+
+  &-image {
+    // width: 100%;
+    // object-position: center;
+    width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+
+.plant-card-large {
+  display: flex;
+  width: 75%;
+  margin: 0 auto;
+  justify-content: center;
+
+  &-image {
+    position: relative;
+    min-width: 600px;
+    height: 100%;
+    display: inline-block;
+    overflow: hidden;
+    line-height: 0;
+
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  &-info {
+    display: inline-block;
+  }
+
+  &.c-card { margin: 0 auto; }
+}
+
+@media only screen and (max-width: 1100px) {
+  .plant-card {
+      width: 40%;
+  }
+
+  .plant-card-large {
+    flex-direction: column;
+
+    &-image {
+      width: 100%;
+      height: 350px;
+      text-align: center;
+      position: relative;
+
+      img {
+        height: auto;
+        position: absolute;
+        left: 0;
+        bottom: -50%;
+      }
+    }
+  }
+}
+// .plant-list-item {
+//   text-align: center;
+//   overflow: hidden;
+
+//   &:hover {
+//     background-color: transparent;
+//   }
+
+//   &-common-name,
+//   &-scientific-name {
+//     text-align: center;
+//   }
+
+//   &-common-name {
+//     font-size: 1.25rem;
+//     font-weight: 700;
+//     color: #000;
+//   }
+// }
+
+// .plant-list-item-image {
+//   max-width: 100%;
+//   max-height: 100%;
+//   clip-path: circle(80px at center);
+// }
 
 .plant-shelf-container {
-  float: left;
-  width: 35%;
+  // width: 30%;
+  // display: inline-block;
+  // display: flex;
 }
 
 .trade-section-container {
-  float: left;
-  width: 25%;
-  margin: 0 20px 0 20px;
-}
-
-.trade-section {
-  border-style: dotted;
-  border-color: #c6b8aa;
-  background-color: rgba(230, 216, 203, 0.3);
-  border-radius: 5px;
-  min-height: 260px;
-  text-align: center;
+  // width: 30%;
+  // display: inline-block;
+  // display: flex;
 }
 
 .c-navigation__title {
@@ -175,4 +328,28 @@ p {
 .login-form-wrapper {
   max-width: 600px;
   margin: 0 auto;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  margin: 10px;
+  display: inline-block;
+  overflow: hidden;
+  background: #f3f6f9;
+  border-radius: 50%;
+}
+.avatar-image {
+  width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.user-note {
+  border-top: solid 1px #efefef;
+  padding-top: 2.5rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }

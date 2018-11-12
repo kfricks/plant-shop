@@ -133,49 +133,52 @@ class Trade extends React.Component {
   render() {
     return (
       <div>
+        <div className="green-hero">
+          <h2 className="">
+            Your trade with {this.props.user_b_name}
+          </h2>
+          <div>
+            {/* <button className="c-button c-button--focal">
+              Propose Trade
+            </button> */}
+          </div>
+        </div>
         <DragDropContext onDragEnd={this.onDragEnd}>
-          <div className="headline-with-button">
-            <h1 className="u--float-left">
-              Your trade with {this.props.user_b_name}
-            </h1>
-            <div>
-              <button className="c-button c-button--focal u--float-right">
+          <div className="trade-container">
+            <section className="trade-container-plants">
+              <h2 className="c-title">Your plant shelf</h2>
+              {/* <div className="plant-grid"> */}
+                <PlantList plants={this.state.user_a_plants} id="user_a_plants" />
+              {/* </div> */}
+            </section>
+
+            <section className="trade-container-trades">
+              <h2 className="c-title">Plants I Want</h2>
+              <TradeItems
+                plants={this.state.user_b_trade_plants}
+                id="user_b_trade_plants"
+              />
+              <button
+                className="c-button c-button--focal c-button--full-width u-margin-bottom"
+                onClick={this.proposeTrade}
+              >
                 Propose Trade
               </button>
-            </div>
+              <h2 className="c-title">Plants to Give</h2>
+              <TradeItems
+                plants={this.state.user_a_trade_plants}
+                id="user_a_trade_plants"
+              />
+            </section>
+
+            <section className="trade-container-plants">
+              <h2 className="c-title">
+                {this.props.user_b_name}
+                's Plant Shelf
+              </h2>
+              <PlantList plants={this.state.user_b_plants} id="user_b_plants" />
+            </section>
           </div>
-          <section className="plant-shelf-container">
-            <h2>Your plant shelf</h2>
-            <PlantList plants={this.state.user_a_plants} id="user_a_plants" />
-          </section>
-
-          <section className="trade-section-container">
-            <h2>Plants I'm trading</h2>
-            <TradeItems
-              plants={this.state.user_a_trade_plants}
-              id="user_a_trade_plants"
-            />
-            <h2>Plants I want</h2>
-            <TradeItems
-              plants={this.state.user_b_trade_plants}
-              id="user_b_trade_plants"
-            />
-            <br />
-            <button
-              className="c-button c-button--focal c-button--full-width"
-              onClick={this.proposeTrade}
-            >
-              Propose Trade
-            </button>
-          </section>
-
-          <section className="plant-shelf-container">
-            <h2>
-              {this.props.user_b_name}
-              's Plant Shelf
-            </h2>
-            <PlantList plants={this.state.user_b_plants} id="user_b_plants" />
-          </section>
         </DragDropContext>
       </div>
     );
