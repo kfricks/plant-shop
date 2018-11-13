@@ -6,7 +6,7 @@
       <h3>Plants you're getting</h3>
         <%# if plant.user_id == current_user.id %>
             <div class="plant-list-item--plant-name">
-              <%# plant.plant_type.common_name %> <br />
+              <<%# plant.plant_type.common_name %> <br />
             </div>
         <%# end %>
       <div>User: <%# plant.user_id %></div>
@@ -26,7 +26,7 @@
       <h3>Plants I'm getting</h3>
       <%# not sure if below should be current_user or just user %>
       <% trade.plants_being_received(current_user).each do |plant| %>
-        <%= plant.plant_type.common_name %>
+        <div><%= plant.plant_type.common_name %></div>
       <% end %>
 
       <h3>Plants I'm giving</h3>

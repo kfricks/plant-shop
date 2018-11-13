@@ -43,15 +43,12 @@ class Trade extends React.Component {
   approveTrade() {
 
     let payload = {
-      trade_ids: [
-        ...this.state.user_a_trade_plants.map(plant => plant.id),
-        ...this.state.user_b_trade_plants.map(plant => plant.id)
-      ]
+      approved: true
     };
 
     $.ajax({
-      type: "POST",
-      url: `/trades/${this.props.trade_id}`,
+      type: "PUT",
+      url: `/trades/${this.props.trade_id}/update`,
       data: { _method: "PUT", ...payload },
       dataType: "json",
       complete: function(data) {
@@ -62,17 +59,17 @@ class Trade extends React.Component {
 
   button() {
     if (this.props.proposer) {
-      <button
+      return(<button
         className="c-button c-button--focal c-button--full-width u-margin-bottom"
         onClick={this.proposeTrade}>
         Propose Trade
-      </button>
+      </button>)
     } else {
-      <button
+      return(<button
         className="c-button c-button--focal c-button--full-width u-margin-bottom"
         onClick={this.approveTrade}>
         Approve Trade
-      </button>
+      </button>)
     };
   }
 
