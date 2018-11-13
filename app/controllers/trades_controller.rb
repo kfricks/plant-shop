@@ -52,7 +52,7 @@ class TradesController < ApplicationController
 
   def index
     @trades = Trade.where(user_a: current_user)
-    # @proposed_trades = Trade.where(user_b: current_user)
+    @proposed_trades = Trade.where(user_b: current_user)
     # @trade.user_b = User.find(params[:user_id])
     # @trade = Trade.find(params[:id])
     # @current_user_plants = format_plants(current_user.plants - @trade.plants.where(user: @trade.user_a))
@@ -60,6 +60,14 @@ class TradesController < ApplicationController
     # @user_b_plants = format_plants(@trades.user_b.plants - @trade.plants.where(user: @trade.user_b))
     # @user_a_trade_plants = format_plants(@trades.plants.where(user: @trade.user_a))
     # @user_b_trade_plants = format_plants(@trades.plants.where(user: @trade.user_b))
+  end
+
+  def plants_being_given(user)
+    plants.where(user_a: current_user)
+  end
+
+  def plants_being_received(user)
+    plants.where.not(user_a: current_user)
   end
 
   # def trade_template

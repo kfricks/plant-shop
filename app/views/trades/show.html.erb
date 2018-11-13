@@ -1,16 +1,56 @@
 
-<h1>Your trade with <%= @trade.user_b.first_name %>.</h1>
-<h2>Status: Pending</h2>
 
-<h2>Plants I'm getting</h2>
-<% @user_b_trade_plants.each do |plant| %>
-  <li>Plant: <%= plant.plant_type.common_name %></li> 
-<% end %>
+<div class="green-hero">
+  <h1>Your trade with <%= @trade.user_b.first_name %>.</h1>
+  <h2 class="status-chip">PENDING</h2>
+</div>
+<div class="trade-container">
+  <div class="trade-container-plants">
+    <div class="c-section">
+      <h2>Plants I'm getting</h2>
+      <div class="plant-grid">
+        <% @user_b_trade_plants.each do |plant| %>
+          <div class="c-card plant-card">
+            <a href="<%= plant_path(plant) %>">
+              <%= image_tag plant.image, class: "plant-card-image" %>
+              <div class="c-section c-section--flush plant-card-title">
+                <h2 class="c-title u-padding-top-small u-margin-bottom-tiny">
+                  <%= plant.plant_type.common_name %>
+                </h2>
+                <h5 class="c-title c-title--label u-margin-bottom-small u-margin-top-none">
+                  <%= plant.plant_type.scientific_name %>
+                </h5>
+              </div>
+            </a>
+          </div> 
+        <% end %>
+      </div>
+    </div>
+  </div>
 
-<h2>Plants I'm giving</h2>
-<% @user_a_trade_plants.each do |plant| %>
-  <li>Plant: <%= plant.plant_type.common_name %></li> 
-<% end %>
+  <div class="trade-container-plants">
+    <div class="c-section">
+      <h2>Plants I'm giving</h2>
+      <div class="plant-grid">
+        <% @user_a_trade_plants.each do |plant| %>
+          <div class="c-card plant-card">
+            <a href="<%= plant_path(plant) %>">
+              <%= image_tag plant.image, class: "plant-card-image" %>
+              <div class="c-section c-section--flush plant-card-title">
+                <h2 class="c-title u-padding-top-small u-margin-bottom-tiny">
+                  <%= plant.plant_type.common_name %>
+                </h2>
+                <h5 class="c-title c-title--label u-margin-bottom-small u-margin-top-none">
+                  <%= plant.plant_type.scientific_name %>
+                </h5>
+              </div>
+            </a>
+          </div> 
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
