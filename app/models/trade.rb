@@ -4,4 +4,13 @@ class Trade < ApplicationRecord
 
   has_many :trade_components
   has_many :plants, through: :trade_components
+
+  def plants_being_given(user)
+    plants.where(user: user)
+  end
+
+  def plants_being_received(user)
+    plants.where.not(user: user)
+  end
+
 end

@@ -11,20 +11,16 @@ class Trade extends React.Component {
       user_a_plants: props.user_a_plants,
       user_b_plants: props.user_b_plants,
       user_a_trade_plants: props.user_a_trade_plants,
-      user_b_trade_plants: props.user_b_trade_plants
+      user_b_trade_plants: props.user_b_trade_plants,
+      proposer: props.proposer
     };
 
     this.onDragEnd = this.onDragEnd.bind(this);
     this.proposeTrade = this.proposeTrade.bind(this);
+    this.approveTrade = this.approveTrade.bind(this);
   }
 
   proposeTrade() {
-    // let payload = {
-    //   new_user_a_trade_plants: this.state.user_a_trade_plants,
-    //   new_user_b_trade_plants: this.state.user_b_trade_plants,
-    //   new_user_a_plants: this.state.user_a_plants,
-    //   new_user_b_plants: this.state.user_b_plants
-    // };
 
     let payload = {
       trade_ids: [
@@ -32,20 +28,49 @@ class Trade extends React.Component {
         ...this.state.user_b_trade_plants.map(plant => plant.id)
       ]
     };
-    console.log(this.state.user_a_trade_plants, this.state.user_b_trade_plants);
-    // $.post("trades/update", payload, response => {
-    //   console.log(response);
-    // });
 
     $.ajax({
       type: "POST",
       url: `/trades/${this.props.trade_id}`,
       data: { _method: "PUT", ...payload },
       dataType: "json",
-      success: function(msg) {
-        // message that user_b has been notified
+      complete: function(data) {
+        window.location = window.location.toString().replace('/edit','')
       }
     });
+  }
+
+  approveTrade() {
+
+    let payload = {
+      status: "approved"
+    };
+
+    $.ajax({
+      type: "PUT",
+      url: `/trades/${this.props.trade_id}`,
+      data: { _method: "PUT", ...payload },
+      dataType: "json",
+      complete: function(data) {
+        window.location = window.location.toString().replace('/edit','')
+      }
+    });
+  }
+
+  button() {
+    if (this.props.proposer) {
+      return(<button
+        className="c-button c-button--focal c-button--full-width u-margin-bottom-small"
+        onClick={this.proposeTrade}>
+        Propose Trade
+      </button>)
+    } else {
+      return(<button
+        className="c-button c-button--focal c-button--full-width u-margin-bottom-small"
+        onClick={this.approveTrade}>
+        Approve Trade
+      </button>)
+    };
   }
 
   move(source, destination, droppableSource, droppableDestination) {
@@ -101,22 +126,22 @@ class Trade extends React.Component {
           (plant, index) => index !== source.index
         )
       });
-      // alert if user_a drags their own plant into user_b's trade zone
-    } else if (
-      droppableSource.droppableId === "user_a_plants" &&
-      droppableDestination.droppableId == "user_b_trade_plants"
-    ) {
-      window.alert(
-        "Wrong trade zone! The plants you want to give should go in the bottom section."
-      );
-      // alert if user_b drags their own plant into user_a's trade zone
-    } else if (
-      droppableSource.droppableId === "user_b_plants" &&
-      droppableDestination.droppableId == "user_a_trade_plants"
-    ) {
-      window.alert(
-        "Wrong trade zone! The plants you want to receive should go in the top section."
-      );
+    //   // alert if user_a drags their own plant into user_b's trade zone
+    // } else if (
+    //   droppableSource.droppableId === "user_a_plants" &&
+    //   droppableDestination.droppableId == "user_b_trade_plants"
+    // ) {
+    //   window.alert(
+    //     "Wrong trade zone! The plants you want to give should go in the bottom section."
+    //   );
+    //   // alert if user_b drags their own plant into user_a's trade zone
+    // } else if (
+    //   droppableSource.droppableId === "user_b_plants" &&
+    //   droppableDestination.droppableId == "user_a_trade_plants"
+    // ) {
+    //   window.alert(
+    //     "Wrong trade zone! The plants you want to receive should go in the top section."
+    //   );
     }
   }
 
@@ -155,12 +180,9 @@ class Trade extends React.Component {
                 plants={this.state.user_b_trade_plants}
                 id="user_b_trade_plants"
               />
-              <button
-                className="c-button c-button--focal c-button--full-width u-margin-bottom"
-                onClick={this.proposeTrade}
-              >
-                Propose Trade
-              </button>
+
+              {this.button()}
+
               <h2 className="c-title">Plants I'll Give</h2>
               <TradeItems
                 plants={this.state.user_a_trade_plants}

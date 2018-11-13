@@ -30,24 +30,36 @@ class TradesController < ApplicationController
   def update
     @trade = Trade.find(params[:id])
     @trade.plants = Plant.where(id: params[:trade_ids])
-
-    # @trade.update(trade_params)
-    if @trade.save
-      flash.now[:success] = "Your trade has been saved."
-      redirect_to trade_path(@trade)
-      # send mailer
+    # if trade status is updated, do what?
+    if params[:status] == "approved"
+      @trade.status = "approved"
+      @trade.save!
+      # figure out what to do with plants -- put them in each user's plant list
+      render status: 200
     else
-      render :edit
+      render status: 200
     end
+
   end
 
   def edit
     @trade = Trade.find(params[:id])
+    if current_user == @trade.user_b 
+      @proposer = true
+    else
+      @proposer = false
+    end
     @current_user_plants = format_plants(current_user.plants - @trade.plants.where(user: @trade.user_a))
     @user_b_plants = format_plants(@trade.user_b.plants - @trade.plants.where(user: @trade.user_b))
-
     @user_a_trade_plants = format_plants(@trade.plants.where(user: @trade.user_a))
     @user_b_trade_plants = format_plants(@trade.plants.where(user: @trade.user_b))
+  end
+
+  def approve
+    @trade = Trade.find(params[:id])
+    @trade.status = 'approved'
+    @trade.save!
+    redirect_to trade_path(@trade) 
   end
 
   def destroy
@@ -55,10 +67,15 @@ class TradesController < ApplicationController
   end
 
   def index
-    @trades = Trade.where(user_a_id: current_user.id)
-
+    @trades = Trade.where(user_a: current_user)
+    # @proposed_trades = Trade.where(user_b: current_user)
     # @trade.user_b = User.find(params[:user_id])
-  #  @trade = Trade.find(params[:id])
+    # @trade = Trade.find(params[:id])
+    # @current_user_plants = format_plants(current_user.plants - @trade.plants.where(user: @trade.user_a))
+    
+    # @user_b_plants = format_plants(@trades.user_b.plants - @trade.plants.where(user: @trade.user_b))
+    # @user_a_trade_plants = format_plants(@trades.plants.where(user: @trade.user_a))
+    # @user_b_trade_plants = format_plants(@trades.plants.where(user: @trade.user_b))
   end
 
   # def trade_template
@@ -71,6 +88,10 @@ class TradesController < ApplicationController
 
   def show
     @trade = Trade.find(params[:id])
+    @current_user_plants = current_user.plants - @trade.plants.where(user: @trade.user_a)
+    @user_b_plants = @trade.user_b.plants - @trade.plants.where(user: @trade.user_b)
+    @user_a_trade_plants = @trade.plants.where(user: @trade.user_a)
+    @user_b_trade_plants = @trade.plants.where(user: @trade.user_b)
   end
 
 private
