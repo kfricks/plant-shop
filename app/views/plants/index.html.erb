@@ -1,6 +1,12 @@
 <div class="green-hero">
-  <h1>My Plants</h1>
+  <% if @user && @user == current_user %>
+    <h1>My Plants</h1>
     <%= link_to("Add a Plant to Your Sunroom", new_plant_path, class: "c-button c-button--focal") %>
+  <% elsif @user %>
+    <h1><%= @user.first_name %>'s Plants</h1>
+  <% else %>
+    <h1>All Plants</h1>
+  <% end %>
 </div>
 <div class="c-section">
   <div class="plant-grid">
