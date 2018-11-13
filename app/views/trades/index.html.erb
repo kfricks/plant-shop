@@ -16,6 +16,7 @@
 
 <hr />
 
+
 <h1>My Trades</h1>
 <% @trades.each do |trade| %>
   <div>
@@ -24,17 +25,25 @@
      
       <h3>Plants I'm getting</h3>
       <%# not sure if below should be current_user or just user %>
-      <% plants_being_received(current_user).each do |plant| %>
+      <% trade.plants_being_received(current_user).each do |plant| %>
         <%= plant.plant_type.common_name %>
       <% end %>
 
       <h3>Plants I'm giving</h3>
-      <% plants_being_given(current_user).each do |plant| %>
+      <% trade.plants_being_given(current_user).each do |plant| %>
         <%= plant.plant_type.common_name %>
       <% end %>
 
   </div>
 <% end %>
+
+
+
+
+
+
+
+
 
 
 
