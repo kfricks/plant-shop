@@ -43,12 +43,12 @@ class Trade extends React.Component {
   approveTrade() {
 
     let payload = {
-      approved: true
+      status: "approved"
     };
 
     $.ajax({
       type: "PUT",
-      url: `/trades/${this.props.trade_id}/update`,
+      url: `/trades/${this.props.trade_id}`,
       data: { _method: "PUT", ...payload },
       dataType: "json",
       complete: function(data) {
@@ -60,13 +60,13 @@ class Trade extends React.Component {
   button() {
     if (this.props.proposer) {
       return(<button
-        className="c-button c-button--focal c-button--full-width u-margin-bottom"
+        className="c-button c-button--focal c-button--full-width u-margin-bottom-small"
         onClick={this.proposeTrade}>
         Propose Trade
       </button>)
     } else {
       return(<button
-        className="c-button c-button--focal c-button--full-width u-margin-bottom"
+        className="c-button c-button--focal c-button--full-width u-margin-bottom-small"
         onClick={this.approveTrade}>
         Approve Trade
       </button>)

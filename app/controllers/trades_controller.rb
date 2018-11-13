@@ -30,7 +30,16 @@ class TradesController < ApplicationController
   def update
     @trade = Trade.find(params[:id])
     @trade.plants = Plant.where(id: params[:trade_ids])
-    render status: 200
+    # if trade status is updated, do what?
+    if params[:status] == "approved"
+      @trade.status = "approved"
+      @trade.save!
+      # figure out what to do with plants -- put them in each user's plant list
+      render status: 200
+    else
+      render status: 200
+    end
+
   end
 
   def edit
