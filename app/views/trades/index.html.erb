@@ -1,27 +1,8 @@
-<h1>Proposed Trades</h1>
-<%# @proposed_trades.each do |trade| %>
-  <div>
-    <h2>Trade with <%# trade.user_a.first_name %>, <%# trade.created_at %></h2>
-    <%# trade.plants.each do |plant| %>
-      <h3>Plants you're getting</h3>
-        <%# if plant.user_id == current_user.id %>
-            <div class="plant-list-item--plant-name">
-              <<%# plant.plant_type.common_name %> <br />
-            </div>
-        <%# end %>
-      <div>User: <%# plant.user_id %></div>
-    <%# end %>
-  </div>
-<%# end %>
-
-<hr />
-
-
 <h1>My Trades</h1>
 <% @trades.each do |trade| %>
   <div>
 
-    <h2>Trade with <%= trade.user_a.first_name %>, <%= trade.created_at %></h2>
+    <h2>Trade with <%= trade.user_a.first_name %>, <%= trade.created_at %>, ID: <%= trade.id %></h2>
      
       <h3>Plants I'm getting</h3>
       <%# not sure if below should be current_user or just user %>
@@ -37,6 +18,26 @@
   </div>
 <% end %>
 
+
+<hr>
+
+<h1>Proposed Trades</h1>
+<%# @proposed_trades.each do |trade| %>
+  <div>
+    <h2>Trade with <%# trade.user_a.first_name %>, <%# trade.created_at %></h2>
+    <%# trade.plants.each do |plant| %>
+      <h3>Plants you're getting</h3>
+        <%# if plant.user_id == current_user.id %>
+            <div class="plant-list-item--plant-name">
+              <<%# plant.plant_type.common_name %> <br />
+            </div>
+        <%# end %>
+      <div>User: <%# plant.user_id %></div>
+    <%# end %>
+  </div>
+end
+
+<hr />
 
 
 
