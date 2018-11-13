@@ -55,6 +55,13 @@ class TradesController < ApplicationController
     @user_b_trade_plants = format_plants(@trade.plants.where(user: @trade.user_b))
   end
 
+  def approve
+    @trade = Trade.find(params[:id])
+    @trade.status = 'approved'
+    @trade.save!
+    redirect_to trade_path(@trade) 
+  end
+
   def destroy
     # acts_as_paranoid gem prevents trade from being fully destroyed
   end
