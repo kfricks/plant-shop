@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_02_171823) do
+ActiveRecord::Schema.define(version: 2018_11_13_173905) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,9 +70,11 @@ ActiveRecord::Schema.define(version: 2018_11_02_171823) do
     t.integer "user_b_id"
     t.string "shipping_label_user_a"
     t.string "shipping_label_user_b"
-    t.string "status"
+    t.string "status", default: "pending"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "approved_by_user_a", default: false, null: false
+    t.boolean "approved_by_user_b", default: false, null: false
   end
 
   create_table "users", force: :cascade do |t|
