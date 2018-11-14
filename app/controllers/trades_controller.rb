@@ -34,7 +34,7 @@ class TradesController < ApplicationController
     if params[:status] == "approved"
       @trade.status = "approved"
       @trade.save!
-      # figure out what to do with plants -- put them in each user's plant list
+      # figure out what to do with plants -- put them in each user's plant list      
       render status: 200
     else
       render status: 200
