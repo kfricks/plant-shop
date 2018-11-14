@@ -52,18 +52,18 @@
 
         </div>
         <div class="avatar-medium">
-            <%# link_to image_tag @plant.user.avatar, class: "avatar-medium-image", user_path(@plant.user) %>
-            <%= link_to user_path(@plant.user) do %>
-            <%= image_tag @plant.user.avatar, class: "avatar-medium-image" %>
-            <% end %>
+          <%# link_to image_tag @plant.user.avatar, class: "avatar-medium-image", user_path(@plant.user) %>
+          <%= link_to user_path(@plant.user) do %>
+          <%= image_tag @plant.user.avatar, class: "avatar-medium-image" %>
+          <% end %>
         </div>
         <div class="u-margin-bottom">
           <%= @plant.description %>
         </div>
+        <% if @plant.user != current_user %>
+          <%= link_to "Propose a trade for this plant", create_trade_by_owner_path(user_id: @plant.user.id, plant_id: @plant.id), class: 'c-button c-button--focal' %>
+        <% end %>
       </div>
-    <% if @plant.user != current_user %>
-      <%= link_to "Propose a trade for this plant", create_trade_by_owner_path(user_id: @plant.user.id, plant_id: @plant.id), class: 'c-button c-button--focal c-button--full-width' %>
-    <% end %>
 
   </div>
 </div>

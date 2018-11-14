@@ -202,6 +202,8 @@ p {
   display: flex;
   -webkit-flex-flow: row wrap;
   justify-content: center;
+  min-height: 100px;
+  min-width: 50px;
 }
 
 .plant-card {
@@ -228,9 +230,9 @@ p {
 
   &-image {
     width: 100%;
-    min-height: 100%;
-    object-fit: cover;
-    object-position: center;
+    // min-height: 100%;
+    // object-fit: cover;
+    // object-position: center;
   }
 }
 
@@ -447,8 +449,58 @@ p {
 }
 
 .global-header {
+  position: relative;
   // background-color: white;
   padding: 1.5rem;
   // box-shadow: 0 1px 1px 1px rgba(39, 39, 39, 0.03);
   // border: 1px solid rgba(39, 39, 39, 0.08);
+}
+
+.typeahead {
+  input {
+    @include font(15px);
+    background-color: $c-white;
+    border: none;
+    width: 100%;
+    outline: none;
+    resize: vertical;
+    color: $c-grey-dark;
+    box-shadow: inset 0 0 0px 9999px white;
+
+    &::placeholder {
+      @include font(15px);
+      color: rgba($c-grey-medium, 0.6);
+    }
+  } 
+}
+
+a.typeahead-option {
+  font-size: 1.25rem;
+}
+
+.typeahead-selector {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.notice {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
+  color: $c-primary;
+  font-weight: 700;
+  text-align: center;
+  -webkit-animation: cssAnimation 2s forwards; 
+  animation: cssAnimation 2s forwards;
+}
+@keyframes cssAnimation {
+  0%   {opacity: 1;}
+  90%  {opacity: 1;}
+  100% {opacity: 0;}
+}
+@-webkit-keyframes cssAnimation {
+  0%   {opacity: 1;}
+  90%  {opacity: 1;}
+  100% {opacity: 0;}
 }

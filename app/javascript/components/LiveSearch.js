@@ -39,6 +39,7 @@ class LiveSearch extends React.Component {
           displayOption={"common_name"}
           onOptionSelected={this.handleSelection}
           maxVisible={10}
+          placeholder={"Search for Plant"}
         />
       </React.Fragment>
     );

@@ -157,7 +157,6 @@ class Trade extends React.Component {
 
   onDragEnd(result) {
     const { source, destination } = result;
-    console.log("dragging!");
     
     if (!destination) {
       return;
@@ -204,7 +203,7 @@ class Trade extends React.Component {
             </section>
 
             <section className="trade-container-plants">
-              <h2 className="c-title">Your plant shelf</h2>
+              <h2 className="c-title">Your Plant Shelf</h2>
                 <PlantList plants={this.state.user_a_plants} id="user_a_plants" />
             </section>
           </div>
