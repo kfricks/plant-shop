@@ -146,6 +146,7 @@ p {
 
   &-trades {
     text-align: center;
+    padding: 0 1.5rem;
   }
 
   &-trades-area {
@@ -158,6 +159,20 @@ p {
     max-width: 600px;
     text-align: center;
     margin-bottom: 2rem;
+    position: relative;
+
+    // &:nth-child(1) {
+    //   // .trade-container-trades-area {
+    //     &::before {
+    //       content: "➧";
+    //       position: absolute;
+    //       left: -2.5rem;
+    //       top: 35%;
+    //       font-size: 48px;
+    //       color: #ccc;
+    //     }
+    //   // }
+    // }
 
     .plant-card.c-card {
       width: 40%;

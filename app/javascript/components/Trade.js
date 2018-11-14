@@ -189,7 +189,7 @@ class Trade extends React.Component {
 
             <section className="trade-container-trades">
               <h2 className="c-title">Plants I Want</h2>
-              <TradeItems
+              <TradeItems className="arrow"
                 plants={this.state.user_b_trade_plants}
                 id="user_b_trade_plants"
               />
