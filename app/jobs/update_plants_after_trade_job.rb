@@ -1,5 +1,4 @@
 class UpdatePlantsAfterTradeJob < ApplicationJob
-  # moves plants from one user to the other
   
   queue_as :default
 
