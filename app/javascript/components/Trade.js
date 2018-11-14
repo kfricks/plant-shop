@@ -174,7 +174,7 @@ class Trade extends React.Component {
         <div className="green-hero">
           <h2 className="u-margin-none">
             {/* Now Trading with {this.props.user_b_name}. */}
-            Now Trading with {this.props.other_trader}.
+            Now Trading with {this.props.other_trader.first_name}.
           </h2>
           <h4 className="u-margin-none">Get started by dragging plants you want from {this.props.user_b_name} into the "Plants I Want" section.</h4>
         </div>

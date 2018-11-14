@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users 
+  # {
+  #   sessions: 'users/sessions' // but this would need to be registration
+  # }
   get 'plant_types/index'
   get 'plant_types/show'
   get 'plant_types/search'
