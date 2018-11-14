@@ -42,10 +42,23 @@
       </div>
       <div class="user-note">
         <div class="c-title--label">
-          Note from <%= @plant.user.first_name %>:
+          Note from
+           <% if @plant.user == current_user %>
+            You:
+          <% else %>
+            <%= @plant.user.first_name %>:
+          <% end %>
+
+
         </div>
         <div class="avatar-medium">
-          <%= image_tag @plant.user.avatar, class: "avatar-medium-image" %>
+            <%# link_to image_tag @plant.user.avatar, class: "avatar-medium-image", user_path(@plant.user) %>
+            <%= link_to user_path(@plant.user) do %>
+            <%= image_tag @plant.user.avatar, class: "avatar-medium-image" %>
+            <% end %>
+
+        
+        
         </div>
         <div class="u-margin-bottom">
           <%= @plant.description %>
