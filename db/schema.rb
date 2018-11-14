@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_13_173905) do
+ActiveRecord::Schema.define(version: 2018_11_14_192933) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 2018_11_13_173905) do
     t.string "growth_rate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["scientific_name", "common_name"], name: "index_plant_types_on_scientific_name_and_common_name"
   end
 
   create_table "plants", force: :cascade do |t|
@@ -56,6 +57,7 @@ ActiveRecord::Schema.define(version: 2018_11_13_173905) do
     t.string "description"
     t.datetime "deleted_at"
     t.index ["deleted_at"], name: "index_plants_on_deleted_at"
+    t.index ["user_id", "plant_type_id", "description"], name: "index_plants_on_user_id_and_plant_type_id_and_description"
   end
 
   create_table "trade_components", force: :cascade do |t|
@@ -63,6 +65,7 @@ ActiveRecord::Schema.define(version: 2018_11_13_173905) do
     t.integer "plant_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["trade_id", "plant_id"], name: "index_trade_components_on_trade_id_and_plant_id"
   end
 
   create_table "trades", force: :cascade do |t|
@@ -75,6 +78,7 @@ ActiveRecord::Schema.define(version: 2018_11_13_173905) do
     t.datetime "updated_at", null: false
     t.boolean "approved_by_user_a", default: false, null: false
     t.boolean "approved_by_user_b", default: false, null: false
+    t.index ["user_a_id", "user_b_id", "status"], name: "index_trades_on_user_a_id_and_user_b_id_and_status"
   end
 
   create_table "users", force: :cascade do |t|
@@ -97,6 +101,7 @@ ActiveRecord::Schema.define(version: 2018_11_13_173905) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["first_name", "bio", "city", "state", "locale"], name: "index_users_on_first_name_and_bio_and_city_and_state_and_locale"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
