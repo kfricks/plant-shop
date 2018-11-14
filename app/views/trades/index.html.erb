@@ -5,7 +5,6 @@
     <h2>Trade with <%= trade.user_a.first_name %>, <%= trade.created_at %>, ID: <%= trade.id %></h2>
      
       <h3>Plants I'm getting</h3>
-      <%# not sure if below should be current_user or just user %>
       <% trade.plants_being_received(current_user).each do |plant| %>
         <div><%= plant.plant_type.common_name %></div>
       <% end %>

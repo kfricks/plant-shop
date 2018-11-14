@@ -9,7 +9,12 @@ Rails.application.routes.draw do
 
   resources :plants
   get "trades/create_by_owner/:user_id/plants/:plant_id", to: "trades#create_by_owner", as: "create_trade_by_owner"
-  resources :trades
+
+  resources :trades do
+    member do
+      get "approve"
+    end
+  end
 
   resources :users, only: [:show]
 

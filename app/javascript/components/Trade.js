@@ -6,18 +6,40 @@ import TradeItems from "./TradeItems";
 class Trade extends React.Component {
   constructor(props) {
     super(props);
-
+    let shouldShowApproveButton = this.props.user_a_trade_plants.length > 0 && this.props.user_b_trade_plants.length > 0
     this.state = {
       user_a_plants: props.user_a_plants,
       user_b_plants: props.user_b_plants,
       user_a_trade_plants: props.user_a_trade_plants,
       user_b_trade_plants: props.user_b_trade_plants,
-      proposer: props.proposer
+      proposer: props.proposer,
+      show_propose_button: false,
+      show_approve_button: shouldShowApproveButton
     };
 
     this.onDragEnd = this.onDragEnd.bind(this);
     this.proposeTrade = this.proposeTrade.bind(this);
-    this.approveTrade = this.approveTrade.bind(this);
+    // this.approveTrade = this.approveTrade.bind(this);
+    this.tradeButtonsShouldRender = this.tradeButtonsShouldRender.bind(this);
+  }
+
+ tradeButtonsShouldRender() {
+    let plantTradePopulated = this.state.user_a_trade_plants.length > 0 && this.state.user_b_trade_plants.length > 0
+    let userATradePlantsChanged = this.state.user_a_trade_plants != this.props.user_a_trade_plants
+    let userBTradePlantsChanged = this.state.user_b_trade_plants != this.props.user_b_trade_plants
+    let plantTradeChanged = userATradePlantsChanged || userBTradePlantsChanged;
+
+    if (plantTradePopulated && plantTradeChanged) {
+      this.setState({ show_propose_button: true, show_approve_button: false });
+    } 
+    
+    if (!plantTradePopulated) {
+      this.setState({ show_propose_button: false, show_approve_button: false });
+    }
+
+    if (plantTradePopulated && !plantTradeChanged) {
+      this.setState({ show_propose_button: false, show_approve_button: true });
+    }
   }
 
   proposeTrade() {
@@ -40,36 +62,24 @@ class Trade extends React.Component {
     });
   }
 
-  approveTrade() {
-
-    let payload = {
-      status: "approved"
-    };
-
-    $.ajax({
-      type: "PUT",
-      url: `/trades/${this.props.trade_id}`,
-      data: { _method: "PUT", ...payload },
-      dataType: "json",
-      complete: function(data) {
-        window.location = window.location.toString().replace('/edit','')
-      }
-    });
-  }
-
   button() {
-    if (this.props.proposer) {
-      return(<button
-        className="c-button c-button--focal c-button--full-width u-margin-bottom-small"
-        onClick={this.proposeTrade}>
-        Propose Trade
-      </button>)
-    } else {
-      return(<button
-        className="c-button c-button--focal c-button--full-width u-margin-bottom-small"
-        onClick={this.approveTrade}>
-        Approve Trade
-      </button>)
+    if (this.state.show_propose_button === true) {
+      return(
+        <button
+          className="c-button c-button--focal c-button--full-width u-margin-bottom-small"
+          onClick={this.proposeTrade}
+          >
+          Propose Trade
+        </button>
+      )
+    } else if (this.state.show_approve_button === true) {
+      return(
+        <a href={`/trades/${this.props.trade_id}/approve`}
+          className="c-button c-button--focal c-button--full-width u-margin-bottom-small"
+          >
+          Approve Trade
+        </a>
+      )
     };
   }
 
@@ -148,11 +158,14 @@ class Trade extends React.Component {
   onDragEnd(result) {
     const { source, destination } = result;
     console.log("dragging!");
+    
     if (!destination) {
       return;
     } else {
       this.move(result.source, result.destination, source, destination);
     }
+
+    this.tradeButtonsShouldRender();
   }
 
   render() {
