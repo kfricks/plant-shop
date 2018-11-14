@@ -62,23 +62,6 @@ class Trade extends React.Component {
     });
   }
 
-  // approveTrade() {
-
-  //   let payload = {
-  //     status: "approved"
-  //   };
-
-  //   $.ajax({
-  //     type: "POST",
-  //     url: `/trades/${this.props.trade_id}`,
-  //     data: { _method: "GET", ...payload },
-  //     dataType: "json",
-  //     complete: function(data) {
-  //       window.location = window.location.toString().replace('/edit','/approve')
-  //     }
-  //   });
-  // }
-
   button() {
     if (this.state.show_propose_button === true) {
       return(
@@ -99,22 +82,6 @@ class Trade extends React.Component {
       )
     };
   }
-
-  // button() {
-  //   if (this.props.proposer) {
-  //     return(<button
-  //       className="c-button c-button--focal c-button--full-width u-margin-bottom-small"
-  //       onClick={this.proposeTrade}>
-  //       Propose Trade
-  //     </button>)
-  //   } else {
-  //     return(<button
-  //       className="c-button c-button--focal c-button--full-width u-margin-bottom-small"
-  //       onClick={this.approveTrade}>
-  //       Approve Trade
-  //     </button>)
-  //   };
-  // }
 
   move(source, destination, droppableSource, droppableDestination) {
     // drag from user_a plant list to user_a trade zone

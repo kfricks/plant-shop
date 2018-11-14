@@ -7,14 +7,10 @@ class PlantsController < ApplicationController
     else
       @plants = Plant.all
     end
-    #  @plants = Plant.all
-    # @plants = current_user.plants
-    # make somethingthat says if a user ID is in URL, show that user's plants. otherwise, show all plants.
   end
 
   def show
      @plant = Plant.find(params[:id])
-    # @plant = current_user.plants.find(params[:id])
   end
 
 #renders form (get new)
@@ -54,7 +50,6 @@ class PlantsController < ApplicationController
 private
 
   def plant_params
-    # params.require(:plant).permit(:scientific_name, :common_name, :family, :duration, :growth_habit, :growth_period, :growth_rate)
     params.require(:plant).permit(:plant_type_id, :description, :image)
   end
 
