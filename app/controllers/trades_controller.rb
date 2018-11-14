@@ -49,6 +49,11 @@ class TradesController < ApplicationController
     else
       @proposer = false
     end
+    if current_user == @trade.user_b.first_name
+      @other_trader = @trade.user_a.first_name
+    else 
+      @other_trader = @trade.user_b.first_name
+    end
     @current_user_plants = format_plants(current_user.plants - @trade.plants.where(user: @trade.user_a))
     @user_b_plants = format_plants(@trade.user_b.plants - @trade.plants.where(user: @trade.user_b))
     @user_a_trade_plants = format_plants(@trade.plants.where(user: @trade.user_a))

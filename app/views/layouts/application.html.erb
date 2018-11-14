@@ -40,7 +40,9 @@
           <% if current_user %>
             <div class="avatar c-navigation__item--push-right">
               <div class="avatar-small">
+                <% if current_user.avatar.attached? %>
                 <%= image_tag current_user.avatar, class: "avatar-small-image" %>
+                <% end %>
               </div>
               <%= current_user.first_name %>
               <div class="avatar-dropdown">
