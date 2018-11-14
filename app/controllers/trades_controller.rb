@@ -3,7 +3,6 @@ class TradesController < ApplicationController
   def new
     @trade = Trade.new
     @plants = Plant.where.not(user_id: current_user.id)
-    # need to update @plants above so that if no one is logged in, it shows all plants instead of giving an error
   end
 
   def create
@@ -31,12 +30,9 @@ class TradesController < ApplicationController
   def update
     @trade = Trade.find(params[:id])
     @trade.plants = Plant.where(id: params[:trade_ids])
-    # if trade status is updated, do what?
     if params[:status] == "approved"
       @trade.status = "approved"
       @trade.save!
-      # figure out what to do with plants -- put them in each user's plant list      
-      # trigger job tht moves plant from one person's collection to the other
       render status: 200
     else
       render status: 200
@@ -64,6 +60,7 @@ class TradesController < ApplicationController
     @trade = Trade.find(params[:id])
     @trade.status = 'approved'
     @trade.save!
+    UpdatePlantsAfterTradeJob.perform_now(@trade)
     redirect_to trade_path(@trade) 
   end
 
