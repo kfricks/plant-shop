@@ -42,11 +42,10 @@
       <%# </div> %>
       <div class="user-note">
         <div class="c-title--label">
-          Note from
            <% if @plant.user == current_user %>
-            You:
+            Your note:
           <% else %>
-            <%= @plant.user.first_name %>:
+            Note from <%= @plant.user.first_name %>:
           <% end %>
 
 

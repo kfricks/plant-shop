@@ -6,11 +6,8 @@
     <h2>Location: <%= @user.state %></h2>
     </div>
     <div class="c-section">
-        <div class="u-float-left">
-        <%= image_tag @user.avatar %>
-        </div>
         <div class="u-float-left u-margin-left">
-            <h3><%= @user.bio %></h3>
+            <h3>About <%= @user.first_name %>: <%= @user.bio %></h3>
             <% if current_user === @user %>
             <%= link_to "Edit Profile", edit_user_registration_path(@user), class: 'c-button c-button--focal' %>
             <% end %>

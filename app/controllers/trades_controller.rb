@@ -1,4 +1,5 @@
 class TradesController < ApplicationController
+  before_action :authenticate_user!
   def new
     @trade = Trade.new
     @plants = Plant.where.not(user_id: current_user.id)
