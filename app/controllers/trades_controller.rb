@@ -36,6 +36,7 @@ class TradesController < ApplicationController
       @trade.status = "approved"
       @trade.save!
       # figure out what to do with plants -- put them in each user's plant list      
+      # trigger job tht moves plant from one person's collection to the other
       render status: 200
     else
       render status: 200
@@ -47,14 +48,12 @@ class TradesController < ApplicationController
     @trade = Trade.find(params[:id])
     if current_user == @trade.user_b 
       @proposer = true
+      @other_trader = @trade.user_a
     else
       @proposer = false
+      @other_trader = @trade.user_b
     end
-    if current_user == @trade.user_b.first_name
-      @other_trader = @trade.user_a.first_name
-    else 
-      @other_trader = @trade.user_b.first_name
-    end
+
     @current_user_plants = format_plants(current_user.plants - @trade.plants.where(user: @trade.user_a))
     @user_b_plants = format_plants(@trade.user_b.plants - @trade.plants.where(user: @trade.user_b))
     @user_a_trade_plants = format_plants(@trade.plants.where(user: @trade.user_a))
