@@ -16,7 +16,8 @@
         <p class="alert"><%= alert %></p>
         <ul class="c-navigation">
           <li class="c-navigation__item">
-            <%= link_to("Sunroom", new_user_session_path, class: "c-navigation__title") %>
+            <%# link_to("🌿 Sunroom", new_user_session_path, class: "c-navigation__title u-margin-left") %>
+            <%= link_to("🌿 Sunroom", root_path, class: "c-navigation__title u-margin-left-small") %>
           </li>
           <%# <li class="c-navigation__item"> %>
             <%# link_to("All Plant Types", plant_types_index_path, class: "c-navigation__link #{active_class(plant_types_index_path)}")  %>
@@ -40,7 +41,9 @@
           <% if current_user %>
             <div class="avatar c-navigation__item--push-right">
               <div class="avatar-small">
+                <% if current_user.avatar.attached? %>
                 <%= image_tag current_user.avatar, class: "avatar-small-image" %>
+                <% end %>
               </div>
               <%= current_user.first_name %>
               <div class="avatar-dropdown">
@@ -48,10 +51,10 @@
                 <%= link_to("Sign Out", destroy_user_session_path, :method => 'delete', class: "c-navigation__link #{active_class(destroy_user_session_path)}") %>
                 </li>
                 <li class="c-navigation__item">
-                  <%= link_to("My Account", user_path(current_user), class: "c-navigation__link #{active_class(user_path(current_user))}") %>
+                  <%= link_to("My Profile", user_path(current_user), class: "c-navigation__link #{active_class(user_path(current_user))}") %>
                 </li>
                 <li class="c-navigation__item">
-                  <%= link_to("Edit My Account", edit_user_registration_path, class: "c-navigation__link #{active_class(edit_user_registration_path)}") %>
+                  <%= link_to("Edit My Profile", edit_user_registration_path, class: "c-navigation__link #{active_class(edit_user_registration_path)}") %>
                 </li>
               </div>
             </div>

@@ -31,29 +31,38 @@
           <%= @plant.plant_type.growth_habit %>
       </div>
 
-      <div class="c-attribute">
+      <div class="c-attribute u-margin-bottom">
         <div class="c-attribute__key">Growth Rate:</div>
           <%= @plant.plant_type.growth_rate %>
       </div>
 
-      <div class="c-attribute u-margin-bottom">
-        <div class="c-attribute__key">Added on:</div>
-          <%= @plant.created_at %>
-      </div>
+      <%# <div class="c-attribute u-margin-bottom"> %>
+        <%# <div class="c-attribute__key">Added on:</div> %>
+          <%# @plant.created_at %>
+      <%# </div> %>
       <div class="user-note">
         <div class="c-title--label">
-          Note from <%= @plant.user.first_name %>:
+           <% if @plant.user == current_user %>
+            Your note:
+          <% else %>
+            Note from <%= @plant.user.first_name %>:
+          <% end %>
+
+
         </div>
         <div class="avatar-medium">
+          <%# link_to image_tag @plant.user.avatar, class: "avatar-medium-image", user_path(@plant.user) %>
+          <%= link_to user_path(@plant.user) do %>
           <%= image_tag @plant.user.avatar, class: "avatar-medium-image" %>
+          <% end %>
         </div>
         <div class="u-margin-bottom">
           <%= @plant.description %>
         </div>
+        <% if @plant.user != current_user %>
+          <%= link_to "Propose a trade for this plant", create_trade_by_owner_path(user_id: @plant.user.id, plant_id: @plant.id), class: 'c-button c-button--focal' %>
+        <% end %>
       </div>
-    <% if @plant.user != current_user %>
-      <%= link_to "Propose a trade for this plant", create_trade_by_owner_path(user_id: @plant.user.id, plant_id: @plant.id), class: 'c-button c-button--focal c-button--full-width' %>
-    <% end %>
 
   </div>
 </div>

@@ -1,4 +1,5 @@
 class TradesController < ApplicationController
+  before_action :authenticate_user!
   def new
     @trade = Trade.new
     @plants = Plant.where.not(user_id: current_user.id)
@@ -34,7 +35,7 @@ class TradesController < ApplicationController
     if params[:status] == "approved"
       @trade.status = "approved"
       @trade.save!
-      # figure out what to do with plants -- put them in each user's plant list
+      # figure out what to do with plants -- put them in each user's plant list      
       render status: 200
     else
       render status: 200
@@ -48,6 +49,11 @@ class TradesController < ApplicationController
       @proposer = true
     else
       @proposer = false
+    end
+    if current_user == @trade.user_b.first_name
+      @other_trader = @trade.user_a.first_name
+    else 
+      @other_trader = @trade.user_b.first_name
     end
     @current_user_plants = format_plants(current_user.plants - @trade.plants.where(user: @trade.user_a))
     @user_b_plants = format_plants(@trade.user_b.plants - @trade.plants.where(user: @trade.user_b))
