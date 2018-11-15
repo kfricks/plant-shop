@@ -44,16 +44,18 @@ class TradesController < ApplicationController
     @trade = Trade.find(params[:id])
     if current_user == @trade.user_b 
       @proposer = true
+      @current_trader = @trade.user_b
       @other_trader = @trade.user_a
     else
       @proposer = false
+      @current_trader = @trade.user_a
       @other_trader = @trade.user_b
     end
 
-    @current_user_plants = format_plants(current_user.plants - @trade.plants.where(user: @trade.user_a))
-    @user_b_plants = format_plants(@trade.user_b.plants - @trade.plants.where(user: @trade.user_b))
-    @user_a_trade_plants = format_plants(@trade.plants.where(user: @trade.user_a))
-    @user_b_trade_plants = format_plants(@trade.plants.where(user: @trade.user_b))
+    @current_trader_plants = format_plants(@current_trader.plants - @trade.plants.where(user: @current_trader))
+    @other_trader_plants = format_plants(@other_trader.plants - @trade.plants.where(user: @other_trader))
+    @current_trader_trade_plants = format_plants(@trade.plants.where(user: @current_trader))
+    @other_trader_trade_plants = format_plants(@trade.plants.where(user: @other_trader))
   end
 
   def approve
