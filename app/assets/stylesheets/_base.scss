@@ -237,12 +237,12 @@ p {
   }
 }
 
-
 .plant-card-large {
   display: flex;
   width: 75%;
   margin: 0 auto;
   justify-content: center;
+  max-width: 1140px;
 
   &-image {
     position: relative;

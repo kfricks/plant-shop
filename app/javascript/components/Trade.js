@@ -137,22 +137,6 @@ class Trade extends React.Component {
           (plant, index) => index !== source.index
         )
       });
-    //   // alert if user_a drags their own plant into user_b's trade zone
-    // } else if (
-    //   droppableSource.droppableId === "user_a_plants" &&
-    //   droppableDestination.droppableId == "user_b_trade_plants"
-    // ) {
-    //   window.alert(
-    //     "Wrong trade zone! The plants you want to give should go in the bottom section."
-    //   );
-    //   // alert if user_b drags their own plant into user_a's trade zone
-    // } else if (
-    //   droppableSource.droppableId === "user_b_plants" &&
-    //   droppableDestination.droppableId == "user_a_trade_plants"
-    // ) {
-    //   window.alert(
-    //     "Wrong trade zone! The plants you want to receive should go in the top section."
-    //   );
     }
   }
 
