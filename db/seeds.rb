@@ -5,11 +5,11 @@ ActiveRecord::Base.transaction do
 
 user = User.create!(
   first_name: 'Ashton',
-  last_name: 'Smith',
+  last_name: 'Rooney',
   email: 'ashton@gmail.com',
   password: 'tester',
   locale: "Southeast",
-  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  bio: "Plants are a part of who I am. They center me.",
   street1: Faker::Address.street_address,
   street2: Faker::Address.secondary_address,
   city: Faker::Address.city,
@@ -24,31 +24,31 @@ user = User.create!(
   filename:"avatar-hairup.jpg"
 )
 
- user = User.create!(
+user = User.create!(
   first_name: 'Morgan',
   last_name: 'Jones',
   email: 'morgan@gmail.com',
   password: 'tester',
   locale: "Southeast",
-  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  street1: "1 N. Main St.",
-  street2: "Apt 1",
-  city: "Greenville",
-  state: "SC",
-  zip: "90210",
+  bio: "What is a weed? A Plant whose virtues have never been discovered. -Ralph Waldo Emerson",
+  street1: Faker::Address.street_address,
+  street2: Faker::Address.secondary_address,
+  city: Faker::Address.city,
+  state: Faker::Address.state,
+  zip: Faker::Address.zip,
   country: "USA",
   phone: "000-000-0000"
-)
+  )
 
-user.avatar.attach(
-  io: File.open(Rails.root.join('public/avatar-guy-beard.jpg')),
-  filename:"avatar-guy-beard.jpg"
+  user.avatar.attach(
+    io: File.open(Rails.root.join('public/guy-backpack.jpg')),
+    filename:"guy-backpack.jpg"
 )
 
 user = User.create!(
-  first_name: 'Austin',
-  last_name: 'Rooney',
-  email: 'austin@gmail.com',
+  first_name: 'Logan',
+  last_name: 'Smith',
+  email: 'logan@gmail.com',
   password: 'tester',
   locale: "Southeast",
   bio: "Growing plants is my passion.",
@@ -59,11 +59,11 @@ user = User.create!(
   zip: Faker::Address.zip,
   country: "USA",
   phone: "000-000-0000"
-)
+  )
 
-user.avatar.attach(
-  io: File.open(Rails.root.join('public/avatar-girl-braid.jpg')),
-  filename:"avatar-girl-braid.jpg"
+  user.avatar.attach(
+    io: File.open(Rails.root.join('public/avatar-girl-braid.jpg')),
+    filename:"avatar-girl-braid.jpg"
 )
 
 
@@ -185,6 +185,19 @@ plant.image.attach(
   filename:"hawaiidesert-thorn.jpg"
 )
 
+
+plant = Plant.create!(
+  plant_type: PlantType.find(307),
+  user: User.find(2),
+  description: "Looks better than it tastes. Trust me."
+)
+
+plant.image.attach(
+  io: File.open(Rails.root.join('public/kava-307.jpg')),
+  filename:"kava-307.jpg"
+)
+
+
 plant = Plant.create!(
   plant_type: PlantType.find(98),
   user: User.find(2),
@@ -231,6 +244,64 @@ plant.image.attach(
   filename:"candy-maidenhair-tree.jpg"
 )
 
+plant = Plant.create!(
+  plant_type: PlantType.find(344),
+  user: User.find(3),
+  description: "I had one of these by my driveway growing up. They always remind me of home."
+)
+
+plant.image.attach(
+  io: File.open(Rails.root.join('public/callery-pear-344.jpg')),
+  filename:"callery-pear-344.jpg"
+)
+
+
+plant = Plant.create!(
+  plant_type: PlantType.find(441),
+  user: User.find(3),
+  description: "This purple sage is super low maintenance and can survive anything! Seriously. I haven't watered mine in months."
+)
+
+plant.image.attach(
+  io: File.open(Rails.root.join('public/purple-sage-441.jpg')),
+  filename:"purple-sage-441.jpg"
+)
+
+
+plant = Plant.create!(
+  plant_type: PlantType.find(268),
+  user: User.find(3),
+  description: "The supermodel of the cactus world, this plant was made for pinterest."
+)
+
+plant.image.attach(
+  io: File.open(Rails.root.join('public/erect-pricklypear-268.jpg')),
+  filename:"erect-pricklypear-268.jpg"
+)
+
+
+plant = Plant.create!(
+  plant_type: PlantType.find(274),
+  user: User.find(3),
+  description: "I often find these classic beauties on hikes."
+)
+
+plant.image.attach(
+  io: File.open(Rails.root.join('public/royal-fern-274.jpg')),
+  filename:"royal-fern-274.jpg"
+)
+
+
+plant = Plant.create!(
+  plant_type: PlantType.find(449),
+  user: User.find(3),
+  description: "I grew this from a cutting. Look at her now!"
+)
+
+plant.image.attach(
+  io: File.open(Rails.root.join('public/jojoba-449.jpg')),
+  filename:"jojoba-449.jpg"
+)
 
   # 60.times do
   #   plant = Plant.create!(
