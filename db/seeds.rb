@@ -84,9 +84,6 @@ ActiveRecord::Base.transaction do
   #   )
   # end
 
-  puts User.count
-  sleep 120
-
   CSV.foreach(Rails.root.join('lib/data/plant_types.csv'), headers: true) do |row|
     PlantType.create!({
       scientific_name: row['scientific_name'].to_s.titleize,
@@ -100,10 +97,8 @@ ActiveRecord::Base.transaction do
     print "📗"
   end
 
-puts PlantType.count
-sleep 120
-
 # USER1 PLANTS
+binding.pry
 
 plant = Plant.create!(
   plant_type: PlantType.find(148),
