@@ -126,6 +126,18 @@ plant.image.attach(
 
 
 plant = Plant.create!(
+  plant_type: PlantType.find(478),
+  user: User.find(1),
+  description: "Spanish moss looks so cool and is so easy to grow."
+)
+
+plant.image.attach(
+  io: File.open(Rails.root.join('public/spanish-moss-478.jpg')),
+  filename:"spanish-moss-478.jpg",
+)
+
+
+plant = Plant.create!(
   plant_type: PlantType.find(271),
   user: User.find(1),
   description: "I love the look of these, but don't let their beauty fool you! They hurt to touch!"
@@ -165,7 +177,7 @@ plant.image.attach(
 plant = Plant.create!(
   plant_type: PlantType.find(153),
   user: User.find(2),
-  description: "cool description"
+  description: "I found this growing in the forest and took a cutting home. Look at her now!"
 )
 
 plant.image.attach(
@@ -210,6 +222,30 @@ plant.image.attach(
 )
 
 plant = Plant.create!(
+  plant_type: PlantType.find(327),
+  user: User.find(2),
+  description: "I love the look of these. Luckily, I have a big tree right outside my window!"
+)
+
+plant.image.attach(
+  io: File.open(Rails.root.join('public/hawaii-pritchardia-327.jpg')),
+  filename:"hawaii-pritchardia-327.jpg"
+)
+
+
+plant = Plant.create!(
+  plant_type: PlantType.find(380),
+  user: User.find(2),
+  description: "Fresh rosemary is infinitely better than the dried kind. And it looks pretty cool, too."
+)
+
+plant.image.attach(
+  io: File.open(Rails.root.join('public/rosemary-380.jpg')),
+  filename:"rosemary-380.jpg"
+)
+
+
+plant = Plant.create!(
   plant_type: PlantType.find(371),
   user: User.find(2),
   description: "These look cool and are edible, too! :)"
@@ -219,7 +255,6 @@ plant.image.attach(
   io: File.open(Rails.root.join('public/island-gooseberry.jpg')),
   filename:"island-gooseberry.jpg"
 )
-
 
 # User 3 plants
 plant = Plant.create!(
