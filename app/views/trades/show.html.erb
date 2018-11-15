@@ -1,54 +1,55 @@
 <div class="green-hero">
   <h1>Your trade with <%= @trade.user_b.first_name %> is <%= @trade.status %>.</h1>
 </div>
-<div class="trade-container">
-  <div class="trade-container-plants">
-    <div class="c-section">
-      <h2>Plants I'm getting</h2>
-      <div class="plant-grid">
-        <% @user_b_trade_plants.each do |plant| %>
-          <div class="c-card plant-card">
-            <a href="<%= plant_path(plant) %>">
-              <%= image_tag plant.image, class: "plant-card-image" %>
-              <div class="c-section c-section--flush plant-card-title">
-                <h2 class="c-title u-padding-top-small u-margin-bottom-tiny">
-                  <%= plant.plant_type.common_name %>
-                </h2>
-                <h5 class="c-title c-title--label u-margin-bottom-small u-margin-top-none">
-                  <%= plant.plant_type.scientific_name %>
-                </h5>
-              </div>
-            </a>
-          </div> 
-        <% end %>
-      </div>
+<div class="c-section">
+  <div class="trade-container">
+    <div class="trade-container-plants">
+      <%# <div class="c-section"> %>
+        <h2>Plants I'm getting</h2>
+        <div class="plant-grid">
+          <% @user_b_trade_plants.each do |plant| %>
+            <div class="c-card plant-card">
+              <a href="<%= plant_path(plant) %>">
+                <%= image_tag plant.image, class: "plant-card-image" %>
+                <div class="c-section c-section--flush plant-card-title">
+                  <h2 class="c-title u-padding-top-small u-margin-bottom-tiny">
+                    <%= plant.plant_type.common_name %>
+                  </h2>
+                  <h5 class="c-title c-title--label u-margin-bottom-small u-margin-top-none">
+                    <%= plant.plant_type.scientific_name %>
+                  </h5>
+                </div>
+              </a>
+            </div> 
+          <% end %>
+        </div>
+      <%# </div> %>
     </div>
-  </div>
 
-  <div class="trade-container-plants">
-    <div class="c-section">
-      <h2>Plants I'm giving</h2>
-      <div class="plant-grid">
-        <% @user_a_trade_plants.each do |plant| %>
-          <div class="c-card plant-card">
-            <a href="<%= plant_path(plant) %>">
-              <%= image_tag plant.image, class: "plant-card-image" %>
-              <div class="c-section c-section--flush plant-card-title">
-                <h2 class="c-title u-padding-top-small u-margin-bottom-tiny">
-                  <%= plant.plant_type.common_name %>
-                </h2>
-                <h5 class="c-title c-title--label u-margin-bottom-small u-margin-top-none">
-                  <%= plant.plant_type.scientific_name %>
-                </h5>
-              </div>
-            </a>
-          </div> 
-        <% end %>
-      </div>
+    <div class="trade-container-plants">
+      <%# <div class="c-section"> %>
+        <h2>Plants I'm giving</h2>
+        <div class="plant-grid">
+          <% @user_a_trade_plants.each do |plant| %>
+            <div class="c-card plant-card">
+              <a href="<%= plant_path(plant) %>">
+                <%= image_tag plant.image, class: "plant-card-image" %>
+                <div class="c-section c-section--flush plant-card-title">
+                  <h2 class="c-title u-padding-top-small u-margin-bottom-tiny">
+                    <%= plant.plant_type.common_name %>
+                  </h2>
+                  <h5 class="c-title c-title--label u-margin-bottom-small u-margin-top-none">
+                    <%= plant.plant_type.scientific_name %>
+                  </h5>
+                </div>
+              </a>
+            </div> 
+          <% end %>
+        </div>
+      <%# </div> %>
     </div>
   </div>
 </div>
-
 
 
 <%# user_a_trade_plants: @user_a_trade_plants,
