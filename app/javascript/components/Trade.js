@@ -173,10 +173,9 @@ class Trade extends React.Component {
       <div>
         <div className="green-hero">
           <h2 className="u-margin-none">
-            {/* Now Trading with {this.props.user_b_name}. */}
-            Now Trading with {this.props.other_trader.first_name}.
+            Currently Trading with {this.props.other_trader.first_name}.
           </h2>
-          <h4 className="u-margin-none">Get started by dragging plants you want from {this.props.user_b_name} into the "Plants I Want" section.</h4>
+          <h4 className="u-margin-none">Get started by dragging plants you want from {this.props.other_trader.first_name} into the "Plants I Want" section.</h4>
         </div>
         <div className="c-section u-padding-top-none">
           <DragDropContext onDragEnd={this.onDragEnd}>
