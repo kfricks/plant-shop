@@ -58,6 +58,8 @@ gem 'shippo', git: 'https://github.com/goshippo/shippo-ruby-client'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+gem "aws-sdk-s3", require: false
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.8'
   gem 'factory_bot_rails'
