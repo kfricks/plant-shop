@@ -20,6 +20,12 @@
 
 <hr>
 
+
+
+
+<br/>
+<br/>
+
 <h1>Proposed Trades</h1>
 <%# @proposed_trades.each do |trade| %>
   <div>
@@ -35,37 +41,3 @@
     <%# end %>
   </div>
 end
-
-<hr />
-
-
-
-
-
-
-
-
-
-
-
-
-<br />
-<br />
-<br />
-<br />
-<h1>My Trades</h1>
-<% @trades.each do |trade| %>
-  <div>
-    <h2>Trade with <%= trade.user_a.first_name %>, <%= trade.created_at %></h2>
-    <% trade.plants.each do |plant| %>
-      <h3>Plants I'm getting</h3>
-        <% if plant.user_id == current_user.id %>
-          <%= plant.plant_type.common_name %>
-          <% else %>
-            <h3>Plants I'm giving</h3>
-              <%= plant.plant_type.common_name %>
-        <% end %>
-      <div>User: <%= plant.user_id %></div>
-    <% end %>
-  </div>
-<% end %>
