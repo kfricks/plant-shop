@@ -43,6 +43,8 @@ gem 'stripe'
 
 gem 'image_processing', '~> 1.2'
 
+gem 'faker'
+
 # for react
 gem 'webpacker'
 gem 'react-rails'
@@ -59,7 +61,6 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   gem 'rspec-rails', '~> 3.8'
   gem 'factory_bot_rails'
-  gem 'faker'
   gem "aws-sdk-s3", require: false
   gem "sidekiq"
 
