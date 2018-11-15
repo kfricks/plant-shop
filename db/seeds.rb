@@ -98,11 +98,11 @@ ActiveRecord::Base.transaction do
   end
 
 # USER1 PLANTS
-binding.pry
 
+# ID 148
 plant = Plant.create!(
-  plant_type: PlantType.find(148),
-  user: User.find(1),
+  plant_type: PlantType.find_by_scientific_name("Elaeagnus Umbellata"),
+  user: User.first,
   description: "I love this guy. You'll love him, too!"
 )
 
@@ -111,10 +111,10 @@ plant.image.attach(
   filename:"autumn-olive.jpg",
 )
 
-
+# ID 185
 plant = Plant.create!(
-  plant_type: PlantType.find(185),
-  user: User.find(1),
+  plant_type: PlantType.find_by_scientific_name("Gliricidia Sepium"),
+  user: User.first,
   description: "I love this guy. You'll love him, too!"
 )
 
@@ -123,10 +123,10 @@ plant.image.attach(
   filename:"quickstick.jpg",
 )
 
-
+# ID 478
 plant = Plant.create!(
-  plant_type: PlantType.find(478),
-  user: User.find(1),
+  plant_type: PlantType.find_by_scientific_name("Tillandsia Usneoides"),
+  user: User.first,
   description: "Spanish moss looks so cool and is so easy to grow."
 )
 
@@ -135,10 +135,10 @@ plant.image.attach(
   filename:"spanish-moss-478.jpg",
 )
 
-
+# ID 271
 plant = Plant.create!(
-  plant_type: PlantType.find(271),
-  user: User.find(1),
+  plant_type: PlantType.find_by_scientific_name("Opuntia Polyacantha"),
+  user: User.first,
   description: "I love the look of these, but don't let their beauty fool you! They hurt to touch!"
 )
 
@@ -147,10 +147,10 @@ plant.image.attach(
   filename:"prickly-pear.jpg"
 )
 
-
+# ID 379
 plant = Plant.create!(
-  plant_type: PlantType.find(379),
-  user: User.find(1),
+  plant_type: PlantType.find_by_scientific_name("Rosa Pisocarpa"),
+  user: User.first,
   description: "I grew this from a cutting, and now I want to share the love!"
 )
 
@@ -159,9 +159,10 @@ plant.image.attach(
   filename:"Rosa_pisocarpa-clusterrose.jpg"
 )
 
+# ID 270
 plant = Plant.create!(
-  plant_type: PlantType.find(270),
-  user: User.find(1),
+  plant_type: PlantType.find_by_scientific_name("Opuntia Ficus Indica"),
+  user: User.first,
   description: "I love this guy. You'll love him, too!"
 )
 
@@ -173,9 +174,10 @@ plant.image.attach(
 
 # USER2 PLANTS
 
+# ID 153
 plant = Plant.create!(
-  plant_type: PlantType.find(153),
-  user: User.find(2),
+  plant_type: PlantType.find_by_scientific_name("Eriodictyon Californicum"),
+  user: User.second,
   description: "I found this growing in the forest and took a cutting home. Look at her now!"
 )
 
@@ -184,10 +186,10 @@ plant.image.attach(
   filename:"calif-yerba-santa.jpg"
 )
 
-
+# ID 240
 plant = Plant.create!(
-  plant_type: PlantType.find(240),
-  user: User.find(2),
+  plant_type: PlantType.find_by_scientific_name("Lycium Sandwicense"),
+  user: User.second,
   description: "I found this growing by the beach when I was on vacation in California."
 )
 
@@ -196,10 +198,10 @@ plant.image.attach(
   filename:"hawaiidesert-thorn.jpg"
 )
 
-
+# ID 307
 plant = Plant.create!(
-  plant_type: PlantType.find(307),
-  user: User.find(2),
+  plant_type: PlantType.find_by_scientific_name("Piper Methysticum"),
+  user: User.second,
   description: "Looks better than it tastes. Trust me."
 )
 
@@ -208,10 +210,10 @@ plant.image.attach(
   filename:"kava-307.jpg"
 )
 
-
+# ID 98
 plant = Plant.create!(
-  plant_type: PlantType.find(98),
-  user: User.find(2),
+  plant_type: PlantType.find_by_scientific_name("Chaenomeles Japonica"),
+  user: User.second,
   description: "I love this plant. I'm sure you will, too."
 )
 
@@ -220,9 +222,10 @@ plant.image.attach(
   filename:"maules-quince.jpg"
 )
 
+# ID 327
 plant = Plant.create!(
-  plant_type: PlantType.find(327),
-  user: User.find(2),
+  plant_type: PlantType.find_by_scientific_name("Pritchardia Affinis"),
+  user: User.second,
   description: "I love the look of these. Luckily, I have a big tree right outside my window!"
 )
 
@@ -231,10 +234,10 @@ plant.image.attach(
   filename:"hawaii-pritchardia-327.jpg"
 )
 
-
+# ID 380
 plant = Plant.create!(
-  plant_type: PlantType.find(380),
-  user: User.find(2),
+  plant_type: PlantType.find_by_scientific_name("Rosmarinus Officinalis"),
+  user: User.second,
   description: "Fresh rosemary is infinitely better than the dried kind. And it looks pretty cool, too."
 )
 
@@ -243,10 +246,10 @@ plant.image.attach(
   filename:"rosemary-380.jpg"
 )
 
-
+# ID 371
 plant = Plant.create!(
-  plant_type: PlantType.find(371),
-  user: User.find(2),
+  plant_type: PlantType.find_by_common_name("Ribes Viburnifolium"),
+  user: User.second,
   description: "These look cool and are edible, too! :)"
 )
 
@@ -256,9 +259,10 @@ plant.image.attach(
 )
 
 # User 3 plants
+# ID 165
 plant = Plant.create!(
-  plant_type: PlantType.find(165),
-  user: User.find(3),
+  plant_type: PlantType.find_by_scientific_name("Ferocactus Wislizeni"),
+  user: User.third,
   description: "These are awesome."
 )
 
@@ -267,9 +271,10 @@ plant.image.attach(
   filename:"candy-barrell-cactus.jpg"
 )
 
+# ID 183
 plant = Plant.create!(
-  plant_type: PlantType.find(183),
-  user: User.find(3),
+  plant_type: PlantType.find_by_scientific_name("Ginkgo Biloba"),
+  user: User.third,
   description: "These really help to make my home feel like a peaceful space."
 )
 
@@ -278,9 +283,10 @@ plant.image.attach(
   filename:"candy-maidenhair-tree.jpg"
 )
 
+# ID 344
 plant = Plant.create!(
-  plant_type: PlantType.find(344),
-  user: User.find(3),
+  plant_type: PlantType.find_by_scientific_name("Pyrus Calleryana"),
+  user: User.third,
   description: "I had one of these by my driveway growing up. They always remind me of home."
 )
 
@@ -289,10 +295,10 @@ plant.image.attach(
   filename:"callery-pear-344.jpg"
 )
 
-
+# ID 441
 plant = Plant.create!(
-  plant_type: PlantType.find(441),
-  user: User.find(3),
+  plant_type: PlantType.find_by_scientific_name("Salvia Dorrii"),
+  user: User.third,
   description: "This purple sage is super low maintenance and can survive anything! Seriously. I haven't watered mine in months."
 )
 
@@ -301,10 +307,10 @@ plant.image.attach(
   filename:"purple-sage-441.jpg"
 )
 
-
+# ID 268
 plant = Plant.create!(
-  plant_type: PlantType.find(268),
-  user: User.find(3),
+  plant_type: PlantType.find_by_scientific_name("Opuntia Dillenii"),
+  user: User.third,
   description: "The supermodel of the cactus world, this plant was made for pinterest."
 )
 
@@ -313,10 +319,10 @@ plant.image.attach(
   filename:"erect-pricklypear-268.jpg"
 )
 
-
+# ID 274
 plant = Plant.create!(
-  plant_type: PlantType.find(274),
-  user: User.find(3),
+  plant_type: PlantType.find_by_scientific_name("Osmunda Regalis"),
+  user: User.third,
   description: "I often find these classic beauties on hikes."
 )
 
@@ -325,10 +331,10 @@ plant.image.attach(
   filename:"royal-fern-274.jpg"
 )
 
-
+# ID 449
 plant = Plant.create!(
-  plant_type: PlantType.find(449),
-  user: User.find(3),
+  plant_type: PlantType.find_by_scientific_name("Simmondsia Chinensis"),
+  user: User.third,
   description: "I grew this from a cutting. Look at her now!"
 )
 
