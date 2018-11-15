@@ -75,7 +75,7 @@ class TradesController < ApplicationController
     .or(Trade.where(user_b: current_user))
 
     @trades_pending = @trades.where(status: "pending").sort.reverse
-    @trades_completed = @trades.where(status: "completed")
+    @trades_completed = @trades.where(status: "approved").sort.reverse
 
   end
 
