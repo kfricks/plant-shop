@@ -2,7 +2,7 @@
 <% @trades.each do |trade| %>
   <div>
 
-    <h2>Trade with <%= trade.user_a.first_name %>, <%= trade.created_at %>, ID: <%= trade.id %></h2>
+    <h2>Trade with <%= trade.user_a.first_name %>, <%= trade.created_at.strftime("%m/%d/%Y") %>, ID: <%= trade.id %></h2>
      
       <h3>Plants I'm getting</h3>
       <% trade.plants_being_received(current_user).each do |plant| %>
@@ -23,7 +23,7 @@
 
 
 
-<br/>
+<br/ >
 <br/>
 
 <h1>Proposed Trades</h1>
