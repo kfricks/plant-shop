@@ -2,15 +2,19 @@
     <div class="avatar-large">
         <%= image_tag @user.avatar, class: "avatar-large-image" %>
     </div>
-    <h1><%= @user.name %>'s Profile</h1>
-    <h2>Location: <%= @user.city %>, <%= @user.state %></h2>
-    </div>
-    <div class="c-section">
-        <div class="u-float-left u-margin-left">
-            <h3>About <%= @user.first_name %>: <%= @user.bio %></h3>
-            <% if current_user === @user %>
+    <h1 class="u-margin-bottom-none"><%= @user.name %></h1>
+    <h3 class="u-margin-top-none">From <%= @user.city %>, <%= @user.state %></h3>
+        <% if current_user === @user %>
+            <h3 class="u-margin-top-none">Email: <%= @user.email %></h3>
             <%= link_to "Edit Profile", edit_user_registration_path(@user), class: 'c-button c-button--focal' %>
             <% end %>
+    <div class="c-section">
+        <div class="form-wrapper">
+            <div class="c-card">
+                <div class="u-float-left u-margin-left u-margin-right c-title">
+                <h3 class="c-title u-margin-top">"<%= @user.bio %>"</h3>
+                </div>
+            </div>
         </div>
     </div>
 </div>
