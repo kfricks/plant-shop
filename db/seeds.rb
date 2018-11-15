@@ -3,101 +3,105 @@ require "csv"
 
 ActiveRecord::Base.transaction do
 
-user = User.create!(
-  first_name: 'Ashton',
-  last_name: 'Rooney',
-  email: 'ashton@gmail.com',
-  password: 'tester',
-  locale: "Southeast",
-  bio: "Plants are a part of who I am. They center me.",
-  street1: Faker::Address.street_address,
-  street2: Faker::Address.secondary_address,
-  city: Faker::Address.city,
-  state: Faker::Address.state,
-  zip: Faker::Address.zip,
-  country: "USA",
-  phone: "000-000-0000"
+  user = User.create!(
+    first_name: 'Ashton',
+    last_name: 'Rooney',
+    email: 'ashton@gmail.com',
+    password: 'tester',
+    locale: "Southeast",
+    bio: "Plants are a part of who I am. They center me.",
+    street1: Faker::Address.street_address,
+    street2: Faker::Address.secondary_address,
+    city: Faker::Address.city,
+    state: Faker::Address.state,
+    zip: Faker::Address.zip,
+    country: "USA",
+    phone: "000-000-0000"
   )
 
- user.avatar.attach(
-  io: File.open(Rails.root.join('public/avatar-hairup.jpg')),
-  filename:"avatar-hairup.jpg"
-)
+  user.avatar.attach(
+    io: File.open(Rails.root.join('public/avatar-hairup.jpg')),
+    filename:"avatar-hairup.jpg"
+  )
 
-user = User.create!(
-  first_name: 'Morgan',
-  last_name: 'Jones',
-  email: 'morgan@gmail.com',
-  password: 'tester',
-  locale: "Southeast",
-  bio: "What is a weed? A Plant whose virtues have never been discovered. -Ralph Waldo Emerson",
-  street1: Faker::Address.street_address,
-  street2: Faker::Address.secondary_address,
-  city: Faker::Address.city,
-  state: Faker::Address.state,
-  zip: Faker::Address.zip,
-  country: "USA",
-  phone: "000-000-0000"
+  user = User.create!(
+    first_name: 'Morgan',
+    last_name: 'Jones',
+    email: 'morgan@gmail.com',
+    password: 'tester',
+    locale: "Southeast",
+    bio: "What is a weed? A Plant whose virtues have never been discovered. -Ralph Waldo Emerson",
+    street1: Faker::Address.street_address,
+    street2: Faker::Address.secondary_address,
+    city: Faker::Address.city,
+    state: Faker::Address.state,
+    zip: Faker::Address.zip,
+    country: "USA",
+    phone: "000-000-0000"
   )
 
   user.avatar.attach(
     io: File.open(Rails.root.join('public/guy-backpack.jpg')),
     filename:"guy-backpack.jpg"
-)
+  )
 
-user = User.create!(
-  first_name: 'Logan',
-  last_name: 'Smith',
-  email: 'logan@gmail.com',
-  password: 'tester',
-  locale: "Southeast",
-  bio: "Growing plants is my passion.",
-  street1: Faker::Address.street_address,
-  street2: Faker::Address.secondary_address,
-  city: Faker::Address.city,
-  state: Faker::Address.state,
-  zip: Faker::Address.zip,
-  country: "USA",
-  phone: "000-000-0000"
+  user = User.create!(
+    first_name: 'Logan',
+    last_name: 'Smith',
+    email: 'logan@gmail.com',
+    password: 'tester',
+    locale: "Southeast",
+    bio: "Growing plants is my passion.",
+    street1: Faker::Address.street_address,
+    street2: Faker::Address.secondary_address,
+    city: Faker::Address.city,
+    state: Faker::Address.state,
+    zip: Faker::Address.zip,
+    country: "USA",
+    phone: "000-000-0000"
   )
 
   user.avatar.attach(
     io: File.open(Rails.root.join('public/avatar-girl-braid.jpg')),
     filename:"avatar-girl-braid.jpg"
-)
+  )
 
+  # 4.times do
+  #   User.create!(
+  #     first_name: Faker::Name.first_name,
+  #     last_name: Faker::Name.last_name,
+  #     email: Faker::Internet.email,
+  #     locale: "Southeast",
+  #     bio: "Bio here",
+  #     street1: "1 N. Main St.",
+  #     street2: "Apt 1",
+  #     city: "Greenville",
+  #     state: "SC",
+  #     zip: "90210",
+  #     country: "USA",
+  #     phone: "000-000-0000",
+  #     password: "tester"
+  #   )
+  # end
 
-  4.times do
-    User.create!(
-      first_name: Faker::Name.first_name,
-      last_name: Faker::Name.last_name,
-      email: Faker::Internet.email,
-      locale: "Southeast",
-      bio: "Bio here",
-      street1: "1 N. Main St.",
-      street2: "Apt 1",
-      city: "Greenville",
-      state: "SC",
-      zip: "90210",
-      country: "USA",
-      phone: "000-000-0000",
-      password: "tester"
-      )
-  end
+  puts User.count
+  sleep 120
 
   CSV.foreach(Rails.root.join('lib/data/plant_types.csv'), headers: true) do |row|
     PlantType.create!({
-     scientific_name: row['scientific_name'].to_s.titleize,
-     common_name: row['common_name'].to_s.titleize,
-     family: row['family'].to_s.titleize,
-     duration: row['duration'].to_s.titleize,
-     growth_habit: row['growth_habit'].to_s.titleize,
-     growth_period: row['growth_period'].to_s.titleize,
-     growth_rate: row['growth_rate'].to_s.titleize
-     })
+      scientific_name: row['scientific_name'].to_s.titleize,
+      common_name: row['common_name'].to_s.titleize,
+      family: row['family'].to_s.titleize,
+      duration: row['duration'].to_s.titleize,
+      growth_habit: row['growth_habit'].to_s.titleize,
+      growth_period: row['growth_period'].to_s.titleize,
+      growth_rate: row['growth_rate'].to_s.titleize
+    })
     print "📗"
   end
 
+puts PlantType.count
+sleep 120
 
 # USER1 PLANTS
 
