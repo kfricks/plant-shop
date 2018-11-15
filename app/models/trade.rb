@@ -12,4 +12,13 @@ class Trade < ApplicationRecord
   def plants_being_received(user)
     plants.where.not(user: user)
   end
+
+  def other_users_name(current_user)
+   if current_user == user_a
+      user_b.name
+    else
+      user_a.name
+    end
+  end
 end
+

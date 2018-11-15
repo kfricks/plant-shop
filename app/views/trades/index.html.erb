@@ -3,7 +3,7 @@
     <% @trades_pending.each do |trade| %>
       <div>
         <h2 class="c-title c-title--medium u-margin-bottom-small">
-          Trade with <%= trade.user_a.first_name %>, <%= trade.created_at.strftime("%m/%d/%Y") %>, ID: <%= trade.id %>
+          Trade with <%= trade.other_users_name(current_user) %>, <%= trade.created_at.strftime("%m/%d/%Y") %>, ID: <%= trade.id %>
         </h2>
         <p>Participants: <%= trade.user_a.first_name %> & <%= trade.user_b.first_name %></p>
         <div class="status-chip">Status: <%= trade.status %></div>

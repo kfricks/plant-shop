@@ -71,29 +71,13 @@ class TradesController < ApplicationController
   end
 
   def index
-    # is this right? bc it should be whether either user is the current user.
     @trades = Trade.where(user_a: current_user)
     .or(Trade.where(user_b: current_user))
 
     @trades_pending = @trades.where(status: "pending").sort.reverse
     @trades_completed = @trades.where(status: "completed")
-    # @proposed_trades = Trade.where(user_b: current_user)
-    # @trade.user_b = User.find(params[:user_id])
-    # @trade = Trade.find(params[:id])
-    # @current_user_plants = format_plants(current_user.plants - @trade.plants.where(user: @trade.user_a))
-    
-    # @user_b_plants = format_plants(@trades.user_b.plants - @trade.plants.where(user: @trade.user_b))
-    # @user_a_trade_plants = format_plants(@trades.plants.where(user: @trade.user_a))
-    # @user_b_trade_plants = format_plants(@trades.plants.where(user: @trade.user_b))
-  end
 
-  # def trade_template
-  #   @fortrade = Plant.find(params[:id])
-  #   # @response = Plant.search_by_name params[:query]
-  #   respond_to do |format|
-  #     format.json { render "edit" }
-  #   end
-  # end
+  end
 
   def show
     @trade = Trade.find(params[:id])
