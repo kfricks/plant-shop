@@ -160,6 +160,7 @@ plant.image.attach(
   filename:"Rosa_pisocarpa-clusterrose.jpg"
 )
 
+
 plant = Plant.create!(
   plant_type: PlantType.find(270),
   user: User.find(1),
@@ -268,6 +269,7 @@ plant.image.attach(
   filename:"candy-barrell-cactus.jpg"
 )
 
+
 plant = Plant.create!(
   plant_type: PlantType.find(183),
   user: User.find(3),
@@ -278,6 +280,7 @@ plant.image.attach(
   io: File.open(Rails.root.join('public/maidenhair-tree.jpg')),
   filename:"candy-maidenhair-tree.jpg"
 )
+
 
 plant = Plant.create!(
   plant_type: PlantType.find(344),
@@ -337,21 +340,6 @@ plant.image.attach(
   io: File.open(Rails.root.join('public/jojoba-449.jpg')),
   filename:"jojoba-449.jpg"
 )
-
-  # 60.times do
-  #   plant = Plant.create!(
-  #     plant_type: PlantType.all.sample,
-  #     user: User.all.sample
-  #   )
-
-  #   plant.image.attach(
-  #     io: File.open(Rails.root.join('public/snake.jpg')),
-  #     filename:"snake.jpg"
-  #   )
-
-  #   print "🌿"
-  # end
-
   puts "\nDone"
 
 end
