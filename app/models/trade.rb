@@ -12,5 +12,4 @@ class Trade < ApplicationRecord
   def plants_being_received(user)
     plants.where.not(user: user)
   end
-
 end
