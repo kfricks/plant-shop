@@ -248,7 +248,7 @@ plant.image.attach(
 
 # ID 371
 plant = Plant.create!(
-  plant_type: PlantType.find_by_common_name("Ribes Viburnifolium"),
+  plant_type: PlantType.find_by_scientific_name("Ribes Viburnifolium"),
   user: User.second,
   description: "These look cool and are edible, too! :)"
 )
