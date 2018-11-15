@@ -1,9 +1,9 @@
 <%= react_component("Trade", {
-      user_a_plants: @current_user_plants,
-      user_b_plants: @user_b_plants,
-      user_b_name: @trade.user_b.first_name,
-      user_a_trade_plants: @user_a_trade_plants,
-      user_b_trade_plants: @user_b_trade_plants,
+      user_a_plants: @current_trader_plants,
+      user_b_plants: @other_trader_plants,
+      user_b_name: @other_trader.name,
+      user_a_trade_plants: @current_trader_trade_plants,
+      user_b_trade_plants: @other_trader_trade_plants,
       trade_id: @trade.id,
       proposer: @proposer,
       other_trader: @other_trader
