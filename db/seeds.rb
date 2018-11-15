@@ -30,7 +30,7 @@ ActiveRecord::Base.transaction do
     email: 'morgan@gmail.com',
     password: 'tester',
     locale: "Southeast",
-    bio: "What is a weed? A Plant whose virtues have never been discovered. -Ralph Waldo Emerson",
+    bio: "What is a weed? A plant whose virtues have never been discovered. -Ralph Waldo Emerson",
     street1: Faker::Address.street_address,
     street2: Faker::Address.secondary_address,
     city: Faker::Address.city,
