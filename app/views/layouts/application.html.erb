@@ -24,19 +24,23 @@
           <%# </li> %>
 
           <% if current_user %>
-          <li class="c-navigation__item">
-            <%= link_to("My Plants", user_plants_path(current_user), class: "c-navigation__link #{active_class(user_plants_path(current_user))}") %>
-          </li>
-          <%# <li class="c-navigation__item"> %>
-            <%# link_to("Add a plant to your shelf", new_plant_path, class: "c-navigation__link #{active_class(new_plant_path)}") %>
-          <%# </li> %>
+            <li class="c-navigation__item">
+              <%= link_to("My Plants", user_plants_path(current_user), class: "c-navigation__link #{active_class(user_plants_path(current_user))}") %>
+            </li>
           <% end %>
           <li class="c-navigation__item">
             <%= link_to("Find a plant", new_trade_path, class: "c-navigation__link #{active_class(new_trade_path)}") %>
           </li>
-          <li class="c-navigation__item">
-            <%= link_to("My Trades", trades_path, class: "c-navigation__link #{active_class(trades_path)}") %>
-          </li>
+          <% if current_user %>
+            <li class="c-navigation__item">
+              <%= link_to("My Trades", trades_path, class: "c-navigation__link #{active_class(trades_path)}") %>
+            </li>
+            <li class="c-navigation__item">
+              <% if current_user.trades_as_user_b.where(status: "pending").any? %>
+                <div>NOTIFICATION</div>
+              <% end %>
+            </li>
+          <% end %>
 
           <% if current_user %>
             <div class="avatar c-navigation__item--push-right">
