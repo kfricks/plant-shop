@@ -60,17 +60,39 @@
   </div>
 <% end %>
 <% if @trades_completed.any? %>
-  <h1 class="c-title c-title--large u-margin-bottom-small">Completed Trades</h1>
-  <% @trades_completed.each do |trade| %>
-    <div>
-      <h2 class="c-title c-title--label--large u-margin-bottom-small">
-        Trade with <%= trade.other_users_name(current_user) %>, <%= trade.created_at.strftime("%m/%d/%Y") %>
-      </h2>
-      <div class="trade-container c-card u-padding-top u-padding-bottom u-margin-bottom">
-        <div class="trade-container-plants">
-            <h2 class="c-title c-title--small">Plants I'm getting</h2>
+  <div class="c-section">
+    <h1 class="c-title c-title--large u-margin-bottom-small">Completed Trades</h1>
+    <% @trades_completed.each do |trade| %>
+      <div>
+        <h2 class="c-title c-title--label--large u-margin-bottom-small">
+          Trade with <%= trade.other_users_name(current_user) %>, <%= trade.created_at.strftime("%m/%d/%Y") %>
+        </h2>
+        <div class="trade-container c-card u-padding-top u-padding-bottom u-margin-bottom">
+          <div class="trade-container-plants">
+              <h2 class="c-title c-title--small">Plants I'm getting</h2>
+              <div class="plant-grid">
+                <% trade.plants_being_received(current_user).each do |plant| %>
+                  <div class="c-card plant-card">
+                    <a href="<%= plant_path(plant) %>">
+                      <%= image_tag plant.image, class: "plant-card-image" %>
+                      <div class="c-section c-section--flush plant-card-title">
+                        <h2 class="c-title u-padding-top-small u-margin-bottom-tiny">
+                          <%= plant.plant_type.common_name %>
+                        </h2>
+                        <h5 class="c-title c-title--label u-margin-bottom-small u-margin-top-none">
+                          <%= plant.plant_type.scientific_name %>
+                        </h5>
+                      </div>
+                    </a>
+                  </div> 
+                <% end %>
+              </div>
+          </div>
+
+          <div class="trade-container-plants">
+            <h2 class="c-title c-title--small">Plants I'm giving</h2>
             <div class="plant-grid">
-              <% trade.plants_being_received(current_user).each do |plant| %>
+              <% trade.plants_being_given(current_user).each do |plant| %>
                 <div class="c-card plant-card">
                   <a href="<%= plant_path(plant) %>">
                     <%= image_tag plant.image, class: "plant-card-image" %>
@@ -87,29 +109,9 @@
               <% end %>
             </div>
         </div>
-
-        <div class="trade-container-plants">
-          <h2 class="c-title c-title--small">Plants I'm giving</h2>
-          <div class="plant-grid">
-            <% trade.plants_being_given(current_user).each do |plant| %>
-              <div class="c-card plant-card">
-                <a href="<%= plant_path(plant) %>">
-                  <%= image_tag plant.image, class: "plant-card-image" %>
-                  <div class="c-section c-section--flush plant-card-title">
-                    <h2 class="c-title u-padding-top-small u-margin-bottom-tiny">
-                      <%= plant.plant_type.common_name %>
-                    </h2>
-                    <h5 class="c-title c-title--label u-margin-bottom-small u-margin-top-none">
-                      <%= plant.plant_type.scientific_name %>
-                    </h5>
-                  </div>
-                </a>
-              </div> 
-            <% end %>
-          </div>
-      </div>
-    </div> 
-  <% end %>
+      </div> 
+    <% end %>
+  </div>
 <% end %>
 <% if @trades_completed.blank? & @trades_pending.blank? %>
   <div class="c-section u-text-center">
