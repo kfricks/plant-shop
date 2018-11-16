@@ -20,7 +20,6 @@ class Trade extends React.Component {
 
     this.onDragEnd = this.onDragEnd.bind(this);
     this.proposeTrade = this.proposeTrade.bind(this);
-    // this.approveTrade = this.approveTrade.bind(this);
     this.tradeButtonsShouldRender = this.tradeButtonsShouldRender.bind(this);
   }
 

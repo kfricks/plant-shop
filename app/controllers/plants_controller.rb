@@ -38,7 +38,6 @@ class PlantsController < ApplicationController
     @plant = current_user.plants.find(params[:id])
     if @plant.update(plant_params.merge(user: current_user))
       flash.now[:success] = "Your plant has been saved."
-      # redirect_to CURRENTUSERSPLANTS
     else
       render :edit
     end
