@@ -1,6 +1,10 @@
-  <div class="green-hero u-margin-bottom-none">
-    <h1 class="u-margin-none">My Trades</h1>
-  </div>
+<% content_for :title do %>
+  My Trades
+<% end %>
+
+<div class="green-hero u-margin-bottom-none">
+  <h1 class="u-margin-none">My Trades</h1>
+</div>
 <% if @trades_pending.any? %>
   <div class="c-section">
     <h1 class="c-title c-title--large u-margin-bottom-small">Pending Trades</h1>

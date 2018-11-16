@@ -1,3 +1,7 @@
+<% content_for :title do %>
+  <%= @plant.plant_type.common_name %>
+<% end %>
+
 <div class="c-card plant-card-large">
   <div class="plant-card-large-image">
     <%= image_tag @plant.image %>
@@ -11,58 +15,62 @@
     <h1 class="c-title c-title--large u-margin-top-none u-margin-bottom-small">
       <%= @plant.plant_type.common_name %>
     </h1>
-      <div class="c-attribute">
-        <div class="c-attribute__key">Scientific: </div>
-            <%= @plant.plant_type.scientific_name %>
-      </div>
 
+    <% if @plant.plant_type.scientific_name? %>
+    <div class="c-attribute">
+      <div class="c-attribute__key">Scientific: </div>
+        <%= @plant.plant_type.scientific_name %>
+    </div>
+    <% end %>
+
+    <% if @plant.plant_type.family? %>
       <div class="c-attribute">
         <div class="c-attribute__key">Family:</div>
           <%= @plant.plant_type.family %>
       </div>
+    <% end %>
 
+    <% if @plant.plant_type.duration? %>
       <div class="c-attribute">
         <div class="c-attribute__key">Duraton:</div>
           <%= @plant.plant_type.duration %>
       </div>
+    <% end %>
 
+    <% if @plant.plant_type.growth_habit? %>
       <div class="c-attribute">
         <div class="c-attribute__key">Growth Habit:</div>
           <%= @plant.plant_type.growth_habit %>
       </div>
+    <% end %>
 
+    <% if  @plant.plant_type.growth_rate? %>
       <div class="c-attribute u-margin-bottom-small">
         <div class="c-attribute__key">Growth Rate:</div>
           <%= @plant.plant_type.growth_rate %>
       </div>
+    <% end %>
 
-      <%# <div class="c-attribute u-margin-bottom"> %>
-        <%# <div class="c-attribute__key">Added on:</div> %>
-          <%# @plant.created_at %>
-      <%# </div> %>
-      <div class="user-note">
-        <div class="c-title--label">
-           <% if @plant.user == current_user %>
-            Your note:
-          <% else %>
-            Note from <%= @plant.user.first_name %>:
-          <% end %>
-
-
-        </div>
-        <div class="avatar-medium">
-          <%# link_to image_tag @plant.user.avatar, class: "avatar-medium-image", user_path(@plant.user) %>
-          <%= link_to user_path(@plant.user) do %>
-          <%= image_tag @plant.user.avatar, class: "avatar-medium-image" %>
-          <% end %>
-        </div>
-        <div class="u-margin-bottom-small u-text-center">
-          <%= @plant.description %>
-        </div>
-        <% if @plant.user != current_user %>
-          <%= link_to "Propose a trade for this plant", create_trade_by_owner_path(user_id: @plant.user.id, plant_id: @plant.id), class: 'c-button c-button--focal' %>
+    <div class="user-note">
+      <div class="c-title--label">
+          <% if @plant.user == current_user %>
+          Your note:
+        <% else %>
+          Note from <%= @plant.user.first_name %>:
         <% end %>
       </div>
+      <div class="avatar-medium">
+        <%= link_to user_path(@plant.user) do %>
+        <%= image_tag @plant.user.avatar, class: "avatar-medium-image" %>
+        <% end %>
+      </div>
+      <div class="u-margin-bottom-small u-text-center">
+        <%= @plant.description %>
+      </div>
+      <% if @plant.user != current_user %>
+        <%= link_to "Propose a trade for this plant", create_trade_by_owner_path(user_id: @plant.user.id, plant_id: @plant.id), class: 'c-button c-button--focal' %>
+      <% end %>
+    </div>
 
   </div>
 </div>

@@ -1,3 +1,13 @@
+<% if current_user === @user %>
+  <% content_for :title do %>
+    My Profile
+  <% end %>
+  <% else %>
+  <% content_for :title do %>
+    <%= @user.name %>'s Profile
+  <% end %>
+<% end %>
+
 <div class="c-section">
   <div class="c-card profile-card u-padding">
     <div class="avatar-large">

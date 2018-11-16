@@ -1,11 +1,14 @@
+<% content_for :title do %>
+  My Trade with <%= @trade.user_b.first_name %>
+<% end %>
+
 <div class="green-hero">
-  <h1>Your trade with <%= @trade.user_b.first_name %> is <%= @trade.status %>.</h1>
+  <h1 class="u-margin-none">Your trade with <%= @trade.user_b.first_name %> is <%= @trade.status %>.</h1>
 </div>
 <div class="c-section">
   <div class="trade-container">
     <div class="trade-container-plants">
-      <%# <div class="c-section"> %>
-        <h2>Plants I'm getting</h2>
+        <h2 class="c-title">Plants I'm getting</h2>
         <div class="plant-grid">
           <% @user_b_trade_plants.each do |plant| %>
             <div class="c-card plant-card">
@@ -23,12 +26,10 @@
             </div> 
           <% end %>
         </div>
-      <%# </div> %>
     </div>
 
     <div class="trade-container-plants">
-      <%# <div class="c-section"> %>
-        <h2>Plants I'm giving</h2>
+        <h2 class="c-title">Plants I'm giving</h2>
         <div class="plant-grid">
           <% @user_a_trade_plants.each do |plant| %>
             <div class="c-card plant-card">
@@ -46,15 +47,6 @@
             </div> 
           <% end %>
         </div>
-      <%# </div> %>
     </div>
   </div>
 </div>
-
-
-<%# user_a_trade_plants: @user_a_trade_plants,
-user_b_trade_plants: @user_b_trade_plants,
-
-
-@user_a_trade_plants = format_plants(@trade.plants.where(user: @trade.user_a))
-@user_b_trade_plants = format_plants(@trade.plants.where(user: @trade.user_b)) %>
