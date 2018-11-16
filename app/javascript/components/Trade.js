@@ -165,6 +165,7 @@ class Trade extends React.Component {
           <DragDropContext onDragEnd={this.onDragEnd}>
             <div className="trade-container">
               <section className="trade-container-plants">
+                  <img src={this.props.other_trader.avatar}/>
                 <h2 className="c-title">
                   {this.props.user_b_name}'s Plant Shelf
                 </h2>

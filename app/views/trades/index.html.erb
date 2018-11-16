@@ -1,3 +1,5 @@
+<% if @trades_pending.any? %>
+
 <div class="c-section">
   <h1 class="c-title c-title--large u-margin-bottom-small">Pending Trades</h1>
     <% @trades_pending.each do |trade| %>
@@ -51,7 +53,8 @@
       </div> 
     <% end %>
 </div>
-<%# if !@trades_completed.blank %>
+
+<% elsif @trades_completed.any? %>
   <div class="c-section">
     <h1 class="c-title c-title--large u-margin-bottom-small">Completed Trades</h1>
       <% @trades_completed.each do |trade| %>
@@ -104,7 +107,14 @@
           </div>
         </div> 
       <% end %>
-  <%# end %>
+    <% else %>
+    <div class="c-section">
+      <h1 class="c-title c-title--medium u-margin-bottom-small">
+        You have no current trades.
+      </h1>
+      <%= link_to("Well, let's change that!", new_trade_path, class: "c-button c-button--focal") %>
+    </div>
+  <% end %>
 </div>
 
 
