@@ -64,7 +64,7 @@
       </h2>
       <div class="trade-container c-card u-padding-top u-padding-bottom u-margin-bottom">
         <div class="trade-container-plants">
-            <h2>Plants I'm getting</h2>
+            <h2 class="c-title c-title--small">Plants I'm getting</h2>
             <div class="plant-grid">
               <% trade.plants_being_received(current_user).each do |plant| %>
                 <div class="c-card plant-card">
@@ -85,7 +85,7 @@
         </div>
 
         <div class="trade-container-plants">
-          <h2>Plants I'm giving</h2>
+          <h2 class="c-title c-title--small">Plants I'm giving</h2>
           <div class="plant-grid">
             <% trade.plants_being_given(current_user).each do |plant| %>
               <div class="c-card plant-card">
