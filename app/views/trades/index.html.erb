@@ -10,9 +10,7 @@
     <h1 class="c-title c-title--large u-margin-bottom-small">Pending Trades</h1>
     <% @trades_pending.each do |trade| %>
       <div>
-        <h2 class="c-title c-title--label--large u-margin-bottom-small">
-          Trade with <%= trade.other_users_name(current_user) %> on <%= trade.created_at.strftime("%m/%d/%Y") %>
-        </h2>
+        <%= link_to "Trade with #{trade.other_users_name(current_user)} on #{trade.created_at.strftime("%m/%d/%Y")}", edit_trade_path(trade), class: "c-title c-title--label--large u-margin-bottom-small" %>
         <div class="trade-container c-card u-padding-top u-padding-bottom u-margin-bottom-large">
           <div class="trade-container-plants">
               <h2 class="c-title c-title--small">Plants I'm getting</h2>
@@ -64,9 +62,7 @@
     <h1 class="c-title c-title--large u-margin-bottom-small">Completed Trades</h1>
     <% @trades_completed.each do |trade| %>
       <div>
-        <h2 class="c-title c-title--label--large u-margin-bottom-small">
-          Trade with <%= trade.other_users_name(current_user) %>, <%= trade.created_at.strftime("%m/%d/%Y") %>
-        </h2>
+      <%= link_to "Trade with #{trade.other_users_name(current_user)} on #{trade.created_at.strftime("%m/%d/%Y")}", trade_path(trade), class: "c-title c-title--label--large u-margin-bottom-small" %>
         <div class="trade-container c-card u-padding-top u-padding-bottom u-margin-bottom">
           <div class="trade-container-plants">
               <h2 class="c-title c-title--small">Plants I'm getting</h2>
