@@ -36,10 +36,24 @@
 
     display: inline-block;
     margin: $s-tiny $item-spacer 0;
+    position: relative;
 
     &:first-child { margin-left: 0; }
     &:last-child { margin-right: 0; }
     &--push-right { margin-left: auto; }
+
+    .c-navigation__badge {
+      display: inline-block;
+      padding: 0 .45rem;
+      background: $c-primary;
+      border-radius: 1rem;
+      color: white;
+      // font-weight: 700;
+      font-size: 10px;
+      position: absolute;
+      top: 1.25rem;
+      right: -1.25rem;
+    }
   }
 
   .c-navigation__link {

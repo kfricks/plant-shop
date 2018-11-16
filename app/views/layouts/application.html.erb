@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PlantShop</title>
+    <% if content_for?(:title) %>
+     <title>Sunroom : <%= content_for(:title) %></title> 
+    <% else %>
+      <title>Sunroom</title>
+    <% end %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
+    <%= favicon_link_tag asset_path('favicon.png'), :rel => 'icon', :type =>  'image/png' %>
   </head>
   <body>
     <header>
@@ -34,10 +39,8 @@
           <% if current_user %>
             <li class="c-navigation__item">
               <%= link_to("My Trades", trades_path, class: "c-navigation__link #{active_class(trades_path)}") %>
-            </li>
-            <li class="c-navigation__item">
               <% if current_user.trades_as_user_b.where(status: "pending").any? %>
-                <div>NOTIFICATION</div>
+                <div class="c-navigation__badge"><%= current_user.trades_as_user_b.where(status: "pending").count %></div>
               <% end %>
             </li>
           <% end %>
@@ -46,7 +49,7 @@
             <div class="avatar c-navigation__item--push-right">
               <div class="avatar-small">
                 <% if current_user.avatar.attached? %>
-                <%= image_tag current_user.avatar, class: "avatar-small-image" %>
+                  <%= image_tag current_user.avatar, class: "avatar-small-image" %>
                 <% end %>
               </div>
               <%= current_user.first_name %>
