@@ -165,15 +165,14 @@ class Trade extends React.Component {
           <DragDropContext onDragEnd={this.onDragEnd}>
             <div className="trade-container">
               <section className="trade-container-plants">
-                  <img src={this.props.other_trader.avatar}/>
-                <h2 className="c-title">
+                <h2 className="c-title c-title--label--large u-margin-bottom-small">
                   {this.props.user_b_name}'s Plant Shelf
                 </h2>
                 <PlantList plants={this.state.user_b_plants} id="user_b_plants" />
               </section>
 
               <section className="trade-container-trades">
-                <h2 className="c-title">Plants I Want</h2>
+                <h2 className="c-title c-title--small">Plants I Want</h2>
                 <TradeItems className="arrow"
                   plants={this.state.user_b_trade_plants}
                   id="user_b_trade_plants"
@@ -181,7 +180,7 @@ class Trade extends React.Component {
 
                 {this.button()}
 
-                <h2 className="c-title">Plants I'll Give</h2>
+                <h2 className="c-title c-title--small">Plants I'll Give</h2>
                 <TradeItems
                   plants={this.state.user_a_trade_plants}
                   id="user_a_trade_plants"
@@ -189,7 +188,7 @@ class Trade extends React.Component {
               </section>
 
               <section className="trade-container-plants">
-                <h2 className="c-title">Your Plant Shelf</h2>
+                <h2 className="c-title c-title--label--large u-margin-bottom-small">Your Plant Shelf</h2>
                   <PlantList plants={this.state.user_a_plants} id="user_a_plants" />
               </section>
             </div>

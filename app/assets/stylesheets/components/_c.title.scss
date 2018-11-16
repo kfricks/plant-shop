@@ -34,6 +34,15 @@
     text-transform: uppercase;
   }
 
+  &--label--large {
+    @include font(13px, medium);
+    opacity: 0.75;
+    color: $c-grey-dark;
+    margin: 0;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
   &--on-dark {
     color: $c-white;
   }

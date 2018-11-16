@@ -29,6 +29,10 @@
   &--light {
     background-color: $c-primary-light;
   }
+
+  &--clear {
+    background-color: transparent;
+  }
   
   &--highlight {
     @include elevation(2);

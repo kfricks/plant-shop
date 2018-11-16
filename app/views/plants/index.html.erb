@@ -1,3 +1,17 @@
+<% if @user && @user == current_user %>
+  <% content_for :title do %>
+    My Plants
+  <% end %>
+<% elsif @user %>
+  <% content_for :title do %>
+    <%= @user.first_name %>'s Plants
+  <% end %>
+<% else %>
+  <% content_for :title do %>
+    All Plants
+  <% end %>
+<% end %>
+
 <div class="green-hero">
   <% if @user && @user == current_user %>
     <h1>My Plants</h1>
